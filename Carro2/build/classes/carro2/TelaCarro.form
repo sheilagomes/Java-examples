@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="143" max="-2" attributes="0"/>
+              <EmptySpace pref="177" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="lblFrear" max="32767" attributes="0"/>
+                      <Component id="btnAcelerar" max="32767" attributes="0"/>
+                      <Component id="lblAcelerar" max="32767" attributes="0"/>
+                      <Component id="btnFrear" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="btnLigar" min="-2" pref="105" max="-2" attributes="0"/>
+                  <Component id="lblLigar" min="-2" pref="105" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="lblDesligar" max="32767" attributes="0"/>
+                  <Component id="btnAbastecer" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblAbastecer" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnPintar" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblPintar" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnDesligar" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnAcelerar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAbastecer" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAcelerar" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="lblAbastecer" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnFrear" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnPintar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblFrear" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="lblPintar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnLigar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnDesligar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="lblDesligar" pref="43" max="32767" attributes="0"/>
+                  <Component id="lblLigar" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JButton" name="btnAcelerar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Acelerar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAcelerarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Controle do carro"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAcelerar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Status de acelerar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAbastecer">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Abastecer"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAbastecerActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAbastecer">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Status de abastecer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnFrear">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Frear"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFrearActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnPintar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pintar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPintarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblFrear">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Status de frear"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPintar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Status de pintar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLigar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ligar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLigarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnDesligar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Desligar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDesligarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblLigar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Status de ligar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDesligar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Status de desligar"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
