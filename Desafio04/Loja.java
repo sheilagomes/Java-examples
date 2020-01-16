@@ -52,6 +52,7 @@ public class Loja {
         for(Livro element : livros) {
            System.out.println(element.toString());
         }
+        
     }
     
     public void listaVideoGames() {
