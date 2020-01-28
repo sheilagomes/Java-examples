@@ -24,6 +24,7 @@
         </div>
         <div>
             <section id="welcome-section">
+                <img id="photo" src="http://www.multitude.trd.br/wp-content/uploads/2020/01/Untitled-design1.png">
                 <h1 class="main-text">hi, I'm Sheila</h1>
                 <p class="subtitle">a brazilian developer</p>
             </section>

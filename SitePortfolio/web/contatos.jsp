@@ -22,8 +22,9 @@
                 </ul>
             </nav>
         </div>
-        <div>
-            <section id="profiles">
+        <main>
+            <div id="profiles">
+                <h2 class="profiles-title main-title">You can find me at:</h2>
                 <a href="https://github.com/sheilagomes" id="profile-link" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/sheilagomes/" id="profile-link" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://twitter.com/sheilagomes" id="profile-link" target="_blank"><i class="fab fa-twitter"></i></a></a>
@@ -31,8 +32,8 @@
                 <a href="https://codepen.io/sheilagomes/" id="profile-link" target="_blank"><i class="fab fa-codepen"></i></a>
                 <a href="https://medium.com/@sheilagomes" id="profile-link" target="_blank"><i class="fab fa-medium"></i></a>
                 <a href="https://dev.to/sheilagomes" id="profile-link" target="_blank"><i class="fab fa-dev" title="sheilagomes's DEV Profile"></i></a>
-            </section>
-        </div>	
+            </div>
+        </main>	
     </body>
 </html>
 

@@ -12,7 +12,6 @@ body {
 
 h2 {
     font-size: 2em;
-    text-align: center;
 }
 
 h3 {
@@ -34,8 +33,13 @@ nav ul {
 .name {
     color: #F0F0F0;
 }
+
 .last-name {
     color: darkgoldenrod;
+}
+
+#photo {
+    border-radius: 50%;
 }
 
 .main-text {
@@ -99,7 +103,7 @@ nav a {
     margin-left: 1.5em; 
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     nav {
         flex-direction: column;
         justify-content: center;
@@ -109,15 +113,22 @@ nav a {
     nav a {
         margin: 0 1em; 
     }
+}
 
-    footer {
-        border-top: 1px solid #F0F0F0; 
-    }
+/* sections title */
+
+.main-title {
+    font-family: 'Krona One', sans-serif;
+    text-align: center;
+    padding: 2em 0;
+    font-size: 2em;
+    color: #F0F0F0;
 }
 
 /* hero section */
 
 #welcome-section {
+    margin-top: 70px;
     font-size: 2em;
     width: 100vw;
     height: 100vh;
@@ -128,27 +139,54 @@ nav a {
     line-height: .2;
 }
 
-/* projects section */
-
-.project-title {
-    font-family: 'Krona One', sans-serif;
-    text-align: center;
-    margin: 3em 0 1em 0;
-    grid-column: 1 / -1;
+@media (max-width: 900px) {
+    #welcome-section {
+        margin-top: 80px;
+        font-size: 1.5em;
+    }
+    .name,
+    .last-name {
+        font-size: 1.3em;
+    }
+    .main-text {
+        font-size: 2em;
+    }
+    .subtitle {
+        font-size: 1em;
+        line-height: 1.2;
+    }
 }
 
+@media (max-width: 600px) {
+    #welcome-section {
+        margin-top: 70px;
+        line-height: 1;
+        font-size: 1.3em;
+    }
+    .name,
+    .last-name {
+        font-size: 1em;
+    }
+
+}
+/* projects section */
+
 #projects {
-    margin-top: 200px;
+    margin: 100px auto;
+    width: 80%;
     padding: 1em;
     display: grid;
-    grid-template-columns: repeat(3, minmax(200px,1fr));
+    grid-template: auto / minmax(200px,1fr) minmax(200px,1fr) minmax(200px,1fr);
     grid-gap: 1em;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+}
+
+.main-title {
+    grid-row: 1;
+    grid-column: 1 /-1;
 }
 
 .project-tile {
+    grid-row: 2;
     padding: 1em;
 }
 
@@ -160,27 +198,46 @@ nav a {
 @media (max-width: 600px) {
     #projects {
         display: grid;
+        grid-template: none none none;
         grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+        text-align: center;
     }
-
-    .project-title{
-        padding: 3em 0 0 0;
+    .main-title {
+        font-size: 1.5em;
+    }
+    .name,
+    .last-name {
+        font-size: 1.3em;
+    }
+    .main-text {
+        font-size: 2em;
     }
 }
 
 /* skills section */
 
-.skill-tile {
-    padding: 2em;
+#skills {
+    margin: 100px auto;
     width: 80%;
+    padding: 1em;
+    display: grid;
+    grid-template: 150px / repeat(3,1fr);
+    /*grid-template: auto / minmax(120px,1fr) minmax(120px,1fr) minmax(120px,1fr);*/
+    grid-gap: 1em;
+    justify-content: center;
+    align-items: center;
 }
 
-#skills {
-    margin-top: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;    
+.main-title {
+  grid-row: 1;
+  grid-column: 1 /-1;
+}
+
+.skill-tile {
+    grid-row: 2;
+    padding: 2em;
+    color: darkgoldenrod;
+    align-self: baseline;
 }
 
 .fa {
@@ -188,45 +245,128 @@ nav a {
     margin: 1em;
 }
 
-@media (max-width: 600px) {
+.highlight {
+    color: #F0F0F0;
+}
+
+@media (max-width: 800px) {
     #skills {
         margin: 200px auto;
         display: grid;
+        grid-template: 150px / repeat(3,1fr);
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+    }
+
+    .main-title {
+        font-size: 1.5em;
+        text-align: center;
+        width: 100%;
+        grid-row: 1;
+        grid-column: 1 /-1;
+    }
+
+    .skill-tile {
+        padding: 1em;
+        align-self: baseline;
+    }
+    .name,
+    .last-name {
+        font-size: 1.3em;
+    }
+    .main-text {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 500px) {
+    #skills {
+        margin: 150px auto;
+        display: grid;
+        grid-template: none none none;
         grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .main-title {
+        font-size: 1.5em;
+        grid-row: 1;
+        grid-column: 1 /-1;
+        text-align: center;
+    }
+    .skill-tile {
+        padding: 1em;
+        align-self: baseline;
+        grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    }
+    .name,
+    .last-name {
+        font-size: 1.3em;
+    }
+    .main-text {
+        font-size: 2em;
     }
 }
 
 /* profiles section */
 
 #profiles {
-    font-size: 2em;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
+    margin: 100px auto;
+    width: 80%;
+    display: grid;
+    padding: 4em;
+    grid-template: 150px / repeat(6,1fr);
+    grid-gap: 1em;
     justify-content: space-around;
     align-items: center;
-    line-height: .2;
+}
+
+#profiles-title {
+    grid-row: 1;
+    grid-column: 1 /-1;
 }
 
 #profile-link {
+    grid-row: 2;
     color: #f0f0f0;
+}
+
+.fab {
     font-size: 3em;
+    color: darkgoldenrod;
 }
 
 @media (max-width: 800px) {
     #profiles {
-        margin: 200px auto;
+        margin: 100px auto;
         display: grid;
-        grid-template-columns: repeat(2, minmax(300px,2fr));
+        grid-template: none none none;
+        grid-template-columns: repeat(auto-fill, minmax(300px,2fr));
         text-align: center;
+        grid-gap: 1em;
+        justify-content: space-around;
+        align-items: center;
+    }
+    #profile-link {
+        grid-row: auto;
+        color: #f0f0f0;
+    }
+    .main-title {
+        font-size: 1.5em;
     }
 }
 
 @media (max-width: 500px) {
     #profiles {
-        margin: 200px auto;
+        margin: 100px auto;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px,2fr));
         text-align: center;
+        grid-gap: 1em;
+    }
+    .main-title {
+        font-size: 1.5em;
     }
 }
