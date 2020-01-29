@@ -1,7 +1,7 @@
 # GFT
 Desafios e exercícios do estágio:
 * CRUDJavaSBD - CRUD em Java sem banco de dados.
-* CursoPOOJava - Exercícios dos cursos Lógica de Programação, Java para iniciantes e POO Java do canal do Gustava Guanabara.
+* CursoPOOJava - Exercícios dos cursos Lógica de Programação, Java para iniciantes e POO Java do canal do Gustavo Guanabara.
 * Desafio01 - Criação de classes e métodos em java, baseado [neste Diagrama de UML](https://drive.google.com/file/d/15z8Q_Tm1rSBTDx7s2iEqC1ccESsdBiXy/view) e [nesta descrição de métodos](https://drive.google.com/file/d/1Rg-EmyrfxCZs3MHab9H_vDnnykG9ikFI/view).
 * Desafio02 - Exercicio sobre heranca em Java, baseado [neste Diagrama de UML](https://drive.google.com/file/d/1Zos_ycO_FhZtSW_Wt1u5p6eZzr-Zc52O/view).
 * Desafio03 - Exercicio sobre herança e polimorfismo em Java, baseado [neste Diagrama de UML](https://drive.google.com/file/d/1YkHzL6TSmDoSEn4N1ymMwe_JBcEMrXiR/view).
