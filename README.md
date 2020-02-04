@@ -7,4 +7,4 @@ Desafios e exercícios do estágio:
 * Desafio03 - Exercicio sobre herança e polimorfismo em Java, baseado [neste Diagrama de UML](https://drive.google.com/file/d/1YkHzL6TSmDoSEn4N1ymMwe_JBcEMrXiR/view).
 * Desafio04 - Criação de classes e métodos em Java, baseado [neste Diagrama de UML](https://drive.google.com/file/d/1wBIOzOFdb4bYaQTOwBe41hdINSyODXRU/view) e [nesta descrição de métodos](https://drive.google.com/file/d/1s7SHbb4QPZ2OD3B3PkaHSK0MwcCvxhDL/view).
 * SitePortfolio - Site em HTML e CSS com controller em Java, de acordo com [estas instruções](https://drive.google.com/file/d/1DiXqufv8tiXPHlyCDA9DNbeSuudUW038/view). O site ao vivo pode ser visto [aqui](https://sheilagomes.github.io/Portfolio/index.html)
-* Cobrança - Projeto Spring MVC do curso passado pelo Henrique, feito no Eclipse.
+* Cobrança - Projeto Spring MVC do curso passado pelo Henrique, feito no Spring Tools Suite.
