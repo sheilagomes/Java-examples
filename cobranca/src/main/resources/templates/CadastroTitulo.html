@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Cadastro de títulos</title>
+	<link href="https://fonts.googleapis.com/css?family=Krona+One|Roboto:400,700,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+</head>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		background-color: #1b1b1b;
+		color: #F0F0F0;
+		font-family: 'Roboto', sans-serif;
+	}
+	nav {
+		width: 100%;
+		background-color: #F0F0F0;
+		color: #1b1b1b;
+		position: fixed;
+		top: 0;
+		left: 0;
+		font-family: 'Krona One', sans-serif;
+	}
+	p {
+		margin: 0;
+		padding: 0;
+	}
+	.nav-header {
+		padding: 1em 2em;
+		display: flex;
+		align-items: center;
+	}
+	i {
+		font-size: 1.5em;
+		padding-right: 0.7em;
+	}
+	.nav-title {
+		display: inline;
+	}
+	.container-form {
+		margin: 150px 90px;
+		border: 5px solid white;
+	}
+	.form-group {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.form-1 {
+		width: 25%;
+		margin: 1em 0;
+	}
+	.form-2 {
+		width: 70%;
+		margin: 1em 0;
+	}
+	.btn {
+		margin: 2em auto;
+		padding: 0.5em 2em;
+		background-color: orange;
+		color: black;
+	}
+	.panel {
+		display: flex;
+		justify-content: space-between;
+		background-color: grey;
+		border-bottom: 5px solid white;
+		padding: 1em;
+		color: black;
+	}
+	.internal-title {
+		font-size: 1.2em;
+		font-weight: 700;
+	}
+	.form-group {
+		padding: 10px;
+	}
+	.form-column {
+		padding: 0 5px;
+	}
+	.success {
+		padding: 20px;
+		background-color: orange;
+		color: black;
+		font-weight: 700;
+		text-align: center;
+	}
+</style>
+<body>
+	<div class="container-nav">
+		<nav class="navbar">
+			<header class="nav-header">
+				<h2><i class="fa fa-file-invoice"></i></h2>
+				<h2 class="nav-title">Cadastro de título</h2>
+			</header>
+		</nav>
+	</div>
+	<div class="container-form">
+	<div th:if="${!#strings.isEmpty(mensagem)}">
+		<p class="success" th:text="${mensagem}"></p>
+	</div>
+		<div class="panel">
+			<p class="internal-title">Novo título</p>
+			<p class="back-search">Voltar para pesquisa</p>
+		</div>
+		<div>
+			<form class="form-group" method="POST" action="/titulos">
+				<label for="description" class="form-column form-1">Descrição</label>
+				<input type="text" class="form-column form-2" id="description" name="descricao">
+				<label for="dueDate" class="form-column form-1">Data de vencimento</label>
+				<input type="date" class="form-column form-2" id="dueDate" name="dataVencimento">
+				<label for="amount" class="form-column form-1">Valor</label>
+				<input type="text" class="form-column form-2" id="amount" name="valor">
+				<label for="status" class="form-column form-1">Status</label>
+				<select class="form-column form-2" name="status">
+					<option th:each="status : ${todosStatusTitulo}" th:value="${status}" th:text="${status.descricao}"></option>
+				</select>
+				<button type="submit" class="btn">Salvar</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1b1b1b;
+    color: #F0F0F0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/*-----------
+   Typography
+  -----------*/
+
+
+/*-----------
+    Layout
+  -----------*/
+
+/* navigation */
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #F0F0F0;
+    color: #1b1b1b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-family: 'Krona One', sans-serif;
+}
+
+.nav-header {
+    padding: 1em;
+    font-size: 2rem;
+}
