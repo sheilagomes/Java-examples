@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
+<head>
+	<title>Pesquisa de títulos</title>
+</head>
+<section layout:fragment="conteudo">
+	<div class="container-form">
+		<div class="panel">
+			<p class="internal-title">Pesquisa de títulos</p>
+			<a class="back-search" href="/titulos/novo">Novo título</a>
+		</div>
+		<div class="container-search">
+		<div class="search-box">
+			<input class="search-input" type="text" placeholder="Qual título você está procurando?" id="search">
+			<button type="submit" class="btn-2"><i class="fa fa-search"></i></button>
+		</div>
+		<div>
+			<table class="table-view">
+				<thead>
+					<tr>
+						<th class="table-title column-1">#</th>
+						<th class="table-title column-2">Descrição</th>
+						<th class="table-title column-3">Data de vencimento</th>
+						<th class="table-title column-4">Valor</th>
+						<th class="table-title column-5">Status</th>
+						<th class="table-title column-6"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Nenhum título foi encontrado</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+		</div>
+	</div>
+</section>
+</html>
