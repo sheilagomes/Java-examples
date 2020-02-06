@@ -22,16 +22,24 @@
 				<thead>
 					<tr>
 						<th class="table-title column-1">#</th>
-						<th class="table-title column-2">Descrição</th>
+						<th class="table-title column-2 table-left">Descrição</th>
 						<th class="table-title column-3">Data de vencimento</th>
-						<th class="table-title column-4">Valor</th>
+						<th class="table-title column-4 table-right">Valor</th>
 						<th class="table-title column-5">Status</th>
 						<th class="table-title column-6"></th>
 					</tr>
 				</thead>
 				<tbody>
+					<tr th:each="titulo : ${titulos}">
+						<td class="table-center" th:text="${titulo.codigo}">1</td>
+						<td class="table-left" th:text="${titulo.descricao}"></td>
+						<td class="table-center" th:text="${#dates.format(titulo.dataVencimento, 'dd/MM/yyyy')}"></td>
+						<td class="table-right" th:text="|R$ ${#numbers.formatDecimal(titulo.valor, 0, 'POINT', 2, 'COMMA')}|"></td>
+						<td class="table-center"><span th:text="${titulo.status.descricao}" th:classappend="${titulo.pendente ? 'label-red' : 'label-green'}"></span></td>
+						<td class="table-center"><i class="fa fa-pencil-alt"></i><i class="fa fa-times"></i> <i class="fas fa-sync"></i></td>
+					</tr>
 					<tr>
-						<td>Nenhum título foi encontrado</td>
+						<td class="no-data" th:if="${#lists.isEmpty(titulos)}">Nenhum título foi encontrado</td>
 					</tr>
 				</tbody>
 			</table>

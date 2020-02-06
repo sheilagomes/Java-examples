@@ -1,124 +1,151 @@
 body {
-		margin: 0;
-		padding: 0;
-		background-color: #1b1b1b;
-		color: #F0F0F0;
-		font-family: 'Roboto', sans-serif;
-	}
-	nav {
-		width: 100%;
-		background-color: #F0F0F0;
-		color: #1b1b1b;
-		position: fixed;
-		top: 0;
-		left: 0;
-		font-family: 'Krona One', sans-serif;
-	}
-	p {
-		margin: 0;
-		padding: 0;
-	}
-	.nav-header {
-		padding: 1em 2em;
-		display: flex;
-		align-items: center;
-	}
-	i {
-		font-size: 1.5em;
-		padding-right: 0.7em;
-	}
-	.nav-title {
-		display: inline;
-	}
-	.container-form {
-		margin: 150px 90px;
-		border: 5px solid white;
-	}
-	.form-group {
-		display: flex;
-		flex-wrap: wrap;
-	}
-	.form-1 {
-		width: 25%;
-		margin: 1em 0;
-	}
-	.form-2 {
-		width: 70%;
-		margin: 1em 0;
-	}
-	.btn {
-		margin: 2em auto;
-		padding: 0.5em 2em;
-		background-color: orange;
-		color: black;
-		font-weight: 700;
-	}
-	.panel {
-		display: flex;
-		justify-content: space-between;
-		background-color: grey;
-		border-bottom: 5px solid white;
-		padding: 1em;
-		color: black;
-	}
-	.internal-title {
-		font-size: 1.2em;
-		font-weight: 700;
-	}
-	.back-search {
-		text-decoration: none;
-		color: black;
-		font-weight: 700;
-	}
-	.form-group {
-		padding: 10px;
-	}
-	.form-column {
-		padding: 0 5px;
-	}
-	.success {
-		padding: 20px;
-		background-color: orange;
-		color: black;
-		font-weight: 700;
-		text-align: center;
-	}
-	.container-search {
-		padding: 1em;
-	}
-	.search-box {
-		margin: 1em;
-	}
-	.search-input {
-		padding: .8em;
-		width: 30%;
-	}
-	.btn-2 {
-		font-weight: 900;
-		padding: 0.8em;
-		border: none;
-		background: none;
-		color: orange;
-	}
-	table {
-		border: 2px solid white;
-	}
-	.table-title {
-		padding: 1em;
-	}
-	.column-1 {
-		width: 5%;
-	}
-	.column-2, .column-3 {
-		width: 25%;
-	}
-	.column-2 {
-		text-align: left;
-	}
-	.column-4, .column-5, .column-6 {
-		width: 15%;
-		text-align: center;
-	}
-	.column-4 {
-		text-align: right;
-	}	
+	margin: 0;
+	padding: 0;
+	background-color: #1b1b1b;
+	color: #F0F0F0;
+	font-family: 'Roboto', sans-serif;
+}
+nav {
+	width: 100%;
+	background-color: #F0F0F0;
+	color: #1b1b1b;
+	position: fixed;
+	top: 0;
+	left: 0;
+	font-family: 'Krona One', sans-serif;
+}
+p {
+	margin: 0;
+	padding: 0;
+}
+.nav-header {
+	padding: 1em 2em;
+	display: flex;
+	align-items: center;
+}
+.fa-file-invoice {
+	font-size: 1.5em;
+	padding-right: 0.7em;
+}
+.nav-title {
+	display: inline;
+}
+.container-form {
+	margin: 150px 90px;
+	border: 5px solid white;
+}
+.form-group {
+	display: flex;
+	flex-wrap: wrap;
+}
+.form-1 {
+	width: 25%;
+	margin: 1em 0;
+}
+.form-2 {
+	width: 70%;
+	margin: 1em 0;
+}
+.btn {
+	margin: 2em auto;
+	padding: 0.5em 2em;
+	background-color: orange;
+	color: black;
+	font-weight: 700;
+}
+.panel {
+	display: flex;
+	justify-content: space-between;
+	background-color: grey;
+	border-bottom: 5px solid white;
+	padding: 1em;
+	color: black;
+}
+.internal-title {
+	font-size: 1.2em;
+	font-weight: 700;
+}
+.back-search {
+	text-decoration: none;
+	color: black;
+	font-weight: 700;
+}
+.form-group {
+	padding: 10px;
+}
+.form-column {
+	padding: 0 5px;
+}
+.success {
+	padding: 20px;
+	background-color: orange;
+	color: black;
+	font-weight: 700;
+	text-align: center;
+}
+.container-search {
+	padding: 1em;
+}
+.search-box {
+	margin: 1em;
+}
+.search-input {
+	padding: .8em;
+	width: 30%;
+}
+.btn-2 {
+	font-weight: 900;
+	padding: 0.8em;
+	border: none;
+	background: none;
+	color: orange;
+	font-size: 1.2em;
+}
+table {
+	border: 2px solid white;
+	width: 100%;
+}
+td {
+	padding: .5em 0;
+}
+.table-title {
+	padding: 1em;
+}
+.column-1 {
+	width: 5%;
+}
+.column-2, .column-3, .column-6 {
+	width: 25%;
+}
+.column-4, .column-5 {
+	width: 15%;
+}
+.no-data {
+	white-space: nowrap;
+	padding-left: 1em;
+	color: orange;
+	font-weight: 700;
+}
+.label-red {
+	color: black;
+	background-color: orange;
+	font-weight: 900;
+	font-size: 0.8em;
+	padding: 2px;
+}
+.label-green {
+	color: black;
+	background-color: teal;
+	font-weight: 900;
+	font-size: 0.8em;
+	padding: 2px;
+}
+.table-center {
+	text-align: center;
+}
+.table-left {
+	text-align: left;
+}
+.table-right {
+	text-align: right;
+}

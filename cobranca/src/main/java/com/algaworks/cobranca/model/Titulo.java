@@ -28,6 +28,7 @@ public class Titulo {
 	@Temporal(TemporalType.DATE)
 	private Date dataVencimento;
 	
+	@NotNull
 	@NumberFormat(pattern = "#,##0.00")
 	private BigDecimal valor;
 	
@@ -63,6 +64,9 @@ public class Titulo {
 	}
 	public void setStatus(StatusTitulo status) {
 		this.status = status;
+	}
+	public boolean isPendente() {
+		return StatusTitulo.PENDENTE.equals(this.status);
 	}
 	@Override
 	public int hashCode() {
