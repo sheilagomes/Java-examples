@@ -16,18 +16,23 @@
 			<a class="back-search" href="/titulos">Voltar para a pesquisa</a>
 		</div>
 		<div>
-			<form class="form-group" method="POST" action="/titulos">
+			<form class="form-group" method="POST" action="/titulos" th:object="${titulo}">
 				<label for="description" class="form-column form-1">Descrição</label>
-				<input type="text" class="form-column form-2" id="description" name="descricao">
+				<input type="text" class="form-column form-2" id="description" name="descricao" th:classappend="${#fields.hasErrors('valor')} ? has-error">
 				<label for="dueDate" class="form-column form-1">Data de vencimento</label>
-				<input type="date" class="form-column form-2" id="dueDate" name="dataVencimento">
+				<input type="date" class="form-column form-2" id="dueDate" name="dataVencimento" th:classappend="${#fields.hasErrors('valor')} ? has-error">
 				<label for="amount" class="form-column form-1">Valor</label>
-				<input type="text" class="form-column form-2" id="amount" name="valor">
+				<input type="text" class="form-column form-2" id="amount" name="valor" th:classappend="${#fields.hasErrors('valor')} ? has-error">
 				<label for="status" class="form-column form-1">Status</label>
 				<select class="form-column form-2" name="status">
 					<option th:each="status : ${todosStatusTitulo}" th:value="${status}" th:text="${status.descricao}"></option>
 				</select>
 				<button type="submit" class="btn">Salvar</button>
+				<div th:if="${#fields.hasAnyErrors()}">
+					<div th:each="detailedError : ${#fields.detailedErrors()}">
+						<p class="fail" th:text="${detailedError.message}"></p>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>

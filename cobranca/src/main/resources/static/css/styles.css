@@ -78,10 +78,17 @@ p {
 }
 .success {
 	padding: 20px;
-	background-color: orange;
+	background-color: teal;
 	color: black;
 	font-weight: 700;
 	text-align: center;
+}
+.fail {
+	padding: 20px;
+	color: orange;
+	font-weight: 900;
+	text-align: center;
+	font-size: .8em;
 }
 .container-search {
 	padding: 1em;
@@ -148,4 +155,7 @@ td {
 }
 .table-right {
 	text-align: right;
+}
+.has-error {
+	border: orange solid 3px;;
 }
