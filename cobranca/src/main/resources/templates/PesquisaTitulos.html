@@ -38,7 +38,7 @@
 						<td class="table-center"><span th:text="${titulo.status.descricao}" th:classappend="${titulo.pendente ? 'label-red' : 'label-green'}"></span></td>
 						<td class="table-center">
 							<a class="edit" th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}"><i class="fa fa-pencil-alt"></i></a>
-							<a class="remove" id="myBtn" th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}"><i class="fa fa-times"></i></a>
+							<a class="remove" id="modalBtn" th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}"><i class="fa fa-times"></i></a>
 							<i class="fas fa-sync"></i>
 						</td>
 					</tr>
@@ -50,13 +50,14 @@
 			</div>
 		</div>
 		<div>
+			<button id="btn-teste">Open Modal</button>
 			<div id="myModal" class="modal">
-				<form action="/titulos/" method="POST">
+				<form action="/titulos" method="POST">
 					<input type="hidden" name="_method" value="DELETE"/>
 					<div class="modal-content">
 						<div class="modal-title">
 							<span class="modal-text">Tem certeza de que quer excluir?</span>
-							<span class="close">&times;</span>
+							<a class="modalClose"><span class="close">&times;</span></a>
 						</div>
 						<div class="modal-btn">
 							<button class="modal-btn-no">Não</button>
