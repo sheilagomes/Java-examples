@@ -62,7 +62,7 @@ public class TituloController {
 		return mv;		
 	}
 	
-	@RequestMapping(value="{codigo}", method = RequestMethod.POST)
+	@RequestMapping(value="{codigo}", method = RequestMethod.DELETE)
 	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
 		titulos.deleteById(codigo);
 		attributes.addFlashAttribute("mensagem", "Título excluído!");

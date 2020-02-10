@@ -1,5 +1,5 @@
 var modal = document.getElementById("myModal");
-var btn = document.getElementById("modalBtn");
+var btn = document.getElementById("modalRemove");
 var span = document.getElementsByClassName("close")[0];
 btn.onclick = function() {
   modal.style.display = "block";
@@ -13,19 +13,19 @@ window.onclick = function(event) {
   }
 }
 
-$('#remove').on('.modal-btn-yes', function (event) {
-	  var button = $(event.relatedTarget); // Button that triggered the modal
+var searchElement = document.createElement("span");
+document.querySelector(".remove").appendChild(searchElement);
+searchElement.addEventListener("click", (e) => {
+	  alert("aaaaah");
+	  var button = event.relatedTarget; // Button that triggered the modal
 	  var codigoTitulo = button.data('codigo'); // Extract info from data-* attributes
 	  var descricaoTitulo = button.data('descricao'); // Extract info from data-* attributes
 	  
-	  var modal = $(this);
-	  var form = modal.find('form');
-	  var action = form.attr('action');
+	  var form = document.querySelector('form');
+	  var action = form.data('url-base');
 	  if (!action.endsWith("/")) {
 		  action == "/";
 	  }
 	  form.attr('action', action + codigoTitulo);
-	  modal.find('.modal-title span').html('Tem certeza de que quer excluir <strong>' + descricaoTitulo + '</strong>?' );
-	  modal.find('.modal-text').text('New message to ' + recipient);
-	  modal.find('.modal-body input').val(recipient)
-	})
+	  // document.querySelector("a").getAttribute("action");
+})

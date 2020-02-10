@@ -15,8 +15,8 @@ import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.validation.constraints.NotEmpty;
 
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
@@ -32,7 +32,7 @@ public class Titulo {
 	@Size(max = 60, message = "A descrição não pode ter mais de 60 caracteres")
 	private String descricao;
 	
-	@NotNull(message="O data é obrigatória")
+	@NotNull(message="A data é obrigatória")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date dataVencimento;
