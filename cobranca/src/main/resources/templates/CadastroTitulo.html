@@ -20,13 +20,13 @@
 			<form class="form-group" method="POST" action="/titulos" th:object="${titulo}">
 				<input type="hidden" th:field="*{codigo}"/>
 				<label for="description" class="form-column form-1">Descrição</label>
-				<input type="text" class="form-column form-2" id="description" th:field="*{descricao}" th:classappend="${#fields.hasErrors('descricao')} ? has-error">
+				<input type="text" class="form-column form-2" id="descricao" th:field="*{descricao}" th:classappend="${#fields.hasErrors('descricao')} ? has-error">
 				<label for="dueDate" class="form-column form-1">Data de vencimento</label>
-				<input type="date" class="form-column form-2" id="dueDate" th:field="*{dataVencimento}" th:classappend="${#fields.hasErrors('dataVencimento')} ? has-error">
+				<input type="date" class="form-column form-2" id="dataVencimento" th:field="*{dataVencimento}" th:classappend="${#fields.hasErrors('dataVencimento')} ? has-error">
 				<label for="amount" class="form-column form-1">Valor</label>
-				<input type="text" class="form-column form-2" id="amount" th:field="*{valor}" th:classappend="${#fields.hasErrors('valor')} ? has-error">
+				<input type="text" class="form-column form-2 js-currency" id="valor" th:field="*{valor}" th:classappend="${#fields.hasErrors('valor')} ? has-error">
 				<label for="status" class="form-column form-1">Status</label>
-				<select class="form-column form-2" name="status">
+				<select class="form-column form-2" name="status" th:field="*{status}">
 					<option th:each="status : ${todosStatusTitulo}" th:value="${status}" th:text="${status.descricao}"></option>
 				</select>
 				<button type="submit" class="btn">Salvar</button>

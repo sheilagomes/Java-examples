@@ -35,11 +35,11 @@
 						<td class="table-left" th:text="${titulo.descricao}"></td>
 						<td class="table-center" th:text="${#dates.format(titulo.dataVencimento, 'dd/MM/yyyy')}"></td>
 						<td class="table-right" th:text="|R$ ${#numbers.formatDecimal(titulo.valor, 0, 'POINT', 2, 'COMMA')}|"></td>
-						<td class="table-center"><span th:text="${titulo.status.descricao}" th:classappend="${titulo.pendente ? 'label-red' : 'label-green'}"></span></td>
+						<td class="table-center" th:attr="data-role=${titulo.codigo}"><span th:text="${titulo.status.descricao}" th:classappend="${titulo.pendente ? 'label-red' : 'label-green'}"></span></td>
 						<td class="table-center icons">
 							<a class="edit tooltip" th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}"><i class="fa fa-pencil-alt"></i><span class="tooltiptext">Editar</span></a>
-							<a class="remove tooltip" id="modalRemove" th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}"><i class="fa fa-times"></i><span class="tooltiptext">Excluir</span></a>
-							<a class="update tooltip"><i class="far fa-check-circle"></i><span class="tooltiptext">Recebido</span></a>
+							<a class="remove tooltip" id="modalRemove" th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}" th:href="@{/titulos/excluir/{codigo}(codigo=${titulo.codigo})}"><i class="fa fa-times"></i><span class="tooltiptext">Excluir</span></a>
+							<a class="update tooltip js-atualizar-status" th:if="${titulo.pendente}" th:attr="data-codigo=${titulo.codigo}" th:href="@{/titulos/{codigo}/receber(codigo=${titulo.codigo})}"><i class="far fa-check-circle"></i><span class="tooltiptext">Receber</span></a>
 						</td>
 					</tr>
 					<tr>
