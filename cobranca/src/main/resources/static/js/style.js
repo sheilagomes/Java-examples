@@ -44,13 +44,13 @@ $(function() {
 			type: 'PUT'
 		});
 		
-		responde.done(function(e) {
+		response.done(function(e) {
 			var codigoTitulo = botaoReceber.data('codigo');
 			$('[data-role=' + codigoTitulo + ']').html('<span class="label-green">' + e + '</span>');
 			botaoReceber.hide();
 		});
 		
-		responde.fail(function(e) {
+		response.fail(function(e) {
 			console.log(e);
 			alert('Erro');
 		});
