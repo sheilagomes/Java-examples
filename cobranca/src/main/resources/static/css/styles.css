@@ -5,6 +5,9 @@ body {
 	color: #F0F0F0;
 	font-family: 'Roboto', sans-serif;
 }
+
+/* Barra de navegação*/
+
 nav {
 	width: 100%;
 	background-color: #F0F0F0;
@@ -30,11 +33,15 @@ p {
 .nav-title {
 	display: inline;
 }
+
+/* Layout geral */
+
 .container-form {
 	margin: 150px 90px;
 	border: 5px solid white;
 }
 .form-group {
+	padding: 10px;
 	display: flex;
 	flex-wrap: wrap;
 }
@@ -70,9 +77,6 @@ p {
 	color: black;
 	font-weight: 700;
 }
-.form-group {
-	padding: 10px;
-}
 .form-column {
 	padding: 0 5px;
 }
@@ -84,7 +88,7 @@ p {
 	text-align: center;
 }
 .fail {
-	padding: 20px;
+	padding: 10px;
 	color: orange;
 	font-weight: 900;
 	text-align: center;
@@ -119,10 +123,10 @@ td {
 	padding: 1em;
 }
 .column-1 {
-	width: 5%;
+	width: 10%;
 }
 .column-2, .column-3, .column-6 {
-	width: 25%;
+	width: 20%;
 }
 .column-4, .column-5 {
 	width: 15%;
@@ -138,14 +142,14 @@ td {
 	background-color: orange;
 	font-weight: 900;
 	font-size: 0.8em;
-	padding: 2px;
+	padding: 3px;
 }
 .label-green {
 	color: black;
 	background-color: teal;
 	font-weight: 900;
 	font-size: 0.8em;
-	padding: 2px;
+	padding: 3px;
 }
 .table-center {
 	text-align: center;
@@ -157,7 +161,7 @@ td {
 	text-align: right;
 }
 .has-error {
-	border: orange solid 3px;;
+	border: orange solid 3px;
 }
 .edit, .remove {
 	padding: 0 .5em;
@@ -239,3 +243,55 @@ td {
   text-decoration: none;
   cursor: pointer;
 } 
+
+@media (max-width: 700px) {
+	.container-form {
+		margin: 170px 0 0;
+		border: 0;
+		font-size: 20px;
+	}
+	.form-column {
+		padding: 0;
+	}
+	.form-group {
+		padding: 1em;
+	}
+	.form-1, .form-2 {
+		width: 100%;
+		margin: .8em 0;
+	}
+	.container-search {
+		padding: 0;
+		text-align: center;
+	}
+	.panel {
+		border: 0;
+		background-color: transparent;
+		color: #F0F0F0;
+	}
+	.internal-title {
+		font-size: 20px;
+	}
+	.back-search {
+		color: orange;
+		font-size: 20px;
+	}
+	.table-view {
+		border: 0;
+		
+	}
+	input, select {
+		font-size: 20px;
+	}
+	.search-input {
+		width: 70%;
+	}
+	.btn {
+		margin: 2em auto;
+		padding: 0.5em 2em;
+		background-color: orange;
+		color: black;
+		font-weight: 700;
+		font-size: 20px;
+	}
+}

@@ -14,11 +14,13 @@
 		</div>
 		<div class="container-search">
 		<div class="search-box">
-			<input class="search-input" type="text" placeholder="Qual título você está procurando?" id="search">
-			<button type="submit" class="btn-2"><i class="fa fa-search"></i></button>
+			<form method="GET" class="search-form" action="/titulos" th:object="${filtro}">
+				<input class="search-input" type="text" placeholder="Qual título você está procurando?" id="search" autofocus="autofocus" th:field="*{descricao}"></input>
+				<button type="submit" class="btn-2"><i class="fa fa-search"></i></button>
+			</form>
 		</div>
-		<div>
-			<table class="table-view">
+		<div class="table-view">
+			<table>
 				<thead>
 					<tr>
 						<th class="table-title column-1">#</th>
