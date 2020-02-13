@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:th="http://www.thymeleaf.org"/>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Acompanhamento de estudos</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/css/styles.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+</head>
+<body>
+	<nav class="navbar navbar-dark bg-success">
+		<a class="navbar-brand" href="#"><i class="fa fa-laptop-code"></i>Acompanhamento de estudos</a>
+	</nav>
+	
+	<form class="form-horizontal" method="POST" action="/estudo">
+		<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
+			<span th:text="${mensagem}">Título salvo!</span>
+		</div>
+	
+		<div class="panel panel-default">
+			<div class="panel-heading">
+  				<h4 class="panel-title">Novo registro</h4>
+  			</div>
+  			
+  			<div class="panel-body">
+				<div class="form-group row">
+	    			<label for="descricao" class="col-sm-2 col-form-label right">Descrição</label>
+	    			<div class="col-sm-4">
+						<input type="text" class="form-control" id="descricao" name="descricao"/>
+					</div>
+				</div>
+				
+				<div class="form-group row">
+	    			<label for="recursos" class="col-sm-2 col-form-label right">Recursos</label>
+	    			<div class="col-sm-6">
+						<input type="text" class="form-control" id="recursos" name="recursos"/>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="form-group row">
+		    			<label for="status" class="col-sm-2 col-form-label right">Status</label>
+		    			<div class="col-sm-2">
+							<select class="form-control" name="status">
+								<option value="PENDENTE">Pendente</option>
+								<option value="INICIADO">Iniciado</option>
+								<option value="CONCLUIDO">Concluído</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			
+				<div class="form-group">
+	    			<div class="col-sm-2 offset-sm-2 col-sm-10">
+						<button type="submit" class="btn btn-success">Salvar</button>
+					</div>
+				</div>
+				
+			</div>
+	</form>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+<!-- 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" -->
+<!-- 	layout:decorator="LayoutPadrao"> -->
+<!-- <head> -->
+<!-- 	<title>Cadastro de títulos</title> -->
+<!-- </head> -->
+<!-- <section layout:fragment="conteudo"> -->
+<!-- 	<div class="container-form"> -->
+<!-- 		<div th:if="${!#strings.isEmpty(mensagem)}"> -->
+<!-- 			<p class="success" th:text="${mensagem}"></p> -->
+<!-- 		</div> -->
+<!-- 		<div class="panel"> -->
+			
+<!-- 			<p class="internal-title">Novo título</p> -->
+<!-- 			<a class="back-search" href="/titulos">Voltar para a pesquisa</a> -->
+<!-- 		</div> -->
+<!-- 		<div> -->
+<!-- 			<form class="form-group" method="POST" action="/titulos" th:object="${titulo}"> -->
+<!-- 				<input type="hidden" th:field="*{codigo}"/> -->
+<!-- 				<label for="description" class="form-column form-1">Descrição</label> -->
+<!-- 				<input type="text" class="form-column form-2" id="descricao" th:field="*{descricao}" th:classappend="${#fields.hasErrors('descricao')} ? has-error"> -->
+<!-- 				<label for="dueDate" class="form-column form-1">Data de vencimento</label> -->
+<!-- 				<input type="date" class="form-column form-2" id="dataVencimento" th:field="*{dataVencimento}" th:classappend="${#fields.hasErrors('dataVencimento')} ? has-error"> -->
+<!-- 				<label for="amount" class="form-column form-1">Valor</label> -->
+<!-- 				<input type="text" class="form-column form-2 js-currency" id="valor" th:field="*{valor}" th:classappend="${#fields.hasErrors('valor')} ? has-error"> -->
+<!-- 				<label for="status" class="form-column form-1">Status</label> -->
+<!-- 				<select class="form-column form-2" name="status" th:field="*{status}"> -->
+<!-- 					<option th:each="status : ${todosStatusTitulo}" th:value="${status}" th:text="${status.descricao}"></option> -->
+<!-- 				</select> -->
+<!-- 				<button type="submit" class="btn">Salvar</button> -->
+<!-- 				<div th:if="${#fields.hasAnyErrors()}"> -->
+<!-- 					<div th:each="detailedError : ${#fields.detailedErrors()}"> -->
+<!-- 						<p class="fail" th:text="${detailedError.message}"></p> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</form> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </section> -->
+<!-- </html> -->
