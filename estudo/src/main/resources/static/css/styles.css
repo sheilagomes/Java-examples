@@ -17,3 +17,46 @@
 .btn {
 	margin-left: -10px;
 }
+.panel-heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -50px;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.label-red {
+	background-color: red;
+	font-size: 0.8em;
+	padding: 2px;
+	font-weight: 900;
+}
+.label-green {
+	background-color: green;
+	font-size: 0.8em;
+	padding: 2px;
+	font-weight: 900;
+}
+.label-blue {
+	background-color: blue;
+	font-size: 0.8em;
+	padding: 2px;
+	font-weight: 900;

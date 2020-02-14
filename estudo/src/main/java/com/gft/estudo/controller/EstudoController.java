@@ -1,12 +1,17 @@
 package com.gft.estudo.controller;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gft.estudo.model.Registro;
+import com.gft.estudo.model.StatusRegistro;
 import com.gft.estudo.repository.Registros;
 
 @Controller
@@ -17,21 +22,33 @@ public class EstudoController {
 	private Registros registros;
 	
 	@RequestMapping("/novo")
-	public String novo() {
-		return "CadastroEstudo";
+	public ModelAndView novo() {
+		ModelAndView mv = new ModelAndView("CadastroEstudo");
+		return mv;
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView salvar(Registro registro) {
 		registros.save(registro);
 		ModelAndView mv = new ModelAndView("CadastroEstudo");
-		mv.addObject("mensagem", "Título salvo!");
+		mv.addObject("mensagem", "Registro salvo!");
 		return mv;
+	}
+	
+	@RequestMapping
+	public ModelAndView pesquisar() {
+		List<Registro> todosRegistros = registros.findAll();
+		ModelAndView mv = new ModelAndView("PesquisaEstudo");
+		mv.addObject("registros", todosRegistros);
+		return mv;
+	}
+	
+	@ModelAttribute("todosStatusRegistro")
+	public List<StatusRegistro> todosStatusRegistro() {
+		return Arrays.asList(StatusRegistro.values());
 	}
 }
 
-//import java.util.Arrays;
-//import java.util.List;
 //import java.util.Optional;
 //
 //import org.springframework.dao.DataIntegrityViolationException;
@@ -102,14 +119,16 @@ public class EstudoController {
 //		attributes.addFlashAttribute("mensagem", "Título excluído!");
 //		return "redirect:/titulos";
 //	}
+//public ModelAndView pesquisar(@ModelAttribute("filtro") TituloFilter filtro) {
+//	List<Titulo> todosTitulos = cadastroTituloService.filtrar(filtro);
+//	ModelAndView mv = new ModelAndView("PesquisaTitulos");
+//	mv.addObject("titulos", todosTitulos);
+//	return mv;
 //	
 //	@RequestMapping(value="/{codigo}/receber", method = RequestMethod.PUT)
 //	public @ResponseBody String receber(@PathVariable Long codigo) {
 //		return cadastroTituloService.receber(codigo);
 //	}
-//	
-//	@ModelAttribute("todosStatusTitulo")
-//	public List<StatusTitulo> todosStatusTitulo() {
-//		return Arrays.asList(StatusTitulo.values());
+//
 //	}
 //}

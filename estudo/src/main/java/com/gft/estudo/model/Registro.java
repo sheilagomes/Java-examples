@@ -44,6 +44,33 @@ public class Registro {
 	public void setStatus(StatusRegistro status) {
 		this.status = status;
 	}
+	public boolean isPendente() {
+		return StatusRegistro.PENDENTE.equals(this.status);
+	}
+//	public boolean isIniciado() {
+//		return StatusRegistro.INICIADO.equals(this.status);
+//	}
+//	public String getPendente() {
+//		String r = "";
+//		if (getDescricao() == "PENDENTE") {
+//			r ="label-red";
+//		}
+//		if (getDescricao() == "INICIADO") {
+//			r = "label-blue";
+//		}
+//		if (getDescricao() == "CONCLUIDO") {
+//			r = "label-green";
+//		}
+//		return r;
+		
+//		switch(uso) {
+//			case descricao:
+//				return "label-red";
+//			case INICIADO:
+//				return "label-blue";
+//			case CONCLUIDO:
+//				return "label-green";
+//		}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

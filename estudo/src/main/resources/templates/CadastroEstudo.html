@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:th="http://www.thymeleaf.org"/>
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorator="LayoutPadrao"/>
+		
 <head>
-	<meta charset="UTF-8"/>
 	<title>Acompanhamento de estudos</title>
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="/css/styles.css">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 </head>
-<body>
-	<nav class="navbar navbar-dark bg-success">
-		<a class="navbar-brand" href="#"><i class="fa fa-laptop-code"></i>Acompanhamento de estudos</a>
-	</nav>
-	
+
+<section layout:fragment="conteudo">
 	<form class="form-horizontal" method="POST" action="/estudo">
+	
 		<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
 			<span th:text="${mensagem}">Título salvo!</span>
 		</div>
@@ -21,6 +18,7 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">
   				<h4 class="panel-title">Novo registro</h4>
+  				<a href="/estudo">Voltar para a pesquisa</a>
   			</div>
   			
   			<div class="panel-body">
@@ -43,9 +41,7 @@
 		    			<label for="status" class="col-sm-2 col-form-label right">Status</label>
 		    			<div class="col-sm-2">
 							<select class="form-control" name="status">
-								<option value="PENDENTE">Pendente</option>
-								<option value="INICIADO">Iniciado</option>
-								<option value="CONCLUIDO">Concluído</option>
+								<option th:each="status : ${todosStatusRegistro}" th:value="${status}" th:text="${status.descricao}"></option>
 							</select>
 						</div>
 					</div>
@@ -59,17 +55,10 @@
 				
 			</div>
 	</form>
-	<script src="/js/bootstrap.min.js"></script>
-</body>
+</section>
 </html>
 
 
-<!-- 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" -->
-<!-- 	layout:decorator="LayoutPadrao"> -->
-<!-- <head> -->
-<!-- 	<title>Cadastro de títulos</title> -->
-<!-- </head> -->
-<!-- <section layout:fragment="conteudo"> -->
 <!-- 	<div class="container-form"> -->
 <!-- 		<div th:if="${!#strings.isEmpty(mensagem)}"> -->
 <!-- 			<p class="success" th:text="${mensagem}"></p> -->
@@ -90,7 +79,7 @@
 <!-- 				<input type="text" class="form-column form-2 js-currency" id="valor" th:field="*{valor}" th:classappend="${#fields.hasErrors('valor')} ? has-error"> -->
 <!-- 				<label for="status" class="form-column form-1">Status</label> -->
 <!-- 				<select class="form-column form-2" name="status" th:field="*{status}"> -->
-<!-- 					<option th:each="status : ${todosStatusTitulo}" th:value="${status}" th:text="${status.descricao}"></option> -->
+<!-- 					 -->
 <!-- 				</select> -->
 <!-- 				<button type="submit" class="btn">Salvar</button> -->
 <!-- 				<div th:if="${#fields.hasAnyErrors()}"> -->
