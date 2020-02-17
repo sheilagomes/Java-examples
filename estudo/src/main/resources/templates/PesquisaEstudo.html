@@ -32,16 +32,8 @@
 						<td th:text="${registro.descricao}"></td>
 						<td th:text="${registro.recursos}"></td>
  						<td class="text-center">
- 							<span class="label" th:text="${registro.status.descricao}" th:classappend="${registro.pendente ? 'label-red' : 'label-green'}"></span>
+ 							<span class="label" th:text="${registro.status.descricao}" th:classappend="(${registro.isIniciado()} ? 'label-blue' : (${registro.isPendente()} ? 'label-red' : 'label-green'))"></span>
  						</td>
-						
-<!-- 						<td class="text-center" th:text="${registro.status.descricao}"> -->
-<!-- 							<div th:switch="${registro.status.descricao}"> -->
-<!-- 								<span th:case="'PENDENTE'" th:classappend="${registro.pendente}? 'label-red'"></span> -->
-<!-- 								<span th:case="'INICIADO'" th:classappend="${registro.iniciado}? 'label-blue'"></span> -->
-<!-- 								<span th:case="'CONCLUIDO'" th:classappend="${registro.concluido}? 'label-green'"></span> -->
-<!-- 							</div> -->
-<!-- 					    </td> -->
 						
 						<td class="text-center icons">
 							<a class="edit tooltip"><i class="fa fa-pencil-alt"></i><span class="tooltiptext">Editar</span></a>

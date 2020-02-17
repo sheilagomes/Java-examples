@@ -9,12 +9,21 @@
 </head>
 
 <section layout:fragment="conteudo">
-	<form class="form-horizontal" method="POST" action="/estudo">
+	
+	<form class="form-horizontal" method="POST" action="/estudo" th:object="${registro}">
 	
 		<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
 			<span th:text="${mensagem}">Título salvo!</span>
 		</div>
-	
+		
+<!-- 		<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}"> -->
+<!-- 			<div th:each="detailedError : ${#fields.detailedErrors())"> -->
+<!-- 				<span th:text="${detailedError.message}"></span> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+
+
+
 		<div class="panel panel-default">
 			<div class="panel-heading">
   				<h4 class="panel-title">Novo registro</h4>
@@ -22,14 +31,14 @@
   			</div>
   			
   			<div class="panel-body">
-				<div class="form-group row">
+				<div class="form-group row" th:field="*{descricao}" th:classappend="${#fields.hasErrors('descricao')} ? has-error">
 	    			<label for="descricao" class="col-sm-2 col-form-label right">Descrição</label>
 	    			<div class="col-sm-4">
 						<input type="text" class="form-control" id="descricao" name="descricao"/>
 					</div>
 				</div>
 				
-				<div class="form-group row">
+				<div class="form-group row" th:field="*{recursos}" th:classappend="${#fields.hasErrors('recursos')} ? has-error">
 	    			<label for="recursos" class="col-sm-2 col-form-label right">Recursos</label>
 	    			<div class="col-sm-6">
 						<input type="text" class="form-control" id="recursos" name="recursos"/>
@@ -82,10 +91,7 @@
 <!-- 					 -->
 <!-- 				</select> -->
 <!-- 				<button type="submit" class="btn">Salvar</button> -->
-<!-- 				<div th:if="${#fields.hasAnyErrors()}"> -->
-<!-- 					<div th:each="detailedError : ${#fields.detailedErrors()}"> -->
-<!-- 						<p class="fail" th:text="${detailedError.message}"></p> -->
-<!-- 					</div> -->
+
 <!-- 				</div> -->
 <!-- 			</form> -->
 <!-- 		</div> -->
