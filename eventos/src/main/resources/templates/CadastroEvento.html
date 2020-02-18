@@ -10,8 +10,8 @@
 <section layout:fragment="conteudo">
 <h1>Evento</h1>
 
-	<form class="form-horizontal" method="POST" action="/evento" th:object="${evento}">
-<!-- 	<form class="form-horizontal" method="POST" action="/estudo" th:object="${registro}"> -->
+	<form class="form-horizontal" method="POST" action="/evento">
+<!-- 	<form class="form-horizontal" method="POST" action="/evento" th:object="${evento}"> -->
 	
 		<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
 			<span th:text="${mensagem}">Evento salvo!</span>
@@ -59,9 +59,9 @@
 				<div class="form-group"> 
 					<div class="col-sm-2 offset-sm-2 col-sm-2">
 						<select class="form-control" name="casa">
-							<option>Casa1</option>
-							<option>Casa2</option>
-							<option>Casa3</option>
+							<option value="CASA1">Casa 1</option>
+							<option value="CASA2">Casa 2</option>
+							<option value="CASA3">Casa 3</option>
 	<!-- 					<option th:each="status : ${todosStatusRegistro}" th:value="${status}" th:text="${status.descricao}"></option> -->
 						</select>
 					</div>
@@ -70,9 +70,9 @@
 				<div class="form-group"> 
 					<div class="col-sm-2 offset-sm-2 col-sm-2">
 						<select class="form-control" name="genero">
-							<option>Rock</option>
-							<option>Punk</option>
-							<option>Sertanejo</option>
+							<option value="GENERO1">Alternativo</option>
+							<option value="GENERO2">Pop</option>
+							<option value="GENERO3">Rock</option>
 	<!-- 					<option th:each="status : ${todosStatusRegistro}" th:value="${status}" th:text="${status.descricao}"></option> -->
 						</select>
 					</div>
@@ -80,7 +80,7 @@
 				
 				<div class="form-group">
 	    			<div class="col-sm-2 offset-sm-2 col-sm-10">
-						<button type="submit" class="btn btn-primary">Salvar</button>
+						<button type="submit" class="btn btn-primary btn-evento">Salvar</button>
 					</div>
 				</div>
 				

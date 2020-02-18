@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:th="http://www.thymeleaf.org"
-		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-	<meta charset="UTF-8"/>
-	<title>Estudo</title>
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="/css/styles.css">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+<meta charset="UTF-8" />
+<title>Estudo</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/css/styles.css">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+	rel="stylesheet">
 </head>
-<body>	
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#"><i class="fa fa-star"></i><span class="nav-title">Gerenciador de eventos</span></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="/casa">Casas de show</a>
-      <a class="nav-item nav-link" href="/evento">Eventos</a>
-      <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Histórico</a>
-    </div>
-  </div>
-</nav>
-	
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between">
+			<a class="navbar-brand" href="#"><i class="fa fa-star"></i><span class="nav-title">Gerenciador de eventos</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-item nav-link active" href="/home">Home <span	class="sr-only">(current)</span></a>
+					<a class="nav-item nav-link" href="/casa">Casas de show</a>
+					<a class="nav-item nav-link" href="/evento">Eventos</a>
+					<a class="nav-item nav-link disabled"	href="#" tabindex="-1" aria-disabled="true">Histórico</a>
+				</div>
+			</div>
+		<div>
+			<form class="form-inline my-2 my-lg-0">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+			</form>
+		</div>
+	</nav>
+
 	<section layout:fragment="conteudo"></section>
-	
+
 	<script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="/js/style.js"></script>
 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>

@@ -7,7 +7,9 @@
 <head>
 	<title>Gerenciador de eventos</title>
 </head>
+
 <section layout:fragment="conteudo">
+
 <h1>Gerenciador de eventos</h1>
 
 <div class="cards-eventos">
@@ -70,35 +72,6 @@
 </section>
 </html>
 
-<!-- <!DOCTYPE html> -->
-<!-- <html xmlns="http://www.w3.org/1999/xhtml" -->
-<!-- 		xmlns:th="http://www.thymeleaf.org" -->
-<!-- 		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" -->
-<!-- 		layout:decorator="LayoutPadrao" /> -->
-	
-<!-- <head> -->
-<!-- 	<title>Pesquisa de registros</title> -->
-<!-- </head> -->
-
-<!-- <section layout:fragment="conteudo"> -->
-<!-- 	<div class="panel panel-default"> -->
-<!-- 		<div class="panel-heading"> -->
-<!-- 			<h4 class="panel-title">Pesquisa de registros</h4> -->
-<!-- 			<a href="/estudo/novo">Novo registro</a> -->
-<!-- 		</div> -->
-
-<!-- 		<div class="panel-body"> -->
-<!-- 			<table class="table table-bordered table-striped"> -->
-<!-- 				<thead> -->
-<!-- 					<tr> -->
-<!-- 						<th class="text-center col-md-1">#</th> -->
-<!-- 						<th>Descrição</th> -->
-<!-- 						<th class="text-center col-md-4">Recurso</th> -->
-<!-- 						<th class="text-center col-md-2">Status</th> -->
-<!-- 						<th class="text-center col-md-1"></th> -->
-<!-- 					</tr> -->
-<!-- 				</thead> -->
-<!-- 				<tbody> -->
 <!-- 					<tr th:each="registro : ${registros}"> -->
 <!-- 						<td class="text-center" th:text="${registro.id}">1</td> -->
 <!-- 						<td th:text="${registro.descricao}"></td> -->
@@ -111,14 +84,3 @@
 <!-- 							<a class="edit tooltip"><i class="fa fa-pencil-alt"></i><span class="tooltiptext">Editar</span></a> -->
 <!-- 							<a class="remove tooltip"><i class="fa fa-times"></i><span class="tooltiptext">Excluir</span></a> -->
 <!-- 							<a class="update tooltip"><i class="far fa-check-circle"></i><span class="tooltiptext">Receber</span></a> -->
-<!-- 						</td> -->
-<!-- 					</tr> -->
-<!-- 					<tr> -->
-<!-- 						<td colspan="5" th:if="${#lists.isEmpty(registros)}">Nenhum registro foi encontrado</td> -->
-<!-- 					</tr> -->
-<!-- 				</tbody> -->
-<!-- 			</table> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-<!-- </section> -->
-<!-- </html> -->

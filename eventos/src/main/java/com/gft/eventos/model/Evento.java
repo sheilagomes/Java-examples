@@ -1,16 +1,47 @@
 package com.gft.eventos.model;
 
-import org.hibernate.annotations.Entity;
+import java.math.BigDecimal;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.NotEmpty;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
 
 @Entity
 public class Evento {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
 	private String nome;
 	private int capacidade;
-	private String data;
-	private float precoIngresso;
-	private String casa;
-	private String genero;
+	
+	@NotNull(message="A data é obrigatória")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
+	private Date data;
+	
+	private BigDecimal precoIngresso;
+	
+	@Enumerated(EnumType.STRING)
+	private CasaOpcoes casa;
+	
+	@Enumerated(EnumType.STRING)
+	private GeneroOpcoes genero;
 	
 	public long getId() {
 		return id;
@@ -30,31 +61,30 @@ public class Evento {
 	public void setCapacidade(int capacidade) {
 		this.capacidade = capacidade;
 	}
-	public String getData() {
+	public Date getData() {
 		return data;
 	}
-	public void setData(String data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
-	public float getPrecoIngresso() {
+	public BigDecimal getPrecoIngresso() {
 		return precoIngresso;
 	}
-	public void setPrecoIngresso(float precoIngresso) {
+	public void setPrecoIngresso(BigDecimal precoIngresso) {
 		this.precoIngresso = precoIngresso;
 	}
-	public String getCasa() {
+	public CasaOpcoes getCasa() {
 		return casa;
 	}
-	public void setCasa(String casa) {
+	public void setCasa(CasaOpcoes casa) {
 		this.casa = casa;
 	}
-	public String getGenero() {
+	public GeneroOpcoes getGenero() {
 		return genero;
 	}
-	public void setGenero(String genero) {
+	public void setGenero(GeneroOpcoes genero) {
 		this.genero = genero;
 	}
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -65,10 +95,9 @@ public class Evento {
 		result = prime * result + ((genero == null) ? 0 : genero.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + Float.floatToIntBits(precoIngresso);
+		result = prime * result + ((precoIngresso == null) ? 0 : precoIngresso.hashCode());
 		return result;
 	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -80,20 +109,14 @@ public class Evento {
 		Evento other = (Evento) obj;
 		if (capacidade != other.capacidade)
 			return false;
-		if (casa == null) {
-			if (other.casa != null)
-				return false;
-		} else if (!casa.equals(other.casa))
+		if (casa != other.casa)
 			return false;
 		if (data == null) {
 			if (other.data != null)
 				return false;
 		} else if (!data.equals(other.data))
 			return false;
-		if (genero == null) {
-			if (other.genero != null)
-				return false;
-		} else if (!genero.equals(other.genero))
+		if (genero != other.genero)
 			return false;
 		if (id != other.id)
 			return false;
@@ -102,7 +125,10 @@ public class Evento {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
-		if (Float.floatToIntBits(precoIngresso) != Float.floatToIntBits(other.precoIngresso))
+		if (precoIngresso == null) {
+			if (other.precoIngresso != null)
+				return false;
+		} else if (!precoIngresso.equals(other.precoIngresso))
 			return false;
 		return true;
 	}
