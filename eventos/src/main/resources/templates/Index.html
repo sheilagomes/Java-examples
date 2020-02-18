@@ -9,5 +9,116 @@
 </head>
 <section layout:fragment="conteudo">
 <h1>Gerenciador de eventos</h1>
+
+<div class="cards-eventos">
+
+	<div class="card mb-3" style="max-width: 540px;">
+	  <div class="row no-gutters">
+	    <div class="col-md-4">
+	      <img src="/img/Letrux.jpg" class="card-img" alt="Letrux">
+	    </div>
+	    <div class="col-md-8">
+	      <div class="card-body">
+	        <h5 class="card-title">Show da Letrux</h5>
+	        <h6 class="card-text">Preço do ingresso: R$ 250.00</h6>
+	        <h6 class="card-text">Data: 10/03/2020</h6>
+	        <h6 class="card-text">Local: Amancio Moro</h6>
+	        <h6 class="card-text">Ingressos restantes: 5.000</h6>
+	        <button type="submit" class="btn btn-primary">Comprar</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="card mb-3" style="max-width: 540px;">
+	  <div class="row no-gutters">
+	    <div class="col-md-4">
+	      <img src="/img/AmandaPalmer.jpg" class="card-img" alt="Amanda Palmer">
+	    </div>
+	    <div class="col-md-8">
+	      <div class="card-body">
+	        <h5 class="card-title">Show da Amanda Palmer</h5>
+	        <h6 class="card-text">Preço do ingresso: R$ 400.00</h6>
+	        <h6 class="card-text">Data: 20/02/2020</h6>
+	        <h6 class="card-text">Local: Allianz Arena</h6>
+	        <h6 class="card-text">Ingressos restantes: 20000</h6>
+	        <button type="submit" class="btn btn-primary">Comprar</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="card mb-3" style="max-width: 540px;">
+	  <div class="row no-gutters">
+	    <div class="col-md-4">
+	      <img src="/img/BillieEilish.jpg" class="card-img" alt="Billie Eilish">
+	    </div>
+	    <div class="col-md-8">
+	      <div class="card-body">
+		        <h5 class="card-title">Show da Billie Eilish</h5>
+	        <h6 class="card-text">Preço do ingresso: R$ 400.00</h6>
+	        <h6 class="card-text">Data: 23/05/2020</h6>
+	        <h6 class="card-text">Local: Ópera do Arame</h6>
+	        <h6 class="card-text">Ingressos restantes: 1500</h6>
+	        <button type="submit" class="btn btn-primary">Comprar</button>
+			</div>
+	      </div>
+	    </div>
+	  </div>
+	  
+</div>
 </section>
 </html>
+
+<!-- <!DOCTYPE html> -->
+<!-- <html xmlns="http://www.w3.org/1999/xhtml" -->
+<!-- 		xmlns:th="http://www.thymeleaf.org" -->
+<!-- 		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" -->
+<!-- 		layout:decorator="LayoutPadrao" /> -->
+	
+<!-- <head> -->
+<!-- 	<title>Pesquisa de registros</title> -->
+<!-- </head> -->
+
+<!-- <section layout:fragment="conteudo"> -->
+<!-- 	<div class="panel panel-default"> -->
+<!-- 		<div class="panel-heading"> -->
+<!-- 			<h4 class="panel-title">Pesquisa de registros</h4> -->
+<!-- 			<a href="/estudo/novo">Novo registro</a> -->
+<!-- 		</div> -->
+
+<!-- 		<div class="panel-body"> -->
+<!-- 			<table class="table table-bordered table-striped"> -->
+<!-- 				<thead> -->
+<!-- 					<tr> -->
+<!-- 						<th class="text-center col-md-1">#</th> -->
+<!-- 						<th>Descrição</th> -->
+<!-- 						<th class="text-center col-md-4">Recurso</th> -->
+<!-- 						<th class="text-center col-md-2">Status</th> -->
+<!-- 						<th class="text-center col-md-1"></th> -->
+<!-- 					</tr> -->
+<!-- 				</thead> -->
+<!-- 				<tbody> -->
+<!-- 					<tr th:each="registro : ${registros}"> -->
+<!-- 						<td class="text-center" th:text="${registro.id}">1</td> -->
+<!-- 						<td th:text="${registro.descricao}"></td> -->
+<!-- 						<td th:text="${registro.recursos}"></td> -->
+<!--  						<td class="text-center"> -->
+<!--  							<span class="label" th:text="${registro.status.descricao}" th:classappend="(${registro.isIniciado()} ? 'label-blue' : (${registro.isPendente()} ? 'label-red' : 'label-green'))"></span> -->
+<!--  						</td> -->
+						
+<!-- 						<td class="text-center icons"> -->
+<!-- 							<a class="edit tooltip"><i class="fa fa-pencil-alt"></i><span class="tooltiptext">Editar</span></a> -->
+<!-- 							<a class="remove tooltip"><i class="fa fa-times"></i><span class="tooltiptext">Excluir</span></a> -->
+<!-- 							<a class="update tooltip"><i class="far fa-check-circle"></i><span class="tooltiptext">Receber</span></a> -->
+<!-- 						</td> -->
+<!-- 					</tr> -->
+<!-- 					<tr> -->
+<!-- 						<td colspan="5" th:if="${#lists.isEmpty(registros)}">Nenhum registro foi encontrado</td> -->
+<!-- 					</tr> -->
+<!-- 				</tbody> -->
+<!-- 			</table> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </section> -->
+<!-- </html> -->

@@ -10,28 +10,20 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 </head>
 <body>	
-	<nav class="navbar navbar-expand-lg navbar-dark bg-light">
-		<a class="navbar-brand" href="#"><i class="fa fa-laptop-code"></i>Gerenciador de eventos</a>
-  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-  		</button>
-  		<div class="collapse navbar-collapse" id="navbarNav">
-    		<ul class="navbar-nav">
-      			<li class="nav-item active">
-        			<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      			</li>
-      			<li class="nav-item">
-        			<a class="nav-link" href="#">Casas de show</a>
-      			</li>
-      			<li class="nav-item">
-        			<a class="nav-link" href="#">Eventos</a>
-      			</li>
-      			<li class="nav-item">
-        			<a class="nav-link disabled" href="#">Histórico</a>
-      			</li>
-    		</ul>
-  		</div>
-	</nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#"><i class="fa fa-star"></i><span class="nav-title">Gerenciador de eventos</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="/casa">Casas de show</a>
+      <a class="nav-item nav-link" href="/evento">Eventos</a>
+      <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Histórico</a>
+    </div>
+  </div>
+</nav>
 	
 	<section layout:fragment="conteudo"></section>
 	

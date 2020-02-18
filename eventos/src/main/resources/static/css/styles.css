@@ -2,31 +2,36 @@ h1 {
 	text-align: center;
 	margin-top: 1em;
 }
-
-
-/* .fa-laptop-code { */
-/* 	padding-right: 10px; */
-/* } */
-/* .navbar-brand { */
-/* 	font-size: 1.5em; */
-/* } */
+.nav-title {
+	padding: 0 .5em;
+}
+.panel-body {
+	padding: 1em;
+}
+.btn {
+	margin-top: 20px;
+}
+input {
+	margin-left: 10px;
+}
+.navbar-brand {
+	font-size: 1.5em;
+}
+.cards-eventos {
+	display: flex;
+	justify-content: space-around;
+	margin: 3em 1em;
+}
+.card-img {
+  width: 115px;
+  height: 200px;
+  object-fit: cover;
+}
 /* .panel-default { */
 /* 	margin: 0 10px; */
 /* } */
 /* .panel-title { */
 /* 	padding: 20px 0 20px 10px; */
-/* } */
-/* .right { */
-/* 	text-align: right; */
-/* 	font-weight: 700; */
-/* } */
-/* .btn { */
-/* 	margin-left: -10px; */
-/* } */
-/* .panel-heading { */
-/* 	display: flex; */
-/* 	justify-content: space-between; */
-/* 	align-items: center; */
 /* } */
 /* .tooltip { */
 /* 	position: relative; */
