@@ -60,23 +60,144 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-<!-- 					<tr th:each="casa : ${casas}"> -->
-						<td class="text-center">1</td>
-<!-- 						<td class="text-center" th:text="${casa.id}">1</td> -->
-						<td>Casa 1</td>
-<!-- 						<td th:text="${casa.nome}"></td> -->
-						<td>Rua tal, numero tal</td>
-<!-- 						<td th:text="${casa.endereco}"></td> -->
+
+					<tr th:each="casa : ${casas}">
+						<td class="text-center" th:text="${casa.id}">1</td>
+						<td th:text="${casa.nome}"></td>
+						<td th:text="${casa.endereco}"></td>
+
+<!-- 					<tr> -->
+<!-- 						<td class="text-center">1</td> -->
+<!-- 						<td>Casa 1</td> -->
+<!-- 						<td>Rua tal, numero tal</td> -->
+
  						<td class="text-center icons"><a class="edit tooltip"><i class="fa fa-pencil-alt"></i><span class="tooltiptext">Editar</span></a></td>
  						<td class="text-center icons"><a class="remove tooltip"><i class="fa fa-times"></i><span class="tooltiptext">Excluir</span></a></td>
 					</tr>
 					<tr>
-						<td colspan="5">Nenhuma casa foi encontrada</td>
-<!-- 						<td colspan="5" th:if="${#lists.isEmpty(eventos)}">Nenhum registro foi encontrado</td> -->
+<!-- 						<td colspan="5">Nenhuma casa foi encontrada</td> -->
+						<td colspan="5" th:if="${#lists.isEmpty(casas)}">Nenhuma casa foi encontrada</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 </section>
 </html>
+
+<!-- 	<form class="form-horizontal" method="POST" action="/evento" th:object="${evento}"> -->
+	
+<!-- 		<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}"> -->
+<!-- 			<span th:text="${mensagem}">Evento salvo!</span> -->
+<!-- 		</div> -->
+		
+<!-- <!-- 		<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}"> -->
+<!-- <!-- 			<div th:each="detailedError : ${#fields.detailedErrors())"> -->
+<!-- <!-- 				<span th:text="${detailedError.message}"></span> -->
+<!-- <!-- 			</div> -->
+<!-- <!-- 		</div>  -->
+
+<!--   			<div class="panel-body"> -->
+<!-- 				<div class="form-group row"> -->
+<!-- <!-- 				<div class="form-group row" th:field="*{descricao}" th:classappend="${#fields.hasErrors('descricao')} ? has-error"> --> -->
+<!-- 	    			<label for="nome" class="col-sm-2 col-form-label right">Evento</label> -->
+<!-- 	    			<div class="col-sm-4"> -->
+<!-- 						<input type="text" class="form-control" id="nome" name="nome"/> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+				
+<!-- 				<div class="form-group row"> -->
+<!-- <!-- 				<div class="form-group row" th:field="*{recursos}" th:classappend="${#fields.hasErrors('recursos')} ? has-error"> --> -->
+<!-- 	    			<label for="capacidade" class="col-sm-2 col-form-label right">Capacidade</label> -->
+<!-- 	    			<div class="col-sm-2"> -->
+<!-- 						<input type="number" class="form-control" id="capacidade" name="capacidade"/> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+
+<!-- 				<div class="form-group row"> -->
+<!-- <!-- 				<div class="form-group row" th:field="*{recursos}" th:classappend="${#fields.hasErrors('recursos')} ? has-error"> --> -->
+<!-- 	    			<label for="data" class="col-sm-2 col-form-label right">Data</label> -->
+<!-- 	    			<div class="col-sm-2"> -->
+<!-- 						<input type="date" class="form-control" id="data" name="data"/> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+				
+<!-- 				<div class="form-group row"> -->
+<!-- <!-- 				<div class="form-group row" th:field="*{recursos}" th:classappend="${#fields.hasErrors('recursos')} ? has-error"> --> -->
+<!-- 	    			<label for="precoIngresso" class="col-sm-2 col-form-label right">Preço do ingresso</label> -->
+<!-- 	    			<div class="col-sm-2"> -->
+<!-- 						<input type="number" class="form-control" id="precoIngresso" name="precoIngresso"/> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+								
+<!-- 				<div class="form-group">  -->
+<!-- 					<div class="col-sm-2 offset-sm-2 col-sm-2"> -->
+<!-- 						<select class="form-control" name="casa"> -->
+<!-- 							<option th:each="casa : ${todasCasaOpcoes}" th:value="${casa}" th:text="${casa.nome}"></option> -->
+<!-- 						</select> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+			
+<!-- 				<div class="form-group">  -->
+<!-- 					<div class="col-sm-2 offset-sm-2 col-sm-2"> -->
+<!-- 						<select class="form-control" name="genero"> -->
+<!-- 							<option th:each="genero : ${todosGeneroOpcoes}" th:value="${genero}" th:text="${genero.estilo}"></option> -->
+<!-- 						</select> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+				
+<!-- 				<div class="form-group"> -->
+<!-- 	    			<div class="col-sm-2 offset-sm-2 col-sm-10"> -->
+<!-- 						<button type="submit" class="btn btn-primary btn-evento">Salvar</button> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+				
+<!-- 			</div> -->
+<!-- 	</form> -->
+	
+<!-- 		<div class="panel-body"> -->
+		
+<!-- 			<table class="table table-bordered table-striped"> -->
+			
+<!-- 				<thead> -->
+<!-- 					<tr>  -->
+<!-- 						<th class="text-center col-sm-1">#</th> -->
+<!-- 						<th class="col-sm-3">Nome</th> -->
+<!-- 						<th class="text-center col-sm-1">Capacidade</th> -->
+<!-- 						<th class="text-center col-sm-2">Preço do ingresso</th> -->
+<!-- 						<th class="col-sm-3">Casa de show</th> -->
+<!-- 						<th class="text-center col-sm-1">Editar</th> -->
+<!-- 						<th class="text-center col-sm-1">Excluir</th> -->
+<!-- 					</tr> -->
+<!-- 				</thead> -->
+				
+<!-- 				<tbody> -->
+<!-- <!-- 					<tr> --> -->
+<!-- <!-- 						<td class="text-center">1</td> --> -->
+<!-- <!-- 						<td>Show 1</td> --> -->
+<!-- <!-- 						<td class="text-center">1.000</td> --> -->
+<!-- <!-- 						<td class="text-center">R$ 100,00</td> --> -->
+<!-- <!--  						<td>Casa 1</td> --> -->
+
+<!-- 					<tr th:each="evento : ${eventos}"> -->
+					 
+<!-- 						<td class="text-center" th:text="${evento.id}">1</td> -->
+<!-- 						<td th:text="${evento.nome}"></td> -->
+<!-- 						<td th:text="${evento.capacidade}"></td> -->
+<!-- 						<td th:text="${evento.precoIngresso}"></td> -->
+<!--  						<td th:text="${evento.casa}"></td> -->
+ 						
+<!--  						<td class="text-center icons"><a class="edit" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil-alt"></i></a></td> -->
+<!--  						<td class="text-center icons"><a class="remove" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fa fa-times"></i></a></td> -->
+<!-- 					</tr> -->
+<!-- 					<tr> -->
+<!-- <!-- 						<td colspan="5">Nenhum evento foi encontrado</td> --> -->
+<!-- 						<td colspan="5" th:if="${#lists.isEmpty(eventos)}">Nenhum evento foi encontrado</td> -->
+<!-- 					</tr> -->
+<!-- 				</tbody> -->
+				
+<!-- 			</table> -->
+			
+<!-- 		</div> -->
+		
+<!-- </section> -->
+<!-- </html> -->

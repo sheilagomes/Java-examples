@@ -19,16 +19,20 @@ input {
 }
 .cards-eventos {
 	display: flex;
-	justify-content: space-around;
-	margin: 3em 1em;
+	flex-wrap: wrap;
+	margin-top: 3em;
+	padding: 0 2em;
+}
+.card-item {
+	padding: 0 2em;
+}
+.card-item:first-child {
+	padding: 0;
 }
 .card-img {
   width: 115px;
   height: 200px;
   object-fit: cover;
-}
-.text-right {
-	text-align: right;
 }
 /* .panel-default { */
 /* 	margin: 0 10px; */
@@ -36,41 +40,6 @@ input {
 /* .panel-title { */
 /* 	padding: 20px 0 20px 10px; */
 /* } */
-/* .tooltip { */
-/* 	position: relative; */
-/* 	display: inline-block; */
-/* } */
-/* .tooltip .tooltiptext { */
-/*   visibility: hidden; */
-/*   width: 100px; */
-/*   background-color: black; */
-/*   color: #fff; */
-/*   text-align: center; */
-/*   border-radius: 6px; */
-/*   padding: 5px 0; */
-/*   position: absolute; */
-/*   z-index: 1; */
-/*   bottom: 100%; */
-/*   left: 50%; */
-/*   margin-left: -50px; */
-/* } */
-/* .tooltip:hover .tooltiptext { */
-/*   visibility: visible; */
-/* } */
-/* .label-red { */
-/* 	background-color: red; */
-/* 	font-size: 0.8em; */
-/* 	padding: 2px; */
-/* 	font-weight: 900; */
-/* } */
-/* .label-green { */
-/* 	background-color: green; */
-/* 	font-size: 0.8em; */
-/* 	padding: 2px; */
-/* 	font-weight: 900; */
-/* } */
-/* .label-blue { */
-/* 	background-color: blue; */
-/* 	font-size: 0.8em; */
-/* 	padding: 2px; */
-/* 	font-weight: 900; */
+.icons {
+	font-weight: 900;
+}
