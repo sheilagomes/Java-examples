@@ -15,8 +15,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -29,7 +29,11 @@ public class Evento {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	@NotEmpty(message="O nome é obrigatório")
 	private String nome;
+	
+	@NotNull(message="A capacidade é obrigatória")
+	@Min(0)
 	private int capacidade;
 	
 	@NotNull(message="A data é obrigatória")
@@ -44,55 +48,70 @@ public class Evento {
 	private BigDecimal precoIngresso;
 	
 //	@ManyToOne
+//	private Casa casa;
 //	@JoinColumn
 	@Enumerated(EnumType.STRING)
 	private CasaOpcoes casa;
 	
 	@Enumerated(EnumType.STRING)
 	private GeneroOpcoes genero;
-	
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public int getCapacidade() {
 		return capacidade;
 	}
+
 	public void setCapacidade(int capacidade) {
 		this.capacidade = capacidade;
 	}
+
 	public Date getData() {
 		return data;
 	}
+
 	public void setData(Date data) {
 		this.data = data;
 	}
+
 	public BigDecimal getPrecoIngresso() {
 		return precoIngresso;
 	}
+
 	public void setPrecoIngresso(BigDecimal precoIngresso) {
 		this.precoIngresso = precoIngresso;
 	}
+
 	public CasaOpcoes getCasa() {
 		return casa;
 	}
+
 	public void setCasa(CasaOpcoes casa) {
 		this.casa = casa;
 	}
+
 	public GeneroOpcoes getGenero() {
 		return genero;
 	}
+
 	public void setGenero(GeneroOpcoes genero) {
 		this.genero = genero;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -106,6 +125,7 @@ public class Evento {
 		result = prime * result + ((precoIngresso == null) ? 0 : precoIngresso.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

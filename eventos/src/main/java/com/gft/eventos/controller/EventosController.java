@@ -5,7 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,15 +27,27 @@ public class EventosController {
 	@Autowired
 	private Eventos eventos;
 	
+	@Autowired
+	private Casas casas;
+	
 	@RequestMapping("/home")
 	public String home() {
 		return "index";
 	}
 	
-//	@RequestMapping("/casa")
-//	public String casa() {
-//		return "CadastroCasa";
-//	}
+	@RequestMapping("/novo/casa")
+	public ModelAndView novaCasa() {
+		ModelAndView mv = new ModelAndView("CadastroCasa");
+		mv.addObject(new Casa());
+		return mv;
+	}
+	
+	@RequestMapping("/novo/evento")
+	public ModelAndView novaEvento() {
+		ModelAndView mv = new ModelAndView("CadastroEvento");
+		mv.addObject(new Evento());
+		return mv;
+	}
 	
 	@RequestMapping("/casa")
 	public ModelAndView pesquisaCasa() {
@@ -52,21 +65,74 @@ public class EventosController {
 		return mv;
 	}
 	
-//	@RequestMapping
-//	public ModelAndView pesquisar() {
-//		List<Registro> todosRegistros = registros.findAll();
-//		ModelAndView mv = new ModelAndView("PesquisaEstudo");
-//		mv.addObject("registros", todosRegistros);
-//		return mv;
-//	}
+	@RequestMapping(value = "/casa", method = RequestMethod.POST)
+	public ModelAndView salvaCasa(@Validated Casa casa, Errors errors) {		
+		ModelAndView mv = new ModelAndView("CadastroCasa");
+		if (errors.hasErrors()) {
+			return mv;
+		}
+//			return CADASTRO_VIEW;
+//		}
+//		try {
+//			cadastroTituloService.salvar(titulo);
+//			attributes.addFlashAttribute("mensagem", "Título salvo!");
+//			return "redirect:/titulos/novo";
+//		} catch (IllegalArgumentException e) {
+//			errors.rejectValue("dataVencimento", null, "Formato de data inválido");
+//			return CADASTRO_VIEW;
+//		}
+		casas.save(casa);
+		mv.addObject("mensagem", "Casa salva!");
+		return mv;
+	}
 	
 	@RequestMapping(value = "/evento", method = RequestMethod.POST)
-	public ModelAndView salvar(Evento evento) {
-		eventos.save(evento);
+	public ModelAndView salvar(@Validated Evento evento, Errors errors) {		
 		ModelAndView mv = new ModelAndView("CadastroEvento");
+		if (errors.hasErrors()) {
+			return mv;
+		}
+		
+//		return CADASTRO_VIEW;
+//	}
+//	try {
+//		cadastroTituloService.salvar(titulo);
+//		attributes.addFlashAttribute("mensagem", "Título salvo!");
+//		return "redirect:/titulos/novo";
+//	} catch (IllegalArgumentException e) {
+//		errors.rejectValue("dataVencimento", null, "Formato de data inválido");
+//		return CADASTRO_VIEW;
+//	}
+		eventos.save(evento);
 		mv.addObject("mensagem", "Evento salvo!");
 		return mv;
 	}
+	
+//	@RequestMapping(value="excluir/{id}", method = RequestMethod.GET)
+//	public String excluir(@PathVariable Long id, RedirectAttributes attributes) {
+//		cadastroTituloService.excluir(id);
+//		attributes.addFlashAttribute("mensagem", "Evento excluído!");
+//		return "redirect:/evento";
+//	}
+	
+//	public RedirectView salvar(Evento evento) {
+//	eventos.save(evento);//		
+//	return new RedirectView("http://localhost:8080/evento");
+	
+//	@RequestMapping(method = RequestMethod.POST)
+//	public String salvar(@Validated Titulo titulo, Errors errors, RedirectAttributes attributes) {
+//		if (errors.hasErrors()) {
+//			return CADASTRO_VIEW;
+//		}
+//		try {
+//			cadastroTituloService.salvar(titulo);
+//			attributes.addFlashAttribute("mensagem", "Título salvo!");
+//			return "redirect:/titulos/novo";
+//		} catch (IllegalArgumentException e) {
+//			errors.rejectValue("dataVencimento", null, "Formato de data inválido");
+//			return CADASTRO_VIEW;
+//		}
+//	}
 	
 	@ModelAttribute("todasCasaOpcoes")
 	public List<CasaOpcoes> todasCasaOpcoes() {
@@ -158,11 +224,6 @@ public class EventosController {
 //		cadastroTituloService.excluir(codigo);
 //		attributes.addFlashAttribute("mensagem", "Título excluído!");
 //		return "redirect:/titulos";
-//	}
-//	
-//	@RequestMapping(value="/{codigo}/receber", method = RequestMethod.PUT)
-//	public @ResponseBody String receber(@PathVariable Long codigo) {
-//		return cadastroTituloService.receber(codigo);
 //	}
 //	
 //	@ModelAttribute("todosStatusTitulo")

@@ -16,42 +16,46 @@
 			<span th:text="${mensagem}">Evento salvo!</span>
 		</div>
 		
-<!-- <!-- 		<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}"> -->
-<!-- <!-- 			<div th:each="detailedError : ${#fields.detailedErrors())"> -->
-<!-- <!-- 				<span th:text="${detailedError.message}"></span> -->
-<!-- <!-- 			</div> -->
-<!-- <!-- 		</div> --> 
+<!-- 		<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}"> -->
+<!-- 			<div th:each="detailedError : ${#fields.detailedErrors())"> -->
+<!-- 				<span th:text="${detailedError.message}"></span> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
 
   			<div class="panel-body">
 				<div class="form-group row">
-<!-- 				<div class="form-group row" th:field="*{descricao}" th:classappend="${#fields.hasErrors('descricao')} ? has-error"> -->
+<!-- 				<div class="form-group row" th:field="*{nome}" th:classappend="${#fields.hasErrors('nome')} ? has-error"> -->
 	    			<label for="nome" class="col-sm-2 col-form-label right">Evento</label>
 	    			<div class="col-sm-4">
 						<input type="text" class="form-control" id="nome" name="nome"/>
+<!-- 						<input type="text" class="form-control" id="nome" th:field="*{nome}"/> -->
 					</div>
 				</div>
 				
 				<div class="form-group row">
-<!-- 				<div class="form-group row" th:field="*{recursos}" th:classappend="${#fields.hasErrors('recursos')} ? has-error"> -->
+<!-- 				<div class="form-group row" th:field="*{capacidade}" th:classappend="${#fields.hasErrors('capacidade')} ? has-error"> -->
 	    			<label for="capacidade" class="col-sm-2 col-form-label right">Capacidade</label>
 	    			<div class="col-sm-2">
 						<input type="number" class="form-control" id="capacidade" name="capacidade"/>
+<!-- 						<input type="number" class="form-control" id="capacidade" th:field="*{capacidade}"/> -->
 					</div>
 				</div>
 
 				<div class="form-group row">
-<!-- 				<div class="form-group row" th:field="*{recursos}" th:classappend="${#fields.hasErrors('recursos')} ? has-error"> -->
+<!-- 				<div class="form-group row" th:field="*{data}" th:classappend="${#fields.hasErrors('data')} ? has-error"> -->
 	    			<label for="data" class="col-sm-2 col-form-label right">Data</label>
 	    			<div class="col-sm-2">
 						<input type="date" class="form-control" id="data" name="data"/>
+<!-- 						<input type="date" class="form-control" id="data" th:field="*{data}"/> -->
 					</div>
 				</div>
 				
 				<div class="form-group row">
-<!-- 				<div class="form-group row" th:field="*{recursos}" th:classappend="${#fields.hasErrors('recursos')} ? has-error"> -->
+<!-- 				<div class="form-group row" th:field="*{precoIngresso}" th:classappend="${#fields.hasErrors('precoIngresso')} ? has-error"> -->
 	    			<label for="precoIngresso" class="col-sm-2 col-form-label right">Preço do ingresso</label>
 	    			<div class="col-sm-2">
 						<input type="number" class="form-control" id="precoIngresso" name="precoIngresso"/>
+<!-- 						<input type="number" class="form-control" id="precoIngresso" th:field="*{precoIngresso}"/> -->
 					</div>
 				</div>
 								
@@ -97,33 +101,44 @@
 				</thead>
 				
 				<tbody>
-<!-- 					<tr> -->
-<!-- 						<td class="text-center">1</td> -->
-<!-- 						<td>Show 1</td> -->
-<!-- 						<td class="text-center">1.000</td> -->
-<!-- 						<td class="text-center">R$ 100,00</td> -->
-<!--  						<td>Casa 1</td> -->
 
 					<tr th:each="evento : ${eventos}">
-					 
 						<td class="text-center" th:text="${evento.id}">1</td>
 						<td th:text="${evento.nome}"></td>
 						<td th:text="${evento.capacidade}"></td>
 						<td th:text="${evento.precoIngresso}"></td>
  						<td th:text="${evento.casa}"></td>
- 						
- 						<td class="text-center icons"><a class="edit" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil-alt"></i></a></td>
- 						<td class="text-center icons"><a class="remove" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fa fa-times"></i></a></td>
+ 						<td class="text-center icons"><a class="edit"><i class="fa fa-pencil-alt"></i></a></td>
+ 						<td class="text-center icons"><a class="remove" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-times"></i></a></td>
 					</tr>
+					
 					<tr>
-<!-- 						<td colspan="5">Nenhum evento foi encontrado</td> -->
 						<td colspan="5" th:if="${#lists.isEmpty(eventos)}">Nenhum evento foi encontrado</td>
 					</tr>
+					
 				</tbody>
 				
 			</table>
 			
 		</div>
+		
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Exclusão de registro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">Tem certeza de que quer excluir esta linha?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Excluir</button>
+      </div>
+    </div>
+  </div>
+</div>
 		
 </section>
 </html>
