@@ -32,13 +32,6 @@ public class CadastroEventoService {
 		eventos.deleteById(id);
 	}
 
-//	public String receber(Long codigo) {
-//		Titulo titulo = titulos.findById(codigo).get();
-//		titulo.setStatus(StatusTitulo.RECEBIDO);
-//		titulos.save(titulo);
-//		return StatusTitulo.RECEBIDO.getDescricao();
-//	}
-
 //	public List<Evento> filtrar(EventoFilter filtro) {
 //		String nome = filtro.getNome() == null ? "" : filtro.getNome();
 //		return eventos.findByNomeContaining(nome);

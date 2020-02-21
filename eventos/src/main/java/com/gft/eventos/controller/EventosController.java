@@ -2,15 +2,18 @@ package com.gft.eventos.controller;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gft.eventos.model.Casa;
 import com.gft.eventos.model.CasaOpcoes;
@@ -18,6 +21,7 @@ import com.gft.eventos.model.Evento;
 import com.gft.eventos.model.GeneroOpcoes;
 import com.gft.eventos.repository.Eventos;
 import com.gft.eventos.repository.filter.EventoFilter;
+import com.gft.eventos.service.CadastroEventoService;
 import com.gft.eventos.repository.Casas;
 import com.gft.eventos.repository.filter.CasaFilter;
 
@@ -34,21 +38,7 @@ public class EventosController {
 	public String home() {
 		return "index";
 	}
-	
-	@RequestMapping("/novo/casa")
-	public ModelAndView novaCasa() {
-		ModelAndView mv = new ModelAndView("CadastroCasa");
-		mv.addObject(new Casa());
-		return mv;
-	}
-	
-	@RequestMapping("/novo/evento")
-	public ModelAndView novaEvento() {
-		ModelAndView mv = new ModelAndView("CadastroEvento");
-		mv.addObject(new Evento());
-		return mv;
-	}
-	
+		
 	@RequestMapping("/casa")
 	public ModelAndView pesquisaCasa() {
 		List<Casa> todasCasas = casas.findAll();
@@ -66,74 +56,63 @@ public class EventosController {
 	}
 	
 	@RequestMapping(value = "/casa", method = RequestMethod.POST)
-	public ModelAndView salvaCasa(@Validated Casa casa, Errors errors) {		
-		ModelAndView mv = new ModelAndView("CadastroCasa");
+	public String salvaCasa(@Validated Casa casa, Errors errors, RedirectAttributes attributes) {	
 		if (errors.hasErrors()) {
-			return mv;
+			return "CadastroCasa";
 		}
-//			return CADASTRO_VIEW;
-//		}
-//		try {
-//			cadastroTituloService.salvar(titulo);
-//			attributes.addFlashAttribute("mensagem", "Título salvo!");
-//			return "redirect:/titulos/novo";
-//		} catch (IllegalArgumentException e) {
-//			errors.rejectValue("dataVencimento", null, "Formato de data inválido");
-//			return CADASTRO_VIEW;
-//		}
 		casas.save(casa);
-		mv.addObject("mensagem", "Casa salva!");
-		return mv;
+		attributes.addFlashAttribute("mensagem", "Casa salva!");
+		return "redirect:/casa";
 	}
 	
 	@RequestMapping(value = "/evento", method = RequestMethod.POST)
-	public ModelAndView salvar(@Validated Evento evento, Errors errors) {		
-		ModelAndView mv = new ModelAndView("CadastroEvento");
+	public String salvar(@Validated Evento evento, Errors errors, RedirectAttributes attributes) {
 		if (errors.hasErrors()) {
-			return mv;
+			return "CadastroEvento";
 		}
-		
-//		return CADASTRO_VIEW;
-//	}
-//	try {
-//		cadastroTituloService.salvar(titulo);
-//		attributes.addFlashAttribute("mensagem", "Título salvo!");
-//		return "redirect:/titulos/novo";
-//	} catch (IllegalArgumentException e) {
-//		errors.rejectValue("dataVencimento", null, "Formato de data inválido");
-//		return CADASTRO_VIEW;
-//	}
-		eventos.save(evento);
-		mv.addObject("mensagem", "Evento salvo!");
-		return mv;
-	}
-	
-//	@RequestMapping(value="excluir/{id}", method = RequestMethod.GET)
-//	public String excluir(@PathVariable Long id, RedirectAttributes attributes) {
-//		cadastroTituloService.excluir(id);
-//		attributes.addFlashAttribute("mensagem", "Evento excluído!");
-//		return "redirect:/evento";
-//	}
-	
-//	public RedirectView salvar(Evento evento) {
-//	eventos.save(evento);//		
-//	return new RedirectView("http://localhost:8080/evento");
-	
-//	@RequestMapping(method = RequestMethod.POST)
-//	public String salvar(@Validated Titulo titulo, Errors errors, RedirectAttributes attributes) {
-//		if (errors.hasErrors()) {
-//			return CADASTRO_VIEW;
-//		}
 //		try {
-//			cadastroTituloService.salvar(titulo);
-//			attributes.addFlashAttribute("mensagem", "Título salvo!");
-//			return "redirect:/titulos/novo";
+//			CadastroEventoService.salvar(evento);
+//			attributes.addFlashAttribute("mensagem", "Evento salvo!");
+//			return "redirect:/evento";
 //		} catch (IllegalArgumentException e) {
 //			errors.rejectValue("dataVencimento", null, "Formato de data inválido");
-//			return CADASTRO_VIEW;
+//			return "CadastroEvento";
 //		}
-//	}
+		eventos.save(evento);
+		attributes.addFlashAttribute("mensagem", "Evento salvo!");
+		return "redirect:/evento";
+	}
 	
+	@RequestMapping("/evento/{id}")
+	public ModelAndView editarEvento(@PathVariable("id") Evento evento) {
+		ModelAndView mv = new ModelAndView("CadastroEvento");
+		mv.addObject(evento);
+		return mv;		
+	}
+	
+	@RequestMapping("/casa/{id}")
+	public ModelAndView editarCasa(@PathVariable("id") Casa casa) {
+		ModelAndView mv = new ModelAndView("CadastroCasa");
+		mv.addObject(casa);
+		return mv;		
+	}
+	
+	@RequestMapping(value="excluir/evento/{id}", method = RequestMethod.GET)
+	public String excluirEvento(@PathVariable Long id, RedirectAttributes attributes) {
+//		CadastroEventoService.excluir(id);
+		eventos.deleteById(id);
+		attributes.addFlashAttribute("mensagem", "Evento excluído!");
+		return "redirect:/evento";
+	}
+	
+	@RequestMapping(value="excluir/casa/{id}", method = RequestMethod.GET)
+	public String excluirCasa(@PathVariable Long id, RedirectAttributes attributes) {
+//		CadastroCasaService.excluir(id);
+		casas.deleteById(id);
+		attributes.addFlashAttribute("mensagem", "Casa excluída!");
+		return "redirect:/casa";
+	}
+		
 	@ModelAttribute("todasCasaOpcoes")
 	public List<CasaOpcoes> todasCasaOpcoes() {
 		return Arrays.asList(CasaOpcoes.values());
@@ -172,37 +151,6 @@ public class EventosController {
 //import com.algaworks.cobranca.service.CadastroTituloService;
 //
 //import groovyjarjarpicocli.CommandLine.Model;
-//
-//@Controller
-//@RequestMapping("/titulos")
-//public class TituloController {
-//	
-//	private static final String CADASTRO_VIEW = "CadastroTitulo";
-//	
-//	@Autowired
-//	private CadastroTituloService cadastroTituloService;  
-//	
-//	@RequestMapping("/novo")
-//	public ModelAndView novo() {
-//		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-//		mv.addObject(new Titulo());
-//		return mv;
-//	}
-//	
-//	@RequestMapping(method = RequestMethod.POST)
-//	public String salvar(@Validated Titulo titulo, Errors errors, RedirectAttributes attributes) {
-//		if (errors.hasErrors()) {
-//			return CADASTRO_VIEW;
-//		}
-//		try {
-//			cadastroTituloService.salvar(titulo);
-//			attributes.addFlashAttribute("mensagem", "Título salvo!");
-//			return "redirect:/titulos/novo";
-//		} catch (IllegalArgumentException e) {
-//			errors.rejectValue("dataVencimento", null, "Formato de data inválido");
-//			return CADASTRO_VIEW;
-//		}
-//	}
 //	
 //	@RequestMapping
 //	public ModelAndView pesquisar(@ModelAttribute("filtro") TituloFilter filtro) {
@@ -211,25 +159,5 @@ public class EventosController {
 //		mv.addObject("titulos", todosTitulos);
 //		return mv;
 //	}
-//	
-//	@RequestMapping("{codigo}")
-//	public ModelAndView edicao(@PathVariable("codigo") Titulo titulo) {
-//		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-//		mv.addObject(titulo);
-//		return mv;		
-//	}
-//	
-//	@RequestMapping(value="excluir/{codigo}", method = RequestMethod.GET)
-//	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
-//		cadastroTituloService.excluir(codigo);
-//		attributes.addFlashAttribute("mensagem", "Título excluído!");
-//		return "redirect:/titulos";
-//	}
-//	
-//	@ModelAttribute("todosStatusTitulo")
-//	public List<StatusTitulo> todosStatusTitulo() {
-//		return Arrays.asList(StatusTitulo.values());
-//	}
-//}
 
 
