@@ -11,9 +11,7 @@
 <h1>Casas de show</h1>
 
 	<form class="form-horizontal" method="POST" action="/casa" th:object="${casa}">
-<!--<form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post"> -->
 <!-- 	  	<input type="hidden" th:field="*{id}"/> -->
-<!-- 		<div layout:include="Mensagem"></div> -->
 		<div class="alert alert-success aviso-central" th:if="${!#strings.isEmpty(mensagem)}">
 			<span th:text="${mensagem}">Casa salva!</span>
 		</div>
@@ -70,11 +68,9 @@
 						<td th:text="${casa.endereco}"></td>
  						<td class="text-center icons">
 							<a class="btn btn-link btn-xs" th:href="@{/casa/{codigo}(codigo=${casa.id})}"><i class="fa fa-pencil-alt"></i></a>
-<!--  					<a class="edit"><i class="fa fa-pencil-alt"></i></a> -->
  						</td>
  						<td class="text-center icons">
- 							<a class="remove" data-toggle="modal" data-target="#exampleModalCenter" th:attr="data-id=${casa.id}, data-nome=${casa.nome}" th:href="@{/casa/excluir/{id}(id=${casa.id})}"><i class="fa fa-times"></i></a>
-<!--  					<a class="remove" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-times"></i></a></td> --> 							
+ 							<a class="remove" data-toggle="modal" data-target="#exampleModalCenter" th:attr="data-id=${casa.id}, data-nome=${casa.nome}" th:href="@{/casa/excluir/{id}(id=${casa.id})}"><i class="fa fa-times"></i></a>					
 					</tr>
 					
 					<tr>

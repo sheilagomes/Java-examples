@@ -110,11 +110,9 @@
  						<td th:text="${evento.casa}"></td>
  						<td class="text-center icons">
 						<a class="btn btn-link btn-xs" th:href="@{/evento/{codigo}(codigo=${evento.id})}"><i class="fa fa-pencil-alt"></i></a>
-<!-- 					<a class="edit"><i class="fa fa-pencil-alt"></i></a> -->
  						</td>
  						<td class="text-center icons">
- 							<a class="remove" data-toggle="modal" data-target="#exampleModalCenter" th:attr="data-id=${evento.id}, data-nome=${evento.nome}" th:href="@{/evento/excluir/{id}(id=${evento.id})}"><i class="fa fa-times"></i></a>
-<!--  					<a class="remove" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-times"></i></a> --> 							
+ 							<a class="remove" data-toggle="modal" data-target="#exampleModalCenter" th:attr="data-id=${evento.id}, data-nome=${evento.nome}" th:href="@{/evento/excluir/{id}(id=${evento.id})}"><i class="fa fa-times"></i></a>			
  						</td>
 					</tr>
 					
