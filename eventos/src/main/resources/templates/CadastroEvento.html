@@ -10,8 +10,8 @@
 <section layout:fragment="conteudo">
 <h1>Evento</h1>
 
-	<form class="form-horizontal" method="POST" action="/evento" th:object="${eventos}">
-	
+	<form class="form-horizontal" method="POST" action="/evento" th:object="${evento}">
+<!-- 	  	<input type="hidden" th:field="*{id}"/> -->
 		<div class="alert alert-success aviso-central" th:if="${!#strings.isEmpty(mensagem)}">
 			<span th:text="${mensagem}">Evento salvo!</span>
 		</div>
@@ -28,7 +28,7 @@
 	    			<label for="nome" class="col-sm-2 col-form-label right">Evento</label>
 	    			<div class="col-sm-4">
 						<input type="text" class="form-control" id="nome" name="nome"/>
-<!-- 						<input type="text" class="form-control" id="nome" th:field="*{nome}"/> -->
+<!-- 						<input type="text" class="form-control" id="nome" name="nome" th:field="*{nome}"/> -->
 					</div>
 				</div>
 				
@@ -109,12 +109,12 @@
 						<td th:text="${evento.precoIngresso}"></td>
  						<td th:text="${evento.casa}"></td>
  						<td class="text-center icons">
- 							<a class="edit"><i class="fa fa-pencil-alt"></i></a>
-<!--  							<a class="btn btn-link btn-xs" th:href="@{/evento/{codigo}(codigo=${casa.id})}"><i class="fa fa-pencil-alt"></i></a> -->
+						<a class="btn btn-link btn-xs" th:href="@{/evento/{codigo}(codigo=${evento.id})}"><i class="fa fa-pencil-alt"></i></a>
+<!-- 					<a class="edit"><i class="fa fa-pencil-alt"></i></a> -->
  						</td>
  						<td class="text-center icons">
-<!--  					<a class="remove" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-times"></i></a> -->
  							<a class="remove" data-toggle="modal" data-target="#exampleModalCenter" th:attr="data-id=${evento.id}, data-nome=${evento.nome}" th:href="@{/evento/excluir/{id}(id=${evento.id})}"><i class="fa fa-times"></i></a>
+<!--  					<a class="remove" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-times"></i></a> --> 							
  						</td>
 					</tr>
 					

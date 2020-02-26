@@ -24,7 +24,7 @@ input {
 	padding: 0 2em;
 }
 .card-item {
-	padding: 0 2em;
+	max-width: 540px;
 }
 .card-item:first-child {
 	padding: 0;

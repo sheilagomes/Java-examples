@@ -66,7 +66,7 @@ public class EventosController {
 	}
 	
 	@RequestMapping(value = "/evento", method = RequestMethod.POST)
-	public String salvar(@Validated Evento evento, Errors errors, RedirectAttributes attributes) {
+	public String salvaEvento(@Validated Evento evento, Errors errors, RedirectAttributes attributes) {
 		if (errors.hasErrors()) {
 			return "CadastroEvento";
 		}
@@ -85,6 +85,7 @@ public class EventosController {
 	
 	@RequestMapping("/evento/{id}")
 	public ModelAndView editarEvento(@PathVariable("id") Evento evento) {
+//	public ModelAndView editarEvento(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("CadastroEvento");
 		mv.addObject(evento);
 		return mv;		
@@ -97,7 +98,7 @@ public class EventosController {
 		return mv;		
 	}
 	
-	@RequestMapping(value="excluir/evento/{id}", method = RequestMethod.GET)
+	@RequestMapping(value="evento/excluir/{id}", method = RequestMethod.GET)
 	public String excluirEvento(@PathVariable Long id, RedirectAttributes attributes) {
 //		CadastroEventoService.excluir(id);
 		eventos.deleteById(id);
@@ -105,7 +106,7 @@ public class EventosController {
 		return "redirect:/evento";
 	}
 	
-	@RequestMapping(value="excluir/casa/{id}", method = RequestMethod.GET)
+	@RequestMapping(value="casa/excluir/{id}", method = RequestMethod.GET)
 	public String excluirCasa(@PathVariable Long id, RedirectAttributes attributes) {
 //		CadastroCasaService.excluir(id);
 		casas.deleteById(id);
