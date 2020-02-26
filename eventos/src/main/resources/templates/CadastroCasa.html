@@ -11,7 +11,7 @@
 <h1>Casas de show</h1>
 
 	<form class="form-horizontal" method="POST" action="/casa" th:object="${casa}">
-<!-- 	  	<input type="hidden" th:field="*{id}"/> -->
+	  	<input type="hidden" th:field="*{id}"/>
 		<div class="alert alert-success aviso-central" th:if="${!#strings.isEmpty(mensagem)}">
 			<span th:text="${mensagem}">Casa salva!</span>
 		</div>
@@ -28,7 +28,7 @@
 <!--  				<div class="form-group row" th:field="*{nome}" th:classappend="${#fields.hasErrors('nome')} ? has-error"> -->
 	    			<label for="nome" class="col-sm-2 col-form-label right">Casa de show</label>
 	    			<div class="col-sm-4">
-						<input type="text" class="form-control" id="nome" name="nome"/>
+						<input type="text" class="form-control" id="nome" name="nome" th:field="*{nome}"/>
 					</div>
 				</div>
 				
@@ -36,7 +36,7 @@
 <!-- 				<div class="form-group row" th:field="*{endereco}" th:classappend="${#fields.hasErrors('endereco')} ? has-error"> -->
 	    			<label for="endereco" class="col-sm-2 col-form-label right">Endereço</label>
 	    			<div class="col-sm-6">
-						<input type="text" class="form-control" id="endereco" name="endereco"/>
+						<input type="text" class="form-control" id="endereco" name="endereco" th:field="*{endereco}"/>
 					</div>
 				</div>
 				

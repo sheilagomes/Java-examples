@@ -43,6 +43,8 @@ public class EventosController {
 	public ModelAndView pesquisaCasa() {
 		List<Casa> todasCasas = casas.findAll();
 		ModelAndView mv = new ModelAndView("CadastroCasa");
+		Casa casa = new Casa();
+		mv.addObject(casa);
 		mv.addObject("casas", todasCasas);
 		return mv;
 	}
@@ -51,6 +53,8 @@ public class EventosController {
 	public ModelAndView pesquisar() {
 		List<Evento> todosEventos = eventos.findAll();
 		ModelAndView mv = new ModelAndView("CadastroEvento");
+		Evento evento = new Evento();
+		mv.addObject(evento);
 		mv.addObject("eventos", todosEventos);
 		return mv;
 	}
@@ -85,7 +89,6 @@ public class EventosController {
 	
 	@RequestMapping("/evento/{id}")
 	public ModelAndView editarEvento(@PathVariable("id") Evento evento) {
-//	public ModelAndView editarEvento(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("CadastroEvento");
 		mv.addObject(evento);
 		return mv;		
