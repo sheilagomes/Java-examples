@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gft.eventos.model.Casa;
-import com.gft.eventos.model.CasaOpcoes;
 import com.gft.eventos.model.Evento;
 import com.gft.eventos.model.GeneroOpcoes;
 import com.gft.eventos.repository.Eventos;
@@ -38,35 +37,7 @@ public class EventosController {
 	public String home() {
 		return "index";
 	}
-	
-//	@GetMapping("/evento")
-//	public String listaCasa(Casa casa,Evento evento){
-//	    casamodel.addAttribute("casas",eventos.findAll());
-//	    return "listaCasa";
-//	}
-	
-	@RequestMapping("/casa")
-	public ModelAndView pesquisaCasa() {
-		List<Casa> todasCasas = casas.findAll();
-		ModelAndView mv = new ModelAndView("CadastroCasa");
-		Casa casa = new Casa();
-		mv.addObject(casa);
-		mv.addObject("casas", todasCasas);
-		return mv;
-	}
-	
-	@RequestMapping("/evento")
-	public ModelAndView pesquisar() {
-		List<Evento> todosEventos = eventos.findAll();
-		ModelAndView mv = new ModelAndView("CadastroEvento");
-		Evento evento = new Evento();
-		mv.addObject(evento);
-		mv.addObject("eventos", todosEventos);
-		List<Casa> todasCasas = casas.findAll();
-		mv.addObject("casaShow", todasCasas);
-		return mv;
-	}
-	
+		
 	@RequestMapping(value = "/casa", method = RequestMethod.POST)
 	public String salvaCasa(@Validated Casa casa, Errors errors, RedirectAttributes attributes) {	
 		if (errors.hasErrors()) {
@@ -82,14 +53,6 @@ public class EventosController {
 		if (errors.hasErrors()) {
 			return "CadastroEvento";
 		}
-//		try {
-//			CadastroEventoService.salvar(evento);
-//			attributes.addFlashAttribute("mensagem", "Evento salvo!");
-//			return "redirect:/evento";
-//		} catch (IllegalArgumentException e) {
-//			errors.rejectValue("dataVencimento", null, "Formato de data inválido");
-//			return "CadastroEvento";
-//		}
 		eventos.save(evento);
 		attributes.addFlashAttribute("mensagem", "Evento salvo!");
 		return "redirect:/evento";
@@ -97,8 +60,10 @@ public class EventosController {
 	
 	@RequestMapping("/evento/{id}")
 	public ModelAndView editarEvento(@PathVariable("id") Evento evento) {
+		List<Casa> todasCasas = casas.findAll();
 		ModelAndView mv = new ModelAndView("CadastroEvento");
 		mv.addObject(evento);
+		mv.addObject("casaShow", todasCasas);
 		return mv;		
 	}
 	
@@ -124,10 +89,27 @@ public class EventosController {
 		attributes.addFlashAttribute("mensagem", "Casa excluída!");
 		return "redirect:/casa";
 	}
-		
-	@ModelAttribute("todasCasaOpcoes")
-	public List<CasaOpcoes> todasCasaOpcoes() {
-		return Arrays.asList(CasaOpcoes.values());
+	
+	@RequestMapping("/casa")
+	public ModelAndView pesquisaCasa() {
+		List<Casa> todasCasas = casas.findAll();
+		ModelAndView mv = new ModelAndView("CadastroCasa");
+		Casa casa = new Casa();
+		mv.addObject(casa);
+		mv.addObject("casas", todasCasas);
+		return mv;
+	}
+	
+	@RequestMapping("/evento")
+	public ModelAndView pesquisar() {
+		List<Evento> todosEventos = eventos.findAll();
+		List<Casa> todasCasas = casas.findAll();
+		ModelAndView mv = new ModelAndView("CadastroEvento");
+		Evento evento = new Evento();
+		mv.addObject(evento);
+		mv.addObject("eventos", todosEventos);
+		mv.addObject("casaShow", todasCasas);
+		return mv;
 	}
 	
 	@ModelAttribute("todosGeneroOpcoes")
@@ -172,4 +154,11 @@ public class EventosController {
 //		return mv;
 //	}
 
-
+//try {
+//CadastroEventoService.salvar(evento);
+//attributes.addFlashAttribute("mensagem", "Evento salvo!");
+//return "redirect:/evento";
+//} catch (IllegalArgumentException e) {
+//errors.rejectValue("dataVencimento", null, "Formato de data inválido");
+//return "CadastroEvento";
+//}

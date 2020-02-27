@@ -25,34 +25,50 @@ public class Casa {
 	
 	@OneToMany(mappedBy="casa", cascade = CascadeType.REMOVE, orphanRemoval = true)
 	private List<Evento> evento;
-	
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public String getEndereco() {
 		return endereco;
 	}
+
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+
+	public List<Evento> getEvento() {
+		return evento;
+	}
+
+	public void setEvento(List<Evento> evento) {
+		this.evento = evento;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
+		result = prime * result + ((evento == null) ? 0 : evento.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -66,6 +82,11 @@ public class Casa {
 			if (other.endereco != null)
 				return false;
 		} else if (!endereco.equals(other.endereco))
+			return false;
+		if (evento == null) {
+			if (other.evento != null)
+				return false;
+		} else if (!evento.equals(other.evento))
 			return false;
 		if (id != other.id)
 			return false;
