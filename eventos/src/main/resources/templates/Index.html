@@ -22,15 +22,19 @@
 	    </div>
 	    <div class="col-md-8">
 	      <div class="card-body">
-	      <h5 class="card-title" th:text="${evento.nome}"></h5>
+			<h5 class="card-title" th:text="${evento.nome}"></h5>
 <!-- 	        <h5 class="card-title" th:text="${evento.nome}">Show da Letrux</h5> -->
-	        <h6 class="card-text">Preço do ingresso: R$ <span th:text="${evento.precoIngresso}"></span></h6>
+			<h6 class="card-text" th:text="|Preço do ingresso: R$ ${evento.precoIngresso}|"></h6>
+<!-- 	        <h6 class="card-text">Preço do ingresso: R$ <span th:text="${evento.precoIngresso}"></span></h6> -->
 <!-- 	        <h6 class="card-text">Preço do ingresso: R$ 250.00</h6> -->
-			<h6 class="card-text">Data: <span th:text="${evento.data}"></span></h6>
+			<h6 class="card-text" th:text="|Data: ${evento.data}|"></h6>
+<!-- 			<h6 class="card-text" Data: <span th:text="${evento.data}"></span></h6> -->
 <!-- 	        <h6 class="card-text">Data: 10/03/2020</h6> -->
-			<h6 class="card-text">Local: <span th:text="${evento.casa.nome}"></span></h6>
+			<h6 class="card-text" th:text="|Local: ${evento.casa.nome}|"></h6>
+<!-- 			<h6 class="card-text">Local: <span th:text="${evento.casa.nome}"></span></h6> -->
 <!-- 	        <h6 class="card-text">Local: Amancio Moro</h6> -->
-			<h6 class="card-text">Ingressos restantes: <span th:text="${evento.capacidade}"></span></h6>
+			<h6 class="card-text" th:text="|Ingressos restantes: ${evento.capacidade}|"></h6>
+<!-- 			<h6 class="card-text">Ingressos restantes: <span th:text="${evento.capacidade}"></span></h6> -->
 <!-- 	        <h6 class="card-text">Ingressos restantes: 5.000</h6> -->
 	        <button type="submit" class="btn btn-primary">Comprar</button>
 	      </div>

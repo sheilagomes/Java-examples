@@ -10,7 +10,6 @@ import com.gft.eventos.model.Evento;
 import com.gft.eventos.repository.Eventos;
 import com.gft.eventos.repository.filter.EventoFilter;
 
-import com.gft.eventos.model.CasaOpcoes;
 import com.gft.eventos.model.GeneroOpcoes;
 import com.gft.eventos.repository.filter.EventoFilter;
 

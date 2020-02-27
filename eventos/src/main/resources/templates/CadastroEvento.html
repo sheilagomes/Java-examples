@@ -17,7 +17,7 @@
 		</div>
 		
 		<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
-			<div th:each="detailedError : ${#fields.errors())">
+			<div th:each="detailedError : ${#fields.errors()}">
 				<span th:text="${detailedError}"></span>
 			</div>
 		</div>
@@ -102,7 +102,6 @@
 						<td class="text-center" th:text="${evento.capacidade}"></td>
 						<td class="text-center" th:text="${evento.precoIngresso}"></td>
 						<td th:text="${evento.casa.nome}"></td>
-<!--  						<td th:each="casas : ${casaShow}"><span th:if="${evento.casa_id == casas.id}" th:text="${casas.nome}"></span></td>  -->
  						<td class="text-center icons">
 							<a class="btn btn-link btn-xs" th:href="@{/evento/{codigo}(codigo=${evento.id})}"><i class="fa fa-pencil-alt"></i></a>
  						</td>
@@ -123,6 +122,9 @@
 		
 <div class="modal fade" id="ModalExclusao" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
+<!--   <form action="/evento" method="POST"> -->
+<!-- <input type="hidden" name="_method" value="DELETE"/> -->
+  
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Exclusão de registro</h5>
@@ -136,6 +138,7 @@
         <button type="button" class="btn btn-primary">Excluir</button>
       </div>
     </div>
+<!--     </form> -->
   </div>
 </div>
 		

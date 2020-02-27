@@ -16,27 +16,24 @@
 			<span th:text="${mensagem}">Casa salva!</span>
 		</div>
 		
-<!-- 		<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}"> -->
-<!-- 			<div th:each="detailedError : ${#fields.detailedErrors())"> -->
-<!-- 				<span th:text="${detailedError.message}"></span> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
+		<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+			<div th:each="detailedError : ${#fields.errors()}">
+				<span th:text="${detailedError}"></span>
+			</div>
+		</div>
 
   			<div class="panel-body">
-  			
-				<div class="form-group row">
-<!--  				<div class="form-group row" th:field="*{nome}" th:classappend="${#fields.hasErrors('nome')} ? has-error"> -->
+ 				<div class="form-group row" th:field="*{nome}" th:classappend="${#fields.hasErrors('nome')} ? has-error">
 	    			<label for="nome" class="col-sm-2 col-form-label right">Casa de show</label>
 	    			<div class="col-sm-4">
-						<input type="text" class="form-control" id="nome" name="nome" th:field="*{nome}"/>
+						<input type="text" class="form-control" id="nome" th:field="*{nome}"/>
 					</div>
 				</div>
 				
-				<div class="form-group row">
-<!-- 				<div class="form-group row" th:field="*{endereco}" th:classappend="${#fields.hasErrors('endereco')} ? has-error"> -->
+				<div class="form-group row" th:field="*{endereco}" th:classappend="${#fields.hasErrors('endereco')} ? has-error">
 	    			<label for="endereco" class="col-sm-2 col-form-label right">Endereço</label>
 	    			<div class="col-sm-6">
-						<input type="text" class="form-control" id="endereco" name="endereco" th:field="*{endereco}"/>
+						<input type="text" class="form-control" id="endereco" th:field="*{endereco}"/>
 					</div>
 				</div>
 				
@@ -50,7 +47,9 @@
 	</form>
 	
 		<div class="panel-body">
+		
 			<table class="table table-bordered table-striped">
+			
 				<thead>
 					<tr> 
 						<th class="text-center col-md-1">#</th>
@@ -70,9 +69,8 @@
 							<a class="btn btn-link btn-xs" th:href="@{/casa/{codigo}(codigo=${casa.id})}"><i class="fa fa-pencil-alt"></i></a>
  						</td>
  						<td class="text-center icons">
- 							<a class="remove" data-toggle="modal" data-target="#exampleModalCenter" th:attr="data-id=${casa.id}, data-nome=${casa.nome}" th:href="@{/casa/excluir/{id}(id=${casa.id})}"><i class="fa fa-times"></i></a>					
-					</tr>
-					
+ 							<a class="remove" data-toggle="modal" data-target="#ModalExclusao" th:attr="data-id=${casa.id}, data-nome=${casa.nome}" th:href="@{/casa/excluir/{id}(id=${casa.id})}"><i class="fa fa-times"></i></a>					
+						</td>
 					<tr>
 						<td colspan="5" th:if="${#lists.isEmpty(casas)}">Nenhuma casa foi encontrada</td>
 					</tr>
@@ -81,23 +79,25 @@
 			</table>
 		</div>
 
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="ModalExclusao" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
+<!--     <form action="/casa" method="POST"> -->
+<!-- 	<input type="hidden" name="_method" value="DELETE"/> -->
+
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Exclusão</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Exclusão de registro</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        Tem certeza de que quer excluir esta linha?
-      </div>
+      <div class="modal-body">Tem certeza de que quer excluir esta linha?</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-primary">Excluir</button>
       </div>
     </div>
+<!--     </form> -->
   </div>
 </div>
 </section>

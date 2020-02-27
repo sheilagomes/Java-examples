@@ -7,7 +7,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.gft.eventos.model.Casa;
-import com.gft.eventos.model.CasaOpcoes;
 import com.gft.eventos.repository.Casas;
 import com.gft.eventos.repository.filter.CasaFilter;
 

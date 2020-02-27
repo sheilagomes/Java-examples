@@ -37,6 +37,28 @@ public class EventosController {
 	public String home() {
 		return "index";
 	}
+	
+	@RequestMapping("/casa")
+	public ModelAndView pesquisaCasa() {
+		List<Casa> todasCasas = casas.findAll();
+		ModelAndView mv = new ModelAndView("CadastroCasa");
+		Casa casa = new Casa();
+		mv.addObject(casa);
+		mv.addObject("casas", todasCasas);
+		return mv;
+	}
+	
+	@RequestMapping("/evento")
+	public ModelAndView pesquisar() {
+		List<Evento> todosEventos = eventos.findAll();
+		List<Casa> todasCasas = casas.findAll();
+		ModelAndView mv = new ModelAndView("CadastroEvento");
+		Evento evento = new Evento();
+		mv.addObject(evento);
+		mv.addObject("eventos", todosEventos);
+		mv.addObject("casaShow", todasCasas);
+		return mv;
+	}
 		
 	@RequestMapping(value = "/casa", method = RequestMethod.POST)
 	public String salvaCasa(@Validated Casa casa, Errors errors, RedirectAttributes attributes) {	
@@ -88,28 +110,6 @@ public class EventosController {
 		casas.deleteById(id);
 		attributes.addFlashAttribute("mensagem", "Casa excluída!");
 		return "redirect:/casa";
-	}
-	
-	@RequestMapping("/casa")
-	public ModelAndView pesquisaCasa() {
-		List<Casa> todasCasas = casas.findAll();
-		ModelAndView mv = new ModelAndView("CadastroCasa");
-		Casa casa = new Casa();
-		mv.addObject(casa);
-		mv.addObject("casas", todasCasas);
-		return mv;
-	}
-	
-	@RequestMapping("/evento")
-	public ModelAndView pesquisar() {
-		List<Evento> todosEventos = eventos.findAll();
-		List<Casa> todasCasas = casas.findAll();
-		ModelAndView mv = new ModelAndView("CadastroEvento");
-		Evento evento = new Evento();
-		mv.addObject(evento);
-		mv.addObject("eventos", todosEventos);
-		mv.addObject("casaShow", todasCasas);
-		return mv;
 	}
 	
 	@ModelAttribute("todosGeneroOpcoes")

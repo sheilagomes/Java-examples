@@ -23,7 +23,8 @@ public class Casa {
 	@NotEmpty(message="O endereço é obrigatório")
 	private String endereco;
 	
-	@OneToMany(mappedBy="casa", cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@OneToMany(mappedBy="casa")
+//	@OneToMany(mappedBy="casa", cascade = CascadeType.REMOVE, orphanRemoval = true)
 	private List<Evento> evento;
 
 	public long getId() {
