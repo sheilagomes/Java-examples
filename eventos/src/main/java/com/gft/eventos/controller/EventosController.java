@@ -38,7 +38,13 @@ public class EventosController {
 	public String home() {
 		return "index";
 	}
-		
+	
+//	@GetMapping("/evento")
+//	public String listaCasa(Casa casa,Evento evento){
+//	    casamodel.addAttribute("casas",eventos.findAll());
+//	    return "listaCasa";
+//	}
+	
 	@RequestMapping("/casa")
 	public ModelAndView pesquisaCasa() {
 		List<Casa> todasCasas = casas.findAll();
@@ -56,6 +62,8 @@ public class EventosController {
 		Evento evento = new Evento();
 		mv.addObject(evento);
 		mv.addObject("eventos", todosEventos);
+		List<Casa> todasCasas = casas.findAll();
+		mv.addObject("casaShow", todasCasas);
 		return mv;
 	}
 	

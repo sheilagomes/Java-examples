@@ -1,9 +1,13 @@
 package com.gft.eventos.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -18,6 +22,9 @@ public class Casa {
 	
 	@NotEmpty(message="O endereço é obrigatório")
 	private String endereco;
+	
+	@OneToMany(mappedBy="casa", cascade = CascadeType.REMOVE, orphanRemoval = true)
+	private List<Evento> evento;
 	
 	public long getId() {
 		return id;

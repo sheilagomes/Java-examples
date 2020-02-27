@@ -23,7 +23,6 @@
 		</div>
 
   			<div class="panel-body">
-<!-- 				<div class="form-group row"> -->
 				<div class="form-group row" th:field="*{nome}" th:classappend="${#fields.hasErrors('nome')} ? has-error">
 	    			<label for="nome" class="col-sm-2 col-form-label right">Evento</label>
 	    			<div class="col-sm-4">
@@ -31,7 +30,6 @@
 					</div>
 				</div>
 				
-<!-- 				<div class="form-group row"> -->
 				<div class="form-group row" th:field="*{capacidade}" th:classappend="${#fields.hasErrors('capacidade')} ? has-error">
 	    			<label for="capacidade" class="col-sm-2 col-form-label right">Capacidade</label>
 	    			<div class="col-sm-2">
@@ -39,7 +37,6 @@
 					</div>
 				</div>
 
-<!-- 				<div class="form-group row"> -->
 				<div class="form-group row" th:field="*{data}" th:classappend="${#fields.hasErrors('data')} ? has-error">
 	    			<label for="data" class="col-sm-2 col-form-label right">Data</label>
 	    			<div class="col-sm-2">
@@ -47,7 +44,6 @@
 					</div>
 				</div>
 				
-<!-- 				<div class="form-group row"> -->
 				<div class="form-group row" th:field="*{precoIngresso}" th:classappend="${#fields.hasErrors('precoIngresso')} ? has-error">
 	    			<label for="precoIngresso" class="col-sm-2 col-form-label right">Preço do ingresso</label>
 	    			<div class="col-sm-2">
@@ -58,17 +54,16 @@
 				<div class="form-group"> 
 					<div class="col-sm-2 offset-sm-2 col-sm-2">
 						<select class="form-control" name="casa" th:field="*{casa}">
-  							<option th:each="casa : ${todasCasaOpcoes}" th:value="${casa}" th:text="#{${casa}}"></option>
+							<option value="">Selecionar casa de show</option>
+  							<option th:each="casas : ${casaShow}" th:value="${casas.id}" th:text="${casas.nome}"></option>
 						</select>
-<!-- 						<select class="form-control" name="casa"> -->
-<!-- 							<option th:each="casa : ${todasCasaOpcoes}" th:value="${casa}" th:text="${casa.nome}" th:field="*{casa}"></option> -->
-<!-- 						</select> -->
 					</div>
 				</div>
 
 				<div class="form-group"> 
 					<div class="col-sm-2 offset-sm-2 col-sm-2">
 						<select class="form-control" name="genero">
+							<option value="">Selecionar gênero musical</option>
 							<option th:each="genero : ${todosGeneroOpcoes}" th:value="${genero}" th:text="${genero.estilo}" th:field="*{genero}"></option>
 						</select>
 					</div>
@@ -104,8 +99,8 @@
 					<tr th:each="evento : ${eventos}">
 						<td class="text-center" th:text="${evento.id}">1</td>
 						<td th:text="${evento.nome}"></td>
-						<td th:text="${evento.capacidade}"></td>
-						<td th:text="${evento.precoIngresso}"></td>
+						<td class="text-center" th:text="${evento.capacidade}"></td>
+						<td class="text-center" th:text="${evento.precoIngresso}"></td>
  						<td th:text="${evento.casa}"></td>
  						<td class="text-center icons">
 							<a class="btn btn-link btn-xs" th:href="@{/evento/{codigo}(codigo=${evento.id})}"><i class="fa fa-pencil-alt"></i></a>

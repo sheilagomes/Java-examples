@@ -50,12 +50,13 @@ public class Evento {
 //	@ManyToOne
 //	private Casa casa;
 //	@JoinColumn
-	@Enumerated(EnumType.STRING)
-	private CasaOpcoes casa;
+//	@Enumerated(EnumType.STRING)
+//	private CasaOpcoes casa;
 	
-	@Enumerated(EnumType.STRING)
-	private GeneroOpcoes genero;
-
+	@ManyToOne
+	@JoinColumn(name="casa_id")
+	private Casa casa;
+	
 	public long getId() {
 		return id;
 	}
@@ -96,11 +97,11 @@ public class Evento {
 		this.precoIngresso = precoIngresso;
 	}
 
-	public CasaOpcoes getCasa() {
+	public Casa getCasa() {
 		return casa;
 	}
 
-	public void setCasa(CasaOpcoes casa) {
+	public void setCasa(Casa casa) {
 		this.casa = casa;
 	}
 
@@ -111,6 +112,9 @@ public class Evento {
 	public void setGenero(GeneroOpcoes genero) {
 		this.genero = genero;
 	}
+
+	@Enumerated(EnumType.STRING)
+	private GeneroOpcoes genero;
 
 	@Override
 	public int hashCode() {
@@ -137,7 +141,10 @@ public class Evento {
 		Evento other = (Evento) obj;
 		if (capacidade != other.capacidade)
 			return false;
-		if (casa != other.casa)
+		if (casa == null) {
+			if (other.casa != null)
+				return false;
+		} else if (!casa.equals(other.casa))
 			return false;
 		if (data == null) {
 			if (other.data != null)
@@ -159,5 +166,5 @@ public class Evento {
 		} else if (!precoIngresso.equals(other.precoIngresso))
 			return false;
 		return true;
-	}
+	}	
 }
