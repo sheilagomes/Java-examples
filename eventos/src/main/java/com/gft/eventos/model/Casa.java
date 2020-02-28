@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
+import org.hibernate.annotations.Cascade;
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Entity
 public class Casa {
 	
@@ -23,7 +26,7 @@ public class Casa {
 	@NotEmpty(message="O endereço é obrigatório")
 	private String endereco;
 	
-	@OneToMany(mappedBy="casa", cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@OneToMany(mappedBy="casa", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Evento> evento;
 
 	public long getId() {

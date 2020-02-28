@@ -44,7 +44,7 @@ public class Evento {
 	@NotNull(message="O valor é obrigatório")
 	@DecimalMin(value = "0.00", message = "O valor não pode ser menor que R$ 0,00")
 	@DecimalMax(value = "999999.99", message = "O valor não pode ser maior que R$ 999.999,99")
-	@NumberFormat(pattern = "#,##0.00")
+//	@NumberFormat(pattern = "#,##0.00")
 	private BigDecimal precoIngresso;
 	
 	@ManyToOne

@@ -12,15 +12,14 @@
 
 	<h1>Gerenciador de eventos</h1>
 
-  	<div class="alert alert-info text-center" th:if="${#lists.isEmpty(casaShow)}">
+  	<div class="alert alert-info text-center" th:if="${#lists.isEmpty(eventos)}">
 		<h4>Não existem shows cadastrados!</h4>
 	</div>
 		
 	<div class="cards-eventos">
 
-		<div class="card mb-3 card-item" th:each="evento : ${eventos}"
-			style="max-width: 540px;">
-			<div class="row no-gutters">
+		<div class="card mb-3 card-item" th:each="evento : ${eventos}">
+			<div class="row">
 				<div class="col-md-4">
 					<img class="card-img"
 						th:attr="src=@{/img/{foto}.jpg(foto=${evento.nome})}">
@@ -34,7 +33,7 @@
 						<h6 class="card-text" th:text="|Local: ${evento.casa.nome}|"></h6>
 						<h6 class="card-text"
 							th:text="|Ingressos restantes: ${evento.capacidade}|"></h6>
-						<button type="submit" class="btn btn-primary">Comprar</button>
+						<button type="submit" class="btn btn-primary btn-card">Comprar</button>
 					</div>
 				</div>
 			</div>

@@ -26,21 +26,21 @@ input {
 }
 .card-item {
 	width: 540px;
+	margin: 20px 0;
+	border: 1px solid gray;
+	border-radius: 2%;
 }
 .card-item:first-child {
 	padding: 0;
 }
 .card-img {
-  width: 115px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
-/* .panel-default { */
-/* 	margin: 0 10px; */
-/* } */
-/* .panel-title { */
-/* 	padding: 20px 0 20px 10px; */
-/* } */
+.btn-card {
+	margin-top: 15px;
+}
 .icons {
 	font-weight: 900;
 }
