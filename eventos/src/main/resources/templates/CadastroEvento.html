@@ -13,15 +13,15 @@
 	<form class="form-horizontal" method="POST" action="/evento" th:object="${evento}">
 	  	<input type="hidden" th:field="*{id}" />
 	  	
-	  	<div class="alert alert-info text-center" th:if="${#lists.isEmpty(casaShow)}">
+	  	<div class="alert alert-info text-center big-warning" th:if="${#lists.isEmpty(casaShow)}">
 			<h4>Para cadastrar um evento, é preciso ter pelo menos uma casa de show cadastrada!</h4>
 		</div>
 	
-		<div class="alert alert-success aviso-central" th:if="${!#strings.isEmpty(mensagem)}">
+		<div class="alert alert-success text-center" th:if="${!#strings.isEmpty(mensagem)}">
 			<span th:text="${mensagem}">Evento salvo!</span>
 		</div>
 		
-		<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+		<div class="alert alert-danger text-center" th:if="${#fields.hasAnyErrors()}">
 			<div th:each="detailedError : ${#fields.errors()}">
 				<span th:text="${detailedError}"></span>
 			</div>

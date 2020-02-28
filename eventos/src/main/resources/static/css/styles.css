@@ -44,6 +44,9 @@ input {
 .icons {
 	font-weight: 900;
 }
-.aviso-central {
-	text-align: center;
+.big-warning {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 300px;
 }
