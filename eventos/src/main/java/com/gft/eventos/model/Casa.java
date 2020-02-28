@@ -26,7 +26,7 @@ public class Casa {
 	@NotEmpty(message="O endereço é obrigatório")
 	private String endereco;
 	
-	@OneToMany(mappedBy="casa", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy="casa", cascade = CascadeType.ALL)
 	private List<Evento> evento;
 
 	public long getId() {
