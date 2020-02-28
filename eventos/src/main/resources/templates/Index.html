@@ -1,186 +1,44 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:th="http://www.thymeleaf.org"
-		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-		layout:decorator="LayoutPadrao"/>
-		
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao" />
+
 <head>
-	<title>Gerenciador de eventos</title>
+<title>Gerenciador de eventos</title>
 </head>
 
 <section layout:fragment="conteudo">
 
-<h1>Gerenciador de eventos</h1>
+	<h1>Gerenciador de eventos</h1>
 
-<div class="cards-eventos" th:each="evento : ${eventos}">
-
-	<div class="card mb-3 card-item" style="max-width: 540px;">
-	  <div class="row no-gutters">
-	    <div class="col-md-4">
-	      <img src="/img/Letrux.jpg" class="card-img" alt="Letrux">
-<!-- 	 Pra substituir o nome da imagem pelo nome do show?   th:text="${evento.capacidade}" -->
-	    </div>
-	    <div class="col-md-8">
-	      <div class="card-body">
-			<h5 class="card-title" th:text="${evento.nome}"></h5>
-<!-- 	        <h5 class="card-title" th:text="${evento.nome}">Show da Letrux</h5> -->
-			<h6 class="card-text" th:text="|Preço do ingresso: R$ ${evento.precoIngresso}|"></h6>
-<!-- 	        <h6 class="card-text">Preço do ingresso: R$ <span th:text="${evento.precoIngresso}"></span></h6> -->
-<!-- 	        <h6 class="card-text">Preço do ingresso: R$ 250.00</h6> -->
-			<h6 class="card-text" th:text="|Data: ${evento.data}|"></h6>
-<!-- 			<h6 class="card-text" Data: <span th:text="${evento.data}"></span></h6> -->
-<!-- 	        <h6 class="card-text">Data: 10/03/2020</h6> -->
-			<h6 class="card-text" th:text="|Local: ${evento.casa.nome}|"></h6>
-<!-- 			<h6 class="card-text">Local: <span th:text="${evento.casa.nome}"></span></h6> -->
-<!-- 	        <h6 class="card-text">Local: Amancio Moro</h6> -->
-			<h6 class="card-text" th:text="|Ingressos restantes: ${evento.capacidade}|"></h6>
-<!-- 			<h6 class="card-text">Ingressos restantes: <span th:text="${evento.capacidade}"></span></h6> -->
-<!-- 	        <h6 class="card-text">Ingressos restantes: 5.000</h6> -->
-	        <button type="submit" class="btn btn-primary">Comprar</button>
-	      </div>
-	    </div>
-	  </div>
+  	<div class="alert alert-info text-center" th:if="${#lists.isEmpty(casaShow)}">
+		<h4>Não existem shows cadastrados!</h4>
 	</div>
-	
-<!-- 	<div class="card mb-3" style="max-width: 540px;"> -->
-<!-- 	  <div class="row no-gutters"> -->
-<!-- 	    <div class="col-md-4"> -->
-<!-- 	      <img src="/img/AmandaPalmer.jpg" class="card-img" alt="Amanda Palmer"> -->
-<!-- 	    </div> -->
-<!-- 	    <div class="col-md-8"> -->
-<!-- 	      <div class="card-body"> -->
-<!-- 	        <h5 class="card-title">Show da Amanda Palmer</h5> -->
-<!-- 	        <h6 class="card-text">Preço do ingresso: R$ 400.00</h6> -->
-<!-- 	        <h6 class="card-text">Data: 20/02/2020</h6> -->
-<!-- 	        <h6 class="card-text">Local: Allianz Arena</h6> -->
-<!-- 	        <h6 class="card-text">Ingressos restantes: 20000</h6> -->
-<!-- 	        <button type="submit" class="btn btn-primary">Comprar</button> -->
-<!-- 	      </div> -->
-<!-- 	    </div> -->
-<!-- 	  </div> -->
-<!-- 	</div> -->
-	
-<!-- 	<div class="card mb-3" style="max-width: 540px;"> -->
-<!-- 	  <div class="row no-gutters"> -->
-<!-- 	    <div class="col-md-4"> -->
-<!-- 	      <img src="/img/BillieEilish.jpg" class="card-img" alt="Billie Eilish"> -->
-<!-- 	    </div> -->
-<!-- 	    <div class="col-md-8"> -->
-<!-- 	      <div class="card-body"> -->
-<!-- 		        <h5 class="card-title">Show da Billie Eilish</h5> -->
-<!-- 	        <h6 class="card-text">Preço do ingresso: R$ 400.00</h6> -->
-<!-- 	        <h6 class="card-text">Data: 23/05/2020</h6> -->
-<!-- 	        <h6 class="card-text">Local: Ópera do Arame</h6> -->
-<!-- 	        <h6 class="card-text">Ingressos restantes: 1500</h6> -->
-<!-- 	        <button type="submit" class="btn btn-primary">Comprar</button> -->
-<!-- 			</div> -->
-<!-- 	      </div> -->
-<!-- 	    </div> -->
-<!-- 	  </div> -->
+		
+	<div class="cards-eventos">
 
-<!-- 	<div class="card mb-3" style="max-width: 540px;"> -->
-<!-- 	  <div class="row no-gutters"> -->
-<!-- 	    <div class="col-md-4"> -->
-<!-- 	      <img src="/img/JanelleMonae.jpg" class="card-img" alt="Janelle Monae"> -->
-<!-- 	    </div> -->
-<!-- 	    <div class="col-md-8"> -->
-<!-- 	      <div class="card-body"> -->
-<!-- 		        <h5 class="card-title">Show da Janelle Monae</h5> -->
-<!-- 	        <h6 class="card-text">Preço do ingresso: R$ 670.00</h6> -->
-<!-- 	        <h6 class="card-text">Data: 04/02/2020</h6> -->
-<!-- 	        <h6 class="card-text">Local: Casa 1</h6> -->
-<!-- 	        <h6 class="card-text">Ingressos restantes: 1500</h6> -->
-<!-- 	        <button type="submit" class="btn btn-primary">Comprar</button> -->
-<!-- 			</div> -->
-<!-- 	      </div> -->
-<!-- 	    </div> -->
-<!-- 	  </div> -->
-
-<!-- 	<div class="card mb-3" style="max-width: 540px;"> -->
-<!-- 	  <div class="row no-gutters"> -->
-<!-- 	    <div class="col-md-4"> -->
-<!-- 	      <img src="/img/Letrux.jpg" class="card-img" alt="Letrux"> -->
-<!-- 	    </div> -->
-<!-- 	    <div class="col-md-8"> -->
-<!-- 	      <div class="card-body"> -->
-<!-- 	        <h5 class="card-title">Show da Letrux</h5> -->
-<!-- 	        <h6 class="card-text">Preço do ingresso: R$ 250.00</h6> -->
-<!-- 	        <h6 class="card-text">Data: 10/03/2020</h6> -->
-<!-- 	        <h6 class="card-text">Local: Amancio Moro</h6> -->
-<!-- 	        <h6 class="card-text">Ingressos restantes: 5.000</h6> -->
-<!-- 	        <button type="submit" class="btn btn-primary">Comprar</button> -->
-<!-- 	      </div> -->
-<!-- 	    </div> -->
-<!-- 	  </div> -->
-<!-- 	</div> -->
-	
-<!-- 	<div class="card mb-3" style="max-width: 540px;"> -->
-<!-- 	  <div class="row no-gutters"> -->
-<!-- 	    <div class="col-md-4"> -->
-<!-- 	      <img src="/img/AmandaPalmer.jpg" class="card-img" alt="Amanda Palmer"> -->
-<!-- 	    </div> -->
-<!-- 	    <div class="col-md-8"> -->
-<!-- 	      <div class="card-body"> -->
-<!-- 	        <h5 class="card-title">Show da Amanda Palmer</h5> -->
-<!-- 	        <h6 class="card-text">Preço do ingresso: R$ 400.00</h6> -->
-<!-- 	        <h6 class="card-text">Data: 20/02/2020</h6> -->
-<!-- 	        <h6 class="card-text">Local: Allianz Arena</h6> -->
-<!-- 	        <h6 class="card-text">Ingressos restantes: 20000</h6> -->
-<!-- 	        <button type="submit" class="btn btn-primary">Comprar</button> -->
-<!-- 	      </div> -->
-<!-- 	    </div> -->
-<!-- 	  </div> -->
-<!-- 	</div> -->
-	
-<!-- 	<div class="card mb-3" style="max-width: 540px;"> -->
-<!-- 	  <div class="row no-gutters"> -->
-<!-- 	    <div class="col-md-4"> -->
-<!-- 	      <img src="/img/BillieEilish.jpg" class="card-img" alt="Billie Eilish"> -->
-<!-- 	    </div> -->
-<!-- 	    <div class="col-md-8"> -->
-<!-- 	      <div class="card-body"> -->
-<!-- 		        <h5 class="card-title">Show da Billie Eilish</h5> -->
-<!-- 	        <h6 class="card-text">Preço do ingresso: R$ 400.00</h6> -->
-<!-- 	        <h6 class="card-text">Data: 23/05/2020</h6> -->
-<!-- 	        <h6 class="card-text">Local: Ópera do Arame</h6> -->
-<!-- 	        <h6 class="card-text">Ingressos restantes: 1500</h6> -->
-<!-- 	        <button type="submit" class="btn btn-primary">Comprar</button> -->
-<!-- 			</div> -->
-<!-- 	      </div> -->
-<!-- 	    </div> -->
-<!-- 	  </div> -->
-
-<!-- 	<div class="card mb-3" style="max-width: 540px;"> -->
-<!-- 	  <div class="row no-gutters"> -->
-<!-- 	    <div class="col-md-4"> -->
-<!-- 	      <img src="/img/JanelleMonae.jpg" class="card-img" alt="Janelle Monae"> -->
-<!-- 	    </div> -->
-<!-- 	    <div class="col-md-8"> -->
-<!-- 	      <div class="card-body"> -->
-<!-- 		        <h5 class="card-title">Show da Janelle Monae</h5> -->
-<!-- 	        <h6 class="card-text">Preço do ingresso: R$ 670.00</h6> -->
-<!-- 	        <h6 class="card-text">Data: 04/02/2020</h6> -->
-<!-- 	        <h6 class="card-text">Local: Casa 1</h6> -->
-<!-- 	        <h6 class="card-text">Ingressos restantes: 1500</h6> -->
-<!-- 	        <button type="submit" class="btn btn-primary">Comprar</button> -->
-<!-- 			</div> -->
-<!-- 	      </div> -->
-<!-- 	    </div> -->
-<!-- 	  </div> -->
-	  	  	  
-</div>
+		<div class="card mb-3 card-item" th:each="evento : ${eventos}"
+			style="max-width: 540px;">
+			<div class="row no-gutters">
+				<div class="col-md-4">
+					<img class="card-img"
+						th:attr="src=@{/img/{foto}.jpg(foto=${evento.nome})}">
+				</div>
+				<div class="col-md-8">
+					<div class="card-body">
+						<h5 class="card-title" th:text="${evento.nome}"></h5>
+						<h6 class="card-text"
+							th:text="|Preço do ingresso: R$ ${evento.precoIngresso}|"></h6>
+						<h6 class="card-text" th:text="|Data: ${evento.data}|"></h6>
+						<h6 class="card-text" th:text="|Local: ${evento.casa.nome}|"></h6>
+						<h6 class="card-text"
+							th:text="|Ingressos restantes: ${evento.capacidade}|"></h6>
+						<button type="submit" class="btn btn-primary">Comprar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 </html>
-
-<!-- 					<tr th:each="registro : ${registros}"> -->
-<!-- 						<td class="text-center" th:text="${registro.id}">1</td> -->
-<!-- 						<td th:text="${registro.descricao}"></td> -->
-<!-- 						<td th:text="${registro.recursos}"></td> -->
-<!--  						<td class="text-center"> -->
-<!--  							<span class="label" th:text="${registro.status.descricao}" th:classappend="(${registro.isIniciado()} ? 'label-blue' : (${registro.isPendente()} ? 'label-red' : 'label-green'))"></span> -->
-<!--  						</td> -->
-						
-<!-- 						<td class="text-center icons"> -->
-<!-- 							<a class="edit tooltip"><i class="fa fa-pencil-alt"></i><span class="tooltiptext">Editar</span></a> -->
-<!-- 							<a class="remove tooltip"><i class="fa fa-times"></i><span class="tooltiptext">Excluir</span></a> -->
-<!-- 							<a class="update tooltip"><i class="far fa-check-circle"></i><span class="tooltiptext">Receber</span></a> -->

@@ -9,9 +9,14 @@
 </head>
 <section layout:fragment="conteudo">
 <h1>Evento</h1>
-
+		
 	<form class="form-horizontal" method="POST" action="/evento" th:object="${evento}">
 	  	<input type="hidden" th:field="*{id}" />
+	  	
+	  	<div class="alert alert-info text-center" th:if="${#lists.isEmpty(casaShow)}">
+			<h4>Para cadastrar um evento, é preciso ter pelo menos uma casa de show cadastrada!</h4>
+		</div>
+	
 		<div class="alert alert-success aviso-central" th:if="${!#strings.isEmpty(mensagem)}">
 			<span th:text="${mensagem}">Evento salvo!</span>
 		</div>
@@ -106,7 +111,7 @@
 							<a class="btn btn-link btn-xs" th:href="@{/evento/{codigo}(codigo=${evento.id})}"><i class="fa fa-pencil-alt"></i></a>
  						</td>
  						<td class="text-center icons">
- 							<a class="remove" data-toggle="modal" data-target="#ModalExclusao" th:attr="data-id=${evento.id}, data-nome=${evento.nome}" th:href="@{/evento/excluir/{id}(id=${evento.id})}"><i class="fa fa-times"></i></a>			
+	 						<a class="remove" th:attr="data-id=${evento.id}, data-nome=${evento.nome}" th:href="@{/evento/excluir/{id}(id=${evento.id})}"><i class="fa fa-times"></i></a>
  						</td>
 					</tr>
 					
@@ -120,27 +125,27 @@
 			
 		</div>
 		
-<div class="modal fade" id="ModalExclusao" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-<!--   <form action="/evento" method="POST"> -->
-<!-- <input type="hidden" name="_method" value="DELETE"/> -->
-  
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Exclusão de registro</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">Tem certeza de que quer excluir esta linha?</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Excluir</button>
-      </div>
-    </div>
-<!--     </form> -->
-  </div>
-</div>
+	<div class="modal fade" id="ModalExclusao" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<form action="/evento" method="POST">			
+			<input type="hidden" name="_method" value="DELETE"/>
+		  
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLongTitle">Exclusão de registro</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">Tem certeza de que quer excluir esta linha?</div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+		        <button type="button" class="btn btn-primary">Excluir</button>
+		      </div>
+		    </div>
+		    </form>
+	  </div>
+	</div>
 		
 </section>
 </html>

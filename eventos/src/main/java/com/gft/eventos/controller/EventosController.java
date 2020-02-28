@@ -34,8 +34,13 @@ public class EventosController {
 	private Casas casas;
 	
 	@RequestMapping("/home")
-	public String home() {
-		return "index";
+	public ModelAndView home() {
+		List<Evento> todosEventos = eventos.findAll();
+		ModelAndView mv = new ModelAndView("index");
+		Evento evento = new Evento();
+		mv.addObject(evento);
+		mv.addObject("eventos", todosEventos);
+		return mv;
 	}
 	
 	@RequestMapping("/casa")
@@ -98,7 +103,6 @@ public class EventosController {
 	
 	@RequestMapping(value="evento/excluir/{id}", method = RequestMethod.GET)
 	public String excluirEvento(@PathVariable Long id, RedirectAttributes attributes) {
-//		CadastroEventoService.excluir(id);
 		eventos.deleteById(id);
 		attributes.addFlashAttribute("mensagem", "Evento excluído!");
 		return "redirect:/evento";
@@ -106,7 +110,6 @@ public class EventosController {
 	
 	@RequestMapping(value="casa/excluir/{id}", method = RequestMethod.GET)
 	public String excluirCasa(@PathVariable Long id, RedirectAttributes attributes) {
-//		CadastroCasaService.excluir(id);
 		casas.deleteById(id);
 		attributes.addFlashAttribute("mensagem", "Casa excluída!");
 		return "redirect:/casa";
@@ -117,48 +120,3 @@ public class EventosController {
 		return Arrays.asList(GeneroOpcoes.values());
 	}
 }
-
-//package com.algaworks.cobranca.controller;
-//
-//import java.util.Arrays;
-//import java.util.List;
-//import java.util.Optional;
-//
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.dao.DataIntegrityViolationException;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.validation.Errors;
-//import org.springframework.validation.annotation.Validated;
-//import org.springframework.web.bind.annotation.ModelAttribute;
-//import org.springframework.web.bind.annotation.PathVariable;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestMethod;
-//import org.springframework.web.bind.annotation.RequestParam;
-//import org.springframework.web.bind.annotation.ResponseBody;
-//import org.springframework.web.servlet.ModelAndView;
-//import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-//
-//import com.algaworks.cobranca.model.StatusTitulo;
-//import com.algaworks.cobranca.model.Titulo;
-//import com.algaworks.cobranca.repository.Titulos;
-//import com.algaworks.cobranca.repository.filter.TituloFilter;
-//import com.algaworks.cobranca.service.CadastroTituloService;
-//
-//import groovyjarjarpicocli.CommandLine.Model;
-//	
-//	@RequestMapping
-//	public ModelAndView pesquisar(@ModelAttribute("filtro") TituloFilter filtro) {
-//		List<Titulo> todosTitulos = cadastroTituloService.filtrar(filtro);
-//		ModelAndView mv = new ModelAndView("PesquisaTitulos");
-//		mv.addObject("titulos", todosTitulos);
-//		return mv;
-//	}
-
-//try {
-//CadastroEventoService.salvar(evento);
-//attributes.addFlashAttribute("mensagem", "Evento salvo!");
-//return "redirect:/evento";
-//} catch (IllegalArgumentException e) {
-//errors.rejectValue("dataVencimento", null, "Formato de data inválido");
-//return "CadastroEvento";
-//}

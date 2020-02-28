@@ -20,11 +20,12 @@ input {
 .cards-eventos {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-between;
 	margin-top: 3em;
 	padding: 0 2em;
 }
 .card-item {
-	max-width: 540px;
+	width: 540px;
 }
 .card-item:first-child {
 	padding: 0;

@@ -69,7 +69,7 @@
 							<a class="btn btn-link btn-xs" th:href="@{/casa/{codigo}(codigo=${casa.id})}"><i class="fa fa-pencil-alt"></i></a>
  						</td>
  						<td class="text-center icons">
- 							<a class="remove" data-toggle="modal" data-target="#ModalExclusao" th:attr="data-id=${casa.id}, data-nome=${casa.nome}" th:href="@{/casa/excluir/{id}(id=${casa.id})}"><i class="fa fa-times"></i></a>					
+ 							<a class="remove" th:attr="data-id=${casa.id}" th:href="@{/casa/excluir/{id}(id=${casa.id})}"><i class="fa fa-times"></i></a>					
 						</td>
 					<tr>
 						<td colspan="5" th:if="${#lists.isEmpty(casas)}">Nenhuma casa foi encontrada</td>
@@ -81,8 +81,8 @@
 
 <div class="modal fade" id="ModalExclusao" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-<!--     <form action="/casa" method="POST"> -->
-<!-- 	<input type="hidden" name="_method" value="DELETE"/> -->
+    <form action="/casa" method="POST">
+	<input type="hidden" name="_method" value="DELETE"/>
 
     <div class="modal-content">
       <div class="modal-header">
@@ -97,7 +97,7 @@
         <button type="button" class="btn btn-primary">Excluir</button>
       </div>
     </div>
-<!--     </form> -->
+    </form>
   </div>
 </div>
 </section>
