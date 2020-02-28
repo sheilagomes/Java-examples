@@ -119,4 +119,9 @@ public class EventosController {
 	public List<GeneroOpcoes> todosGeneroOpcoes() {
 		return Arrays.asList(GeneroOpcoes.values());
 	}
+	
+	@ModelAttribute("casaShow")
+	public List<Casa> todasCasas() {
+		return casas.findAll();
+	}
 }

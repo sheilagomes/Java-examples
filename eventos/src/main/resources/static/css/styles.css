@@ -20,7 +20,7 @@ input {
 .cards-eventos {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-around;
 	margin-top: 3em;
 	padding: 0 2em;
 }
