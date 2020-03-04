@@ -20,6 +20,7 @@ public class LivroService {
 	@Autowired
 	private LivrosRepo livrosRepo;
 	
+	@Autowired
 	private ComentariosRepo comentariosRepo;
 	
 	public List<Livro> listar() {
@@ -59,11 +60,18 @@ public class LivroService {
 	}
 	
 	public Comentario salvarComentario(Long livroId, Comentario comentario) {
-		Livro livro = buscar(livroId);
-		comentario.setLivro(livro);
+		Optional<Livro> livro = buscar(livroId);
+		if (livro.isPresent()) {
+			comentario.setLivro(livro.get());	
+		}
 		comentario.setData(new Date());
 		
 		return comentariosRepo.save(comentario);
+	}
+	
+	public List<Comentario> listarComentarios(Long livroId) {
+		Optional<Livro> livro = buscar(livroId);		
+		return livro.get().getComentarios();
 	}
 
 }
