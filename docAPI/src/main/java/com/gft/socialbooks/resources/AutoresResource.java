@@ -19,6 +19,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.gft.socialbooks.domain.Autor;
 import com.gft.socialbooks.services.AutoresService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
+@Api(tags = "Autores")
 @RestController
 @RequestMapping("/autores")
 public class AutoresResource {
@@ -34,15 +39,17 @@ public class AutoresResource {
 		return ResponseEntity.status(HttpStatus.OK).body(autoresService.listar());
 	}
 	
+	@ApiOperation("Salva os autores")
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> salvar(@Valid @RequestBody Autor autor) {
+	public ResponseEntity<Void> salvar(@ApiParam(name="corpo", value="Representação do autor") @Valid @RequestBody Autor autor) {
 		autor = autoresService.salvar(autor);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id)").buildAndExpand(autor.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
 	
+	@ApiOperation("Busca autores por ID")
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Autor> buscar(@PathVariable("id") Long id) {	
+	public ResponseEntity<Autor> buscar(@ApiParam(value="ID do autor", example = "1") @PathVariable("id") Long id) {	
 		Autor autor = autoresService.buscar(id);
 		return ResponseEntity.status(HttpStatus.OK).body(autor);
 	}
