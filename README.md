@@ -12,3 +12,4 @@ Desafios e exercícios do estágio:
 * **Eventos** - Projeto Spring MVC de um gerenciador de eventos, feito do zero no Spring Tools Suite com Bootstrap, de acordo com [estas instruções](https://drive.google.com/file/d/1iQ_0hAqSlgGk9zIhR-kHhXcsH1Do3vTV/view). Completo, sem os bônus.
 * **Social Books API** - Projeto API REST com Spring boot, feito do zero no Spring Tools Suite, de acordo com os vídeos sugeridos.
 * **DocAPI** - Documentação do projeto Social Books API, com Swagger UI, de acordo com os vídeos sugeridos.
+* **API gerenciador de eventos** - Desafio de API, iniciado e já incluindo o Swagger UI.
