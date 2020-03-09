@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.gft.apieventos.domain.Evento;
@@ -17,12 +18,41 @@ public class EventoService {
 
 	@Autowired
 	private Eventos eventos;
-//	
-//	@Autowired
-//	private Vendas vendas;
 	
 	public List<Evento> listar() {
 	return eventos.findAll();
+	}
+	
+	public List<Evento> listarCapacidadeASC() {
+	return eventos.findAll(Sort.by(Sort.Direction.ASC, "capacidade"));
+	}
+	
+	public List<Evento> listarCapacidadeDESC() {
+	return eventos.findAll(Sort.by(Sort.Direction.DESC, "capacidade"));
+	}
+	
+	public List<Evento> listarDataASC() {
+		return eventos.findAll(Sort.by(Sort.Direction.ASC, "data"));
+	}
+	
+	public List<Evento> listarDataDESC() {
+		return eventos.findAll(Sort.by(Sort.Direction.DESC, "data"));
+	}
+	
+	public List<Evento> listarNomeASC() {
+		return eventos.findAll(Sort.by(Sort.Direction.ASC, "nome"));
+	}
+	
+	public List<Evento> listarNomeDESC() {
+		return eventos.findAll(Sort.by(Sort.Direction.DESC, "nome"));
+	}
+	
+	public List<Evento> listarPrecoASC() {
+		return eventos.findAll(Sort.by(Sort.Direction.ASC, "precoIngresso"));
+	}
+	
+	public List<Evento> listarPrecoDESC() {
+		return eventos.findAll(Sort.by(Sort.Direction.DESC, "precoIngresso"));
 	}
 	
 	public Optional<Evento> buscar(Long id) {
@@ -33,7 +63,7 @@ public class EventoService {
 	}
 
 	return evento;
-}
+	}
 	
 	public Evento salvar(Evento evento) {
 		try {
@@ -60,5 +90,5 @@ public class EventoService {
 	
 	private void verExiste(Evento evento) {
 		buscar(evento.getId());
-	}	
+	}
 }

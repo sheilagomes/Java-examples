@@ -103,15 +103,15 @@ public class ResourceExceptionHandler {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
 	}
 	
-	@ExceptionHandler(InternalServerErrorException.class)
-	public ResponseEntity<DetalhesErro> handleInternalServerErrorException (InternalServerErrorException  e, HttpServletRequest request) {
-		
-		DetalhesErro erro = new DetalhesErro();
-		erro.setStatus(500l);
-		erro.setTitulo("Erro interno do servidor.");
-		erro.setMensDev("http://erros.apieventos.com/500");
-		erro.setTimestamp(System.currentTimeMillis());
-		
-		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(erro);
-	}
+//	@ExceptionHandler(InternalServerErrorException.class)
+//	public ResponseEntity<DetalhesErro> handleInternalServerErrorException (InternalServerErrorException  e, HttpServletRequest request) {
+//		
+//		DetalhesErro erro = new DetalhesErro();
+//		erro.setStatus(500l);
+//		erro.setTitulo("Erro interno do servidor.");
+//		erro.setMensDev("http://erros.apieventos.com/500");
+//		erro.setTimestamp(System.currentTimeMillis());
+//		
+//		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(erro);
+//	}
 }

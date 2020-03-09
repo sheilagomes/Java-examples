@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -18,7 +19,7 @@ public class Usuario {
 	@JsonInclude(Include.NON_NULL)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
 	@ApiModelProperty(example = "Ariel")		
 	@NotEmpty(message="O nome é obrigatório")
@@ -27,7 +28,7 @@ public class Usuario {
 
 	@ApiModelProperty(example = "s3nh4")		
 	@NotEmpty(message="A senha é obrigatória")
-	@JsonInclude(Include.NON_NULL)
+	@JsonIgnore
 	private String senha;
 
 	@ApiModelProperty(example = "asoares@mail.com")		
@@ -40,11 +41,11 @@ public class Usuario {
 	@JsonInclude(Include.NON_NULL)
 	private String role;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

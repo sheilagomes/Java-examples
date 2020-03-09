@@ -18,31 +18,31 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SpringFoxConfig implements WebMvcConfigurer {
 	
-//	@Bean
-//	public Docket apiDocket() {
-//		return new Docket(DocumentationType.SWAGGER_2)
-//				.select()
-//					.apis(RequestHandlerSelectors.basePackage("com.gft.socialbooks.resources"))
-//					.build()
-//					.apiInfo(apiInfo())
-//					.tags(new Tag("Autores", "Gerencia os autores"), new Tag("Livros", "Gerencia os livros"));
-//	}
-//	
-//	public ApiInfo apiInfo() {
-//		return new ApiInfoBuilder()
-//				.title("API do Social Books")
-//				.description("API aberta para clientes")
-//				.version("1")
-//				.contact(new Contact("GFT", "https://www.gft.com", "gft@gft.com"))
-//				.build();
-//	}
-//	
-//	@Override
-//	public void addResourceHandlers (ResourceHandlerRegistry registry) {
-//		registry.addResourceHandler("swagger-ui.html")
-//			.addResourceLocations("classpath:/META-INF/resources/");
-//		
-//		registry.addResourceHandler("/webjars/**")
-//			.addResourceLocations("classpath:/META-INF/resources/webjars/");
-//	}
+	@Bean
+	public Docket apiDocket() {
+		return new Docket(DocumentationType.SWAGGER_2)
+				.select()
+					.apis(RequestHandlerSelectors.basePackage("com.gft.apieventos.resources"))
+					.build()
+					.apiInfo(apiInfo())
+					.tags(new Tag("Usuarios", "Gerencia os usuários"), new Tag("Casas", "Gerencia as casas"), new Tag("Eventos", "Gerencia os eventos"), new Tag("Vendas", "Gerencia as vendas"));
+	}
+	
+	public ApiInfo apiInfo() {
+		return new ApiInfoBuilder()
+				.title("CasaShow API")
+				.description("API aberta para clientes")
+				.version("1")
+				.contact(new Contact("GFT", "https://www.gft.com", "gft@gft.com"))
+				.build();
+	}
+	
+	@Override
+	public void addResourceHandlers (ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("swagger-ui.html")
+			.addResourceLocations("classpath:/META-INF/resources/");
+		
+		registry.addResourceHandler("/webjars/**")
+			.addResourceLocations("classpath:/META-INF/resources/webjars/");
+	}
 }
