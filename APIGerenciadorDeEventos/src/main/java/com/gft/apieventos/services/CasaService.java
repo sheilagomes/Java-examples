@@ -43,13 +43,11 @@ public class CasaService {
 		}
 		
 		public Casa buscarNome(String n) {
-			List<Casa> casas = null;
-			for (Casa casa : casas) {
-				if (casa.getNome().equals(n)) {
-					return casa;
-				}
+			try {
+				return casas.findByNome(n);
+			} catch (Exception e) {
+				throw new CasaNaoEncontradaException("Não foi possível encontrar a casa.");
 			}
-			throw new CasaNaoEncontradaException("Não foi possível encontrar a casa.");
 		}
 		
 		public void excluir(Long id) {

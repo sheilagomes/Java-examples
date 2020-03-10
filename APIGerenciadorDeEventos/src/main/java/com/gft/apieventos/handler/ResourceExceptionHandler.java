@@ -15,6 +15,8 @@ import com.gft.apieventos.services.exceptions.EventoExistenteException;
 import com.gft.apieventos.services.exceptions.EventoNaoEncontradoException;
 import com.gft.apieventos.services.exceptions.UsuarioExistenteException;
 import com.gft.apieventos.services.exceptions.UsuarioNaoEncontradoException;
+import com.gft.apieventos.services.exceptions.VendaExistenteException;
+import com.gft.apieventos.services.exceptions.VendaNaoEncontradaException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {
@@ -55,6 +57,18 @@ public class ResourceExceptionHandler {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erro);
 	}
 	
+	@ExceptionHandler(VendaNaoEncontradaException.class)
+	public ResponseEntity<DetalhesErro> handleVendaNaoEncontradaException (VendaNaoEncontradaException e, HttpServletRequest request) {
+		
+		DetalhesErro erro = new DetalhesErro();
+		erro.setStatus(404l);
+		erro.setTitulo("Não foi possível encontrar a venda.");
+		erro.setMensDev("http://erros.apieventos.com/404");
+		erro.setTimestamp(System.currentTimeMillis());
+		
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erro);
+	}
+	
 	@ExceptionHandler(EventoExistenteException.class)
 	public ResponseEntity<DetalhesErro> handleEventoExistenteException (EventoExistenteException e, HttpServletRequest request) {
 		
@@ -85,6 +99,18 @@ public class ResourceExceptionHandler {
 		DetalhesErro erro = new DetalhesErro();
 		erro.setStatus(409l);
 		erro.setTitulo("Usuário já existente.");
+		erro.setMensDev("http://erros.apieventos.com/409");
+		erro.setTimestamp(System.currentTimeMillis());
+		
+		return ResponseEntity.status(HttpStatus.CONFLICT).body(erro);
+	}
+	
+	@ExceptionHandler(VendaExistenteException.class)
+	public ResponseEntity<DetalhesErro> handleVendaExistenteException (VendaExistenteException e, HttpServletRequest request) {
+		
+		DetalhesErro erro = new DetalhesErro();
+		erro.setStatus(409l);
+		erro.setTitulo("Venda já existente.");
 		erro.setMensDev("http://erros.apieventos.com/409");
 		erro.setTimestamp(System.currentTimeMillis());
 		
