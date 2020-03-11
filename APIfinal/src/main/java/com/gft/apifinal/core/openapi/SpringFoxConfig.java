@@ -22,7 +22,7 @@ public class SpringFoxConfig implements WebMvcConfigurer {
 	public Docket apiDocket() {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
-					.apis(RequestHandlerSelectors.basePackage("com.gft.apieventos.resources"))
+					.apis(RequestHandlerSelectors.basePackage("com.gft.apifinal.resources"))
 					.build()
 					.apiInfo(apiInfo())
 					.tags(new Tag("Usuarios", "Gerencia os usuários"), new Tag("Casas", "Gerencia as casas"), new Tag("Eventos", "Gerencia os eventos"), new Tag("Vendas", "Gerencia as vendas"));
