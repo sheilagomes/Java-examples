@@ -14,3 +14,4 @@ Desafios e exercícios do estágio:
 * **DocAPI** - Documentação do projeto Social Books API, com Swagger UI, de acordo com os vídeos sugeridos.
 * **API gerenciador de eventos** - Desafio de API, iniciado e já incluindo o Swagger UI.
 * **API final** - API do gerenciador de eventos em formato .jar. Deploy feito.
+* **API teste** - App em React para consumir a API do gerenciador de eventos. Ainda em construção.
