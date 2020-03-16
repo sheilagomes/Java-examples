@@ -1,0 +1,49 @@
+:root {
+  --main-color-orange: #da552f;
+  --main-color-white: #fff;
+  --main-color-gray: #999;
+  --main-color-black: #000;
+}
+
+.lista-eventos {
+	max-width: 700px;
+	margin: 20px auto 0;
+	padding: 0 20px;
+}
+
+.lista-eventos article {
+	background: var(--main-color-white);
+	border: 1px solid var(--main-color-black);
+	border-radius: 5px;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.lista-eventos article p {
+	font-size: 16px;
+	color: var(--main-color-gray);
+	margin-top: 5px;
+	line-height: 24px;
+}
+
+.lista-eventos article a {
+	height: 42px;
+	border-radius: 5px;
+	border: 2px solid var(--main-color-orange);
+	background: none;
+	margin-top: 20px;
+	color: var(--main-color-orange);
+	font-weight: bold;
+	font-size: 16px;
+	text-decoration: none;
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s;
+}
+
+.lista-eventos article a:hover {
+	background: var(--main-color-orange);
+	color: var(--main-color-white);
+}

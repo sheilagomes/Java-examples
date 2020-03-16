@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import api from "../../services/api";
+import { Link } from 'react-router-dom';
+
+import './styles.css';
 
 export default class Main extends Component {
 	state = {
@@ -7,22 +10,27 @@ export default class Main extends Component {
 	};
 
     componentDidMount() {
-        this.loadProducts();
+        this.loadEventos();
     }
 
-    loadProducts = async () => {
+    loadEventos = async () => {
         const response = await api.get("/eventos");
 
-        this.setState({ eventos: response.data.docs });
+        this.setState({ eventos: response.data });
     };
 
     render() {
-        // return <h1>Contagem de eventos: {this.state.eventos.length}</h1>;
+    	const { eventos } = this.state;
+
         return (
         	<div className="lista-eventos">
-	        	{this.state.eventos.map(evento => (
-	        		<h2>{evento.nome}</h2>
-	        	))}
+	        	{eventos.map(evento => 
+	        		<article key={evento.id}>
+	        			<strong>{evento.nome}</strong>
+	        			<p>{evento.precoIngresso}</p>
+                        <Link to={`/evento/${evento.id}`}>Acessar</Link>
+	        		</article>
+	        	)}
 	        </div>
         );
     }
