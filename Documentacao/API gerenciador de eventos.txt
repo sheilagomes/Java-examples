@@ -1,0 +1,46 @@
+1) Abri o projeto pelo Spring boot só com Spring Web e copiei o conteúdo do POM do exercício do curso de API.
+
+2) Fiz todos os pacotes correspondentes aos projetos anteriores: domain, resources, repository, core.openapi, handler, services (e exceptions dentro dele)
+
+3) Fiz os arquivos correspondentes aos modelos do projeto conforme os projetos anteriores
+
+4) Fiz o CasaService e fora o problema 1 abaixo, está ok.
+
+5) Fiz o EventoService e fora o problema 1 abaixo, está ok.
+
+6) Transportei o handler e deixei o config pra trás por enquanto.
+
+7) Fiz o controller EventoResources adaptando os métodos e criando os que faltam.
+
+8) Pra fazer a ordenação eu ia usar o Collections.sort(list) mas recebi esse artigo que tem uma forma mais fácil de fazer a ordenação: https://www.baeldung.com/spring-data-sorting
+Fiz todos os métodos tanto no EventoResources quanto no EventoService e testei no Postman, tudo funciona.
+
+9) Fiz todos os métodos no CasaResources e no CasaService e testei no Postman, tudo funciona, menos a busca por nome. Pra fazer o método de busca por nome usei isso: https://www.baeldung.com/find-list-element-java
+
+10) Fiz todos os métodos no UsuarioResources e no UsuarioService e testei no Postman, tudo funciona. Incluí uma anotação @JsonIgnore na variável senha da classe Usuario para a senha não aparecer no Json.
+
+11) Inseri as informações da documentação da API no arquivo SpringFoxConfig. Consegui abrir em http://localhost:8080/swagger-ui.html
+
+12) Consertei a busca por nome acrescentando o método FindByNome no repositório Casas e usando no CasaService. API terminada. Refiz o pacote em .Jar pra fazer o deploy. 
+
+13) Abri a conta no Heroku e criei o app. Baixei o Heroku CLI e abri uma pasta com a cópia da api. Dei um git init na pasta pra começar o usar o git. Depois de usar o heroku login subi a api pelo terminal usando os comandos normais do git. Também segui este artigo: https://devcenter.heroku.com/articles/preparing-a-codebase-for-heroku-deployment
+
+==================================================
+Problemas
+
+1) Em CasaService, a linha if(casa.getId() != null) { dá erro e diz que o operador != não é reconhecido para Long. Solução: https://stackoverflow.com/questions/21152976/the-operator-is-undefined-for-the-argument-types-long-null
+if(casa.getId() != 0L) {
+
+2) No EventoService a linha evento.setId(null)); não funciona nem se eu mudo pra evento.setId(0L)); Deixei comentada por enquanto
+
+3) Não consigo incluir o erro 500 no tatamento de exceções. Pesquisando: InternalServerErrorException
+https://www.baeldung.com/rest-api-error-handling-best-practices
+https://edermfl.wordpress.com/2017/01/17/como-tratar-excecoes-e-redirecionar-erros-usando-spring/ 
+https://www.baeldung.com/exception-handling-for-rest-with-spring
+Acabei tratando no controller.
+
+4) Preciso entender como o Collections.sort(list) funciona. Consultando a apostila da caellum de java pra ver.
+
+5) Subi a API no Heroku pelo Heroku CLI e tá dando erro no banco de dados quando testo pelo Postman. Busquei o erro aqui: https://stackoverflow.com/questions/20089031/could-not-extract-resultset-in-hibernate/20097822
+
+6) Fui testar no Postman e deu um erro em que o Postman repetia a impressão no json porque fazia recursão da casa que era invocada no evento que invocava a casa. Aí me orientaram a colocar um @JsonIgnore na variável evento na classe Casa e resolveu.
