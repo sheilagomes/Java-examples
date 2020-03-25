@@ -15,5 +15,5 @@ Desafios e exercícios do estágio:
 * **API gerenciador de eventos** - Desafio de API, iniciado e já incluindo o Swagger UI.
 * **API final** - API do gerenciador de eventos em formato .jar. Deploy feito.
 * **API teste** - App em React para consumir a API do gerenciador de eventos.
-* **Testes unitários** - App de locação de vídeos com testes integrados do JUnit, feito até o Mockito.
+* **Testes unitários** - App de locação de vídeos com testes integrados do JUnit, feito até o final dos Mocks.
 * **Documentação** - Relatos passo a passo dos projetos.
