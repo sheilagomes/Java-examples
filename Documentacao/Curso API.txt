@@ -1,0 +1,133 @@
+1) Abrir um projeto Starter SpringBoot.
+
+2) Abrir pacotes domain (antigo model), resources (antigo controller), repository
+
+3) No spring, usar @RestController em vez de @Controller e o pacote é resources em vez de controller. No domain, @JsonInclude(Include.NON_NULL) faz com que as informações que sejam nulas não sejam mostradas no json. E a anotação @Transient evita que o JPA dê conflito na relação entre classes.
+
+4) No controller pode ter mapeamento pra mesma página, desde que o redirecionamento http (GET, POST, etc.) seja diferente. @RequestBody pega a solicitação e coloca as informações dela no objeto em seguida.
+
+5) Precisa criar repository (ou DAO) pra dar acesso aos dados e colocar a anotação @Autowired no controller ao criar a variável de conexão com o repositório.
+
+6) Pra colocar dados sem um front, usamos o Postman. Com o método POST, selecionamos o padrão de texto JSON na aba Body (logo abaixo da barra de endereço) e colocamos os dados no formato JSON aprendido antes, com chaves 
+de abertura e fechamento e pares chave-valor entre aspas, separados por dois pontos, com vírgula no final menos na última linha. Aí aperta Send e pra ver se entrou, usa o método GET e Send de novo.
+
+7) Pra criar um método de busca de registro (buscar), usar no controller (LivrosResources) uma variável de retorno Livro e no método o tipo e variável de id (Long id), com mapeamento de {id} e o método GET. O retorno vai ser pelo repositório com o método findById. O STS obriga a usar a variável Optional<Livro> pra isso.
+
+8) É preciso adicionar a anotação @PathVariable("id") antes do tipo de variável (Long id). Essa anotação pega qualquer valor na variável de mapeamento e configura o caminha. 
+
+9) Pra fazer a exclusão, o método é idêntico à busca, apenas mudando o método de GET para DELETE e o de referência ao repositório pra deleteById. Pra testar no Postman é só usar o método DELETE na barra de endereço e colocar o id para excluir no endereço. Tentei replicar o método listar pra excluir tudo com deleteAll(); mas não funcionou.
+
+10) O método PUT, que é usado pra edição, junta as condições dos métodos salvar e buscar. Pra garantir que vai editar a id certa é preciso usar um setId e depois de editar, um método save. Se os dados já existirem, ele salva em cima, senão, acrescenta. Pra testar no Postman, usa o PUT com o número do id no final do endereço.
+
+11) Pra fazer tratamento de respostas, acrescenta uma condição no método buscar e um tipo ResponseEntity no tipo de retorno. Na declaração do método o valor é <?> pra receber qualquer tipo de resposta e no return o tipo de HttpStatus e o objeto pra inserir no corpo da mensagem. Na condição de verificação de objeto nulo, o return ResponseEntity.notFound().build(); cria uma página 404 de retorno.
+
+12) Pra fazer o tratamento de resposta do salvamento, acrescentei a linha URI uri, que vai apresentar o que foi salvo. Pra isso tive que atribuir uma variável livro na linha de cima pra poder extrair o id do livro e acrescentar na URI. Além disso foi alterado o retorno do método pra ResponseEntity<Void> e acrescentado a criação da uri no retorno final. Isso cria um retorno 201 no Postman e é uma prática recomendada, embora não seja obrigado.
+
+13) Pra fazer o tratamento de resposta da listagem, acrescentei o retorno ResponseEntity e montando a lista a partir dele.
+
+14) Pra fazer o tratamento de resposta da exclusão, a estrutura é feita com um try catch pra retornar um 204 se der certo e 404 se não der.
+
+15) Pra fazer o tratamento de resposta da atualização, a estrutura é igual à da exclusão, pra retornar um 204.
+
+16) Sempre fazer o tratamento do retorno, pode seguir as recomendações da documentação em http://tools.ietf.org/html/rfc7231
+
+17) Para melhorar o design  da API, criar uma camada de serviço pra conter as regras de negócio, em vez de manter tudo no controller. Aí cria uma classe LivroService no pacote Service e copia a seção @Autowired do controller, acrescenta dois métodos construtores com super e o STS manda criar um serial único automático. Dentro dela coloca os métodos do controller pra depois chamá-los de lá. No método salvar é preciso abrir um livro null pra garantir que vai salvar um novo registro e não em cima de algum que já existe.
+
+18) Aí cria uma classe LivroNaoEncontradoException pra tratar exceções.
+
+19) Arruma o controller pra passar os serviços do LivroService e muda o método buscar, tirando o if e colocando um try catch e mujdar o processo de verificação de erro.
+
+20) No método atualizar do LivroService acrescentar um método extra de verificar existência do livro pra dar mais legibilidade pro código.
+
+21) Pra lidar com os try catch do controller e deixar o código mais limpo, criamos uma classe ResourceExceptionHandler dentro do pacote handler com uma anotação @ControllerAdvice e refatoramos o controller.
+
+22) Aí criamos uma classe DetalhesErro pra ter as variáveis que caracterizasm um erro e depois incluímos no ResourceExceptionHandler com as informações que podem ser organizadas para ajudar os usuários futuros a saber o que fazer quando chegarem a erros no sistema. Colocar o tempo em milissegundos, porque quanto mais exato, mais fácil debugar.
+
+23) Pra adicionar comentários, fazer a anotação @OneToMany(mappedBy = "livro") na classe Livro e @ManyToOne(fetch = FetchType.LAZY) na classe Comentario. E criamos tb um repositório pros comentários.
+
+24) Terminamos então de criar a lógica pra salvar os comentários no LivrosResource, montando a uri de retorno. Deu um erro no teste, então acrescentei a anotação @Autowired em LivroService na declaração da variável ComentariosRepo
+
+25) Criamos o método listarComentarios no LivroService. Usamos o ResponseEntity pra setar o status do http como OK e criamos a lista de comentarios.
+
+26) Criamos uma classe Autor no pacote domain com anotação @Entity e @OneToMany em livros. Poderia ser @ManyToMany, já que um livro pode ter mais de um autor, mas pra facilitar vamos considerar que só tenha um neste projeto. Na classe Livro alteramos o tipo da variável autor pra Autor e acrescentamos uma anotação @ManyToOne, além de alterar o get e set de autor pra Autor tb.
+
+27) Criamos uma nova interface AutoresRepo no pacote repository. E tb criamos uma classe AutoresService no pacote services. Anotamos a classe com @Service e a variável com @Autowired pra conectar com o repositório. Criamos o método listar().
+
+28) Dentro do pacote resources, criamos a classe AutoresResource. Anotamos a classe com @RestController e já fazemos o mapeamento geral da página /autores tb. criamos a variável de repositório e anotamos com @Autowired e criamos o método listar(). Mapeamos o método com GET.
+
+29) Criamos  um método salvar no AutoresService  e no AutoresResource tb, além de criar um arquivo de exceção para autor não existente AutorExistenteException. Esse arquivo de exceção também foi referenciado no arquivo ResourceExceptionHandler. Criamos um método buscar no AutoresResource.
+
+30) Usamos a anotação @JsonFormat(pattern = "dd/MM/yyyy") pra fazer o tratamento da apresentação de datas. E incluímos a anotação pra não mostrar valores nulos tb.
+
+31) Começamos a fazer a validação, colocando verificações e mensagens em quase todas as variáveis das classes autor, comentario e livro. Também acrescentamos uma anotação na variável texto da classe comentario pra mudar o nome da variável pra comentario: @JsonProperty("comentario")
+
+32) Testamos e descobri que é preciso colocar uma anotação @Valid em LivroResource dentro dos parênteses do método salvar pra validação ser feita pelo resource e não pela camada de persistência. Nos testes preciso prestar mais atenção à ordem das rotas (comentarios estão contidos em livros, por ex.).
+
+33) Na Negociação de conteúdos com Media Type, pra dar a opção de o cliente usar json ou xml na API, acrescentamos produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}) na anotação RequestMapping do método listar. Além disso é preciso adicionar a dependência do fasterxml no pom.
+
+34) Pra testar no Postman, clico em Headers logo abaixo da barra de endereço e acrescento um Accept e ao lado, application/xml. Ao rodar um get, ele traz os dados em xml. Podemos até criar um formato, mas não foi tratado neste curso.
+
+35) Em Adicionanado cache, acrescentamos um objeto CacheControl em LivroResources dentro do método buscar e também como método no retorno. A utilidade do cache é ter menos solicitações ao servidor e escalar a aplicação com mais facilidade
+
+36) Na Autenticação com Spring Security a ideia é colocar o mínimo de segurança na API. Abrimos um pacote config dentro do pacote principal pra incluir todas as configurações necessárias agora que vamos trabalhar a segurança. Dentro do pacote config abrimos uma classe WebSecurityConfig com usuário e senha.
+
+37) Ao testar no Postman agora ele pede um usuário e senha na aba Authorization logo abaixo da barra de endereço. Com isso ele cria um código igual ao criado neste site https://www.base64encode.org/ ao inserir usuário e senha separado por dois pontos. O código é encabeçado por "Basic" e fica assim:  Basic dXN1YXJpbzpzM25oNA==
+
+38) Agora o H2 console tb está pedindo usuário e senha. Pra evitar isso, é preciso acrescentar antMatchers("/h2-console/**").permitAll() no meio da declaração http do método configure.
+
+39) No método fazerComentario da classe LivroResource também é preciso fazer uma verificação de usuário: Authentication auth = SecurityContextHolder.getContext().getAuthentication(); além de incluir uma linha pra pegar o usuário a apresentar no JSON: comentario.setUsuario(auth.getName());
+
+40) Na segunda série de vídeos, em Introdução à documentação de REST APIs, fiz uma cópia do projeto de API com o nome docAPI e acrescentei as seguintes dependências: no pom:
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox.version}</version>
+		</dependency>		
+	</dependencies>
+
+41) Também acrescentei essa linha no properties do pom:
+<spring-fox.version>2.9.2</spring-fox.version>
+
+42) Pra testar no Postman, usar o endereço:
+http://localhost:8080/livros/v2/api-docs
+
+43) Pra fazer a documentação em html usei o texto que o Cleiton indicou: https://www.treinaweb.com.br/blog/documentando-uma-api-spring-boot-com-o-swagger/amp/
+Consegui abrir em http://localhost:8080/swagger-ui.html
+
+44) Em Selecionando os endpoints da API para gerar a documentação - acrescentamos um @Override pra conter o mapeamento da documentação e depois arrumamos o método apiDocket() pra conter só os controllers da API e não do Spring (basic-error-controller). Caso eu quisesse escolher pacotes específicos era só usar um Predicates.and( antes do RequestHandlerSelectors Outro jeito de selecionar é usar um método path tb
+
+45) Em Descrevendo informações da API na documentação acrescentamos o método apiInfo() com as informações que queremos que apareça na tela inicial. Pra que elas apareçam é preciso incluir .apiInfo(apiInfo()) no final do método apiDocket()
+
+46) Em Descrevendo tags na documentação e associando com controller vamos mudar as tags que aparecem na documentação:
+.tags(new Tag("Autores", "Gerencia os autores"), new Tag("Livros", "Gerencia os livros"));  É preciso também acrescentar uma anotação @Api(tags = "Livros") em cada controller.
+
+47) Em Descrevendo as operações de endpoints na documentação podemos mudar os nomes dos métodos usando a anotação @ApiOperation("Lista os autores") e isso faz aparecer a descrição de cada método na documetação.
+
+48) Em Descrevendo parâmetros de entrada na documentação vamos mudar a descrição dos parâmetros dentro de cada método. Para isso usamos a anotação @ApiParam("ID do autor") dentro dos parâmetros dos métodos que usam parâmetros. Quando a variável é um Long pode dar problema e aí complementamos com @ApiParam(value="ID do livro", example = "1") Outra coisa que podemos alterar é o nome da variável com @ApiParam(name="corpo", value="Representação do autor")
+
+49) Em Descrevendo modelos de representações e suas propriedades vamos acrescentar anotações nos modelos para melhorar a documentação. Se quisermos alterar o nome da classe usamos @ApiModel acima da declaração da classe. Para mudar as propriedades usamos @ApiModelProperty(value = "ID do livro", example = "1") acima de cada uma. O ideal é deixar pelo menos o exemplo, porque daí ele preenche os modelos com esses dados
+
+====================
+Problemas:
+====================
+11) Não esté criando o 404. Tentei as dicas dessa página, mas não resolveu ainda: https://stackoverflow.com/questions/25422255/how-to-return-404-response-status-in-spring-boot-responsebody-method-return-t
+Me aconselharam a resolver trocando o  if(livro == null) por if(!livro.isPresent())
+
+23) O Spring obriga a usar o Optional<Livro> do Java em vez de só Livro e isso tá atrapalhando nas dependências, porque preciso usar um setLivro e ele não reconhece com o Optional<>. Preciso entender o que o Optional<> significa mesmo: https://blog.caelum.com.br/chega-de-nullpointerexception-trabalhe-com-o-java-util-optional/ Uma direção: "A ideia principal do Optional é garantir que os desenvolvedores saibam que um método pode devolver um valor nulo,": https://www.infoq.com/br/articles/spring-4-java-8/  Me ajudaram a fazer um casting do objeto Livro comentario.setLivro(livro.get()); depois de uma verificação com if (livro.isPresent()) e resolveu.
+
+25) Deu o mesmo problema em relação ao Optional<Livro> livro e resolvi trocando as referências  a livro por livro.get()
+
+29) O buscar não chama a exceção quando o autor não existe. Parece que é algum problema com o Optional no AutorService. Foi o mesmo erro que já tinha dado com o LivroService, então só troquei o if para (autor.isPresent()) e resolveu.
+
+33) Estava dando problema na importação do MediaType e tive que mudar pra import org.springframework.http.MediaType; Achei referências dos tipos aqui: https://javaee.github.io/javaee-spec/javadocs/javax/ws/rs/core/MediaType.html
+
+35) Fui testar o cache no Postman e não aparece no Header nem funciona quando eu interrompo o servidor. Testei várias vezes e às vezes entrava o cacheControl no header, mas mesmo assim, não funcionava o cache quando eu parava o servidor.
+
+37) Tive que incluir um try catch no método configurerGlobal da classe WebSecurityConfig senão não salvava 
+
+39) Está dando erro no Authentication, o programa pede pra substituir por org.springframework.security.core.Authentication Resolvi colocando a linha nos imports

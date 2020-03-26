@@ -17,3 +17,4 @@ Desafios e exercícios do estágio:
 * **API teste** - App em React para consumir a API do gerenciador de eventos.
 * **Testes unitários** - App de locação de vídeos com testes integrados do JUnit, feito até o final dos Mocks.
 * **Documentação** - Relatos passo a passo dos projetos.
+* **Pedido vendas** - Projeto de exercício do curso TDD essencial até o segundo módulo.
