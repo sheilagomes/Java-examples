@@ -18,3 +18,5 @@ Desafios e exercícios do estágio:
 * **Testes unitários** - App de locação de vídeos com testes integrados do JUnit, feito até o final dos Mocks.
 * **Documentação** - Relatos passo a passo dos projetos.
 * **Pedido vendas** - Projeto de exercício do curso TDD essencial até o terceiro módulo.
+* **Passagem aérea** - Projeto de exercício do curso TDD essencial até o quarto módulo.
+* **Pedido vendas mock** - Projeto de exercício do curso TDD essencial até o quarto módulo.
