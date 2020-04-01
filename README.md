@@ -19,4 +19,4 @@ Desafios e exercícios do estágio:
 * **Documentação** - Relatos passo a passo dos projetos.
 * **Pedido vendas** - Projeto de exercício do curso TDD essencial até o terceiro módulo.
 * **Passagem aérea** - Projeto de exercício do curso TDD essencial até o quarto módulo.
-* **Pedido vendas mock** - Projeto de exercício do curso TDD essencial até o quarto módulo.
+* **Pedido vendas mock** - Projeto de exercício do curso TDD essencial até o fim do quarto módulo.
