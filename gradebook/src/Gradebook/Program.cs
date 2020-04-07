@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Gradebook
 {
@@ -6,20 +7,28 @@ namespace Gradebook
     {
         static void Main(string[] args)
         {
-            var numbers = new double[3];
-            numbers[0] = 1.3;
-            numbers[1] = 4.5;
-            numbers[2] = 5.2;
-            System.Console.WriteLine(numbers[0]+numbers[1]+numbers[2]);
+            var book = new Book("Notas da Sheila");
+            book.AddGrade(8.9);
+            
+            var grades = new List<double>() { 1.3, 4.5, 5.2, 6.7 };
+            grades.Add(7.1);
+            grades.Add(3.8);
+            grades.Add(7.9);
 
-            if(args.Length > 0) 
+            var result = 0.0;
+            var highGrade = double.MinValue;
+            var lowGrade = double.MaxValue;
+
+            foreach(var number in grades)
             {
-                Console.WriteLine($"Olá, {args[0]}!");
+                highGrade = Math.Max(number, highGrade);
+                lowGrade = Math.Min(number, lowGrade);
+                result += number;
             }
-            else
-            {
-                Console.WriteLine("Olá!");
-            }
+            result /= grades.Count;
+            Console.WriteLine($"A nota mais alta é {highGrade:N1}");
+            Console.WriteLine($"A nota mais baixa é {lowGrade:N1}");
+            Console.WriteLine($"A média final é {result:N1}");
         }
     }
 }
