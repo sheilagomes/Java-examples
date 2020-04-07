@@ -20,4 +20,4 @@ Desafios e exercícios do estágio:
 * **Pedido vendas** - Projeto de exercício do curso TDD essencial até o terceiro módulo.
 * **Passagem aérea** - Projeto de exercício do curso TDD essencial até o quarto módulo.
 * **Pedido vendas mock** - Projeto de exercício do curso TDD essencial até o fim do quarto módulo.
-* **Gradebook** - Projeto em C# do curso C# Fundamentsls da Pluralsight até o módulo 4.
+* **Gradebook** - Projeto em C# de Lista de notas, do curso C# Fundamentals da Pluralsight, até o módulo 4, "Trabalhando com classes e objetos".
