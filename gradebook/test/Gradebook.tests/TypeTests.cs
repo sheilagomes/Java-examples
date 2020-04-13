@@ -3,8 +3,25 @@ using Xunit;
 
 namespace Gradebook.tests
 {
+    public delegate string WriteLogDelegate(string logMessage);
     public class TypeTests
     {
+
+        [Fact]
+        public void WriteLogDelegateCanPointToMethod()
+        {
+            WriteLogDelegate log;
+
+            log = ReturnMessage;
+
+            var result = log("Hello!");
+            Assert.Equal("Hello!", result);
+        }
+
+        string ReturnMessage(string message)
+        {
+            return message;
+        }
 
         [Fact]
         public void Test1()
@@ -30,14 +47,15 @@ namespace Gradebook.tests
         private void StringsBehaveLikeValueTypes()
         {
             string name = "Sheila";
-            MakeUpperCase(name);
+            var upper = MakeUpperCase(name);
 
-            Assert.Equal("SHEILA", name);
+            Assert.Equal("Sheila", name);
+            Assert.Equal("SHEILA", upper);
         }
 
-        private void MakeUpperCase(string parameter)
+        private string MakeUpperCase(string parameter)
         {
-            parameter.ToUpper();
+            return parameter.ToUpper();
         }
 
         [Fact]
@@ -46,7 +64,7 @@ namespace Gradebook.tests
             var book1 = GetBook("Book 1");
             GetBookSetName(ref book1, "New name");
 
-            Assert.Equal("Book 1", book1.Name);
+            Assert.Equal("New name", book1.Name);
         }
 
         private void GetBookSetName(ref Book book, string name)
@@ -79,7 +97,7 @@ namespace Gradebook.tests
 
         private void SetName(Book book, string name)
         {
-            book.name = name;
+            book.Name = name;
         }
 
         [Fact]
