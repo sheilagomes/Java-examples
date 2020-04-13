@@ -5,6 +5,41 @@ namespace Gradebook.tests
 {
     public class TypeTests
     {
+
+        [Fact]
+        public void Test1()
+        {
+            var x = GetInt();
+            SetInt(ref x);
+
+            Assert.Equal(42, x);
+            
+        }
+
+        private void SetInt(ref int z)
+        {
+            z = 42;
+        }
+
+        private int GetInt()
+        {
+            return 3;
+        }
+
+        [Fact]
+        private void StringsBehaveLikeValueTypes()
+        {
+            string name = "Sheila";
+            MakeUpperCase(name);
+
+            Assert.Equal("SHEILA", name);
+        }
+
+        private void MakeUpperCase(string parameter)
+        {
+            parameter.ToUpper();
+        }
+
         [Fact]
         public void CSharpCanPassByRef()
         {
