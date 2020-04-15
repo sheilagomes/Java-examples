@@ -1,11 +1,87 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Gradebook
 {
-    public class Book
+    public delegate void GradeAddedDelegate(object sender, EventArgs args);
+
+    public class NamedObject
     {
-        public Book(string name)
+        public NamedObject(string name)
+        {
+            Name = name;
+        }
+
+        public string Name
+        {
+            get;
+            set;
+        }
+    }
+
+    public interface IBook
+    {
+        void AddGrade(double grade);
+        Stats GetStats();
+        string Name { get; }
+        event GradeAddedDelegate GradeAdded;
+    }
+
+    public abstract class Book : NamedObject, IBook
+    {
+        public Book(string name) : base(name)
+        {
+        }
+
+        public abstract event GradeAddedDelegate GradeAdded;
+        public abstract void AddGrade(double grade);
+        public abstract Stats GetStats();
+    }
+    public class DiskBook : Book
+    {
+        public DiskBook(string name) : base(name)
+        {
+        }
+
+        public override event GradeAddedDelegate GradeAdded;
+
+        public override void AddGrade(double grade)
+        {
+            using(var writer = File.AppendText($"{Name}.txt"))
+            {
+                writer.WriteLine(grade);
+                if(GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
+            }
+
+        }
+
+        public override Stats GetStats()
+        {
+            var result = new Stats();
+
+            using(var reader = File.OpenText($"{Name}.txt"))
+            {
+                var line = reader.ReadLine();
+                while(line != null)
+                {
+                    var number = double.Parse(line);
+                    result.Add(number);
+                    line = reader.ReadLine();
+                }
+            
+            }
+
+            return result;
+        }
+    }
+
+    public class InMemoryBook : Book
+    {
+        public InMemoryBook(string name) : base(name)
         {
             grades = new List<double>();
             Name = name;
@@ -33,11 +109,15 @@ namespace Gradebook
             }
         }
 
-        public void AddGrade(double nota)
+        public override void AddGrade(double nota)
         {
             if(nota <= 10 && nota >= 0)
             {
                 grades.Add(nota);
+                if(GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else
             {
@@ -45,55 +125,21 @@ namespace Gradebook
             }
         }
 
-        public Stats GetStats()
+        public override event GradeAddedDelegate GradeAdded;
+
+        public override Stats GetStats()
         {
-            var result = new Stats();
-            result.Average = 0.0;
-            result.High = double.MinValue;
-            result.Low = double.MaxValue;
-            
+            var result = new Stats();            
             
             for(var index = 0; index < grades.Count; index++)
             {
-                result.High = Math.Max(grades[index], result.High);
-                result.Low = Math.Min(grades[index], result.Low);
-                result.Average += grades[index];
+                result.Add(grades[index]);
             };
-            result.Average /= grades.Count;
-
-            switch(result.Average)
-            {
-                case var d when d >= 9.0:
-                    result.Letter = 'A';
-                    break;
-
-                case var d when d >= 8.0:
-                    result.Letter = 'B';
-                    break;
-                
-                case var d when d >= 7.0:
-                    result.Letter = 'C';
-                    break;
-                
-                case var d when d >= 6.0:
-                    result.Letter = 'D';
-                    break;
-                
-                default:
-                    result.Letter = 'F';
-                    break;
-            }
 
             return result;
         }
 
-        public List<double> grades;
-
-        public string Name
-        {
-            get;
-            set;
-        }
+        private List<double> grades;
 
         public const string CATEGORY = "Ciência";
     }
