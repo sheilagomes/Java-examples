@@ -1,7 +1,7 @@
 # GFT
 Desafios e exercícios do estágio:
 
-##Java
+### Java
 * **CRUDJavaSBD** - CRUD em Java sem banco de dados, só os arquivos principais do Java.
 * **CursoPOOJava** - Exercícios dos cursos Lógica de Programação, Java para iniciantes e POO Java do canal do Gustavo Guanabara, só os arquivos principais do Java.
 * **Desafio01** - Criação de classes e métodos em java, baseado [neste Diagrama de UML](https://drive.google.com/file/d/15z8Q_Tm1rSBTDx7s2iEqC1ccESsdBiXy/view) e [nesta descrição de métodos](https://drive.google.com/file/d/1Rg-EmyrfxCZs3MHab9H_vDnnykG9ikFI/view), só os arquivos principais do Java.
@@ -23,6 +23,6 @@ Desafios e exercícios do estágio:
 * **Passagem aérea** - Projeto de exercício do curso TDD essencial.
 * **Pedido vendas mock** - Projeto de exercício do curso TDD essencial.
 
-##C#
+### C#
 * **Gradebook** - Projeto completo em C# de Lista de notas, do curso [C# Fundamentals](https://www.pluralsight.com/courses/csharp-fundamentals-dev) da Pluralsight.
 * **Collections** - Projeto em C# de Lista de países, do curso [Beginning C# Collections](https://www.pluralsight.com/courses/csharp-collections-beginning) da Pluralsight.
