@@ -1,3 +1,5 @@
+using System.IO;
+
 namespace Collections
 {
     class CsvReader
@@ -11,7 +13,32 @@ namespace Collections
 
         public Country[] ReadFirstNCountries(int nCountries)
         {
-            return null;
+            Country[] countries = new Country[nCountries];
+
+            using(StreamReader sr = new StreamReader(_csvFilePath))
+            {
+                //read header line
+                sr.ReadLine();
+
+                for (int i = 0; i < nCountries; i++)
+                {
+                    string csvLine = sr.ReadLine();
+                    countries[i] = ReadCountryFromCsvLine(csvLine);
+                }
+            }
+            
+            return countries;
+        }
+
+        public Country ReadCountryFromCsvLine(string csvLine)
+        {
+            string[] parts = csvLine.Split(new char[] { ',' });
+
+            string name = parts[0];
+            string code = parts[1];
+            int population = int.Parse(parts[2]);
+
+            return new Country(name, code, population);
         }
     }
 }

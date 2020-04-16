@@ -6,14 +6,14 @@ namespace Collections
     {
         static void Main(string[] args)
         {
-            string filepath = @"C:\*.csv";
+            string filepath = @"/home/sheila/Downloads/Countries2015.csv";
             CsvReader reader = new CsvReader(filepath);
 
             Country[] countries = reader.ReadFirstNCountries(10);
 
             foreach (Country country in countries)
             {
-                Console.WriteLine($"{country.Population}: {country.Name}");
+                Console.WriteLine($"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}");
             }
         }
         // {
