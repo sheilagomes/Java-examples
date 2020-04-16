@@ -1,0 +1,13 @@
+/home/sheila/collections/src/Collections/bin/Debug/netcoreapp3.1/Collections
+/home/sheila/collections/src/Collections/bin/Debug/netcoreapp3.1/Collections.deps.json
+/home/sheila/collections/src/Collections/bin/Debug/netcoreapp3.1/Collections.runtimeconfig.json
+/home/sheila/collections/src/Collections/bin/Debug/netcoreapp3.1/Collections.runtimeconfig.dev.json
+/home/sheila/collections/src/Collections/bin/Debug/netcoreapp3.1/Collections.dll
+/home/sheila/collections/src/Collections/bin/Debug/netcoreapp3.1/Collections.pdb
+/home/sheila/collections/src/Collections/obj/Debug/netcoreapp3.1/Collections.csprojAssemblyReference.cache
+/home/sheila/collections/src/Collections/obj/Debug/netcoreapp3.1/Collections.csproj.CoreCompileInputs.cache
+/home/sheila/collections/src/Collections/obj/Debug/netcoreapp3.1/Collections.AssemblyInfoInputs.cache
+/home/sheila/collections/src/Collections/obj/Debug/netcoreapp3.1/Collections.AssemblyInfo.cs
+/home/sheila/collections/src/Collections/obj/Debug/netcoreapp3.1/Collections.dll
+/home/sheila/collections/src/Collections/obj/Debug/netcoreapp3.1/Collections.pdb
+/home/sheila/collections/src/Collections/obj/Debug/netcoreapp3.1/Collections.genruntimeconfig.cache

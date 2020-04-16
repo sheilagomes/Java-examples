@@ -1,5 +1,7 @@
 # GFT
 Desafios e exercícios do estágio:
+
+##Java
 * **CRUDJavaSBD** - CRUD em Java sem banco de dados, só os arquivos principais do Java.
 * **CursoPOOJava** - Exercícios dos cursos Lógica de Programação, Java para iniciantes e POO Java do canal do Gustavo Guanabara, só os arquivos principais do Java.
 * **Desafio01** - Criação de classes e métodos em java, baseado [neste Diagrama de UML](https://drive.google.com/file/d/15z8Q_Tm1rSBTDx7s2iEqC1ccESsdBiXy/view) e [nesta descrição de métodos](https://drive.google.com/file/d/1Rg-EmyrfxCZs3MHab9H_vDnnykG9ikFI/view), só os arquivos principais do Java.
@@ -15,9 +17,12 @@ Desafios e exercícios do estágio:
 * **API gerenciador de eventos** - Desafio de API, iniciado e já incluindo o Swagger UI.
 * **API final** - API do gerenciador de eventos em formato .jar. Deploy feito.
 * **API teste** - App em React para consumir a API do gerenciador de eventos.
-* **Testes unitários** - App de locação de vídeos com testes integrados do JUnit, feito até o final dos Mocks.
+* **Testes unitários** - App de locação de vídeos com testes integrados do JUnit.
 * **Documentação** - Relatos passo a passo dos projetos.
-* **Pedido vendas** - Projeto de exercício do curso TDD essencial até o terceiro módulo.
-* **Passagem aérea** - Projeto de exercício do curso TDD essencial até o quarto módulo.
-* **Pedido vendas mock** - Projeto de exercício do curso TDD essencial até o fim do quarto módulo.
+* **Pedido vendas** - Projeto de exercício do curso TDD essencial.
+* **Passagem aérea** - Projeto de exercício do curso TDD essencial.
+* **Pedido vendas mock** - Projeto de exercício do curso TDD essencial.
+
+##C#
 * **Gradebook** - Projeto completo em C# de Lista de notas, do curso [C# Fundamentals](https://www.pluralsight.com/courses/csharp-fundamentals-dev) da Pluralsight.
+* **Collections** - Projeto em C# de Lista de países, do curso [Beginning C# Collections](https://www.pluralsight.com/courses/csharp-collections-beginning) da Pluralsight.
