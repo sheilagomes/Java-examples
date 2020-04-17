@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Collections
@@ -11,19 +13,20 @@ namespace Collections
             this._csvFilePath = csvFilePath;
         }
 
-        public Country[] ReadFirstNCountries(int nCountries)
+        public Dictionary<string, Country> ReadAllCountries()
         {
-            Country[] countries = new Country[nCountries];
+            var countries = new Dictionary<string, Country>();
 
             using(StreamReader sr = new StreamReader(_csvFilePath))
             {
-                //read header line
-                sr.ReadLine();
+                //Essa linha pulava o header, mas tive que comentar porque estava pulando a primeira linha, será que o header já é pulado automaticamente?
+                //sr.ReadLine();
 
-                for (int i = 0; i < nCountries; i++)
+                string csvLine = sr.ReadLine();
+                while((csvLine = sr.ReadLine()) != null)
                 {
-                    string csvLine = sr.ReadLine();
-                    countries[i] = ReadCountryFromCsvLine(csvLine);
+                    Country country = ReadCountryFromCsvLine(csvLine);
+                    countries.Add(country.Code, country);
                 }
             }
             
@@ -32,12 +35,30 @@ namespace Collections
 
         public Country ReadCountryFromCsvLine(string csvLine)
         {
-            string[] parts = csvLine.Split(new char[] { ',' });
+            string[] parts = csvLine.Split(',');
+            string name;
+            string code;
+            string poptext;
 
-            string name = parts[0];
-            string code = parts[1];
-            int population = int.Parse(parts[2]);
+            switch (parts.Length)
+            {
+                case 3:
+                    name = parts[0];
+                    code = parts[1];
+                    poptext = parts[2];
+                    break;
+                case 4:
+                    name = parts[0] + "," + parts[1];
+                    name = name.Replace("\"", null).Trim();
+                    code = parts[2];
+                    poptext = parts[3];
+                    break;
+                default:
+                    throw new Exception($"Não é possível ler o país da linha: {csvLine}");
+            }
 
+            //TryParse atribui 0 à popText se o Parse não funcionar
+            int.TryParse(poptext, out int population);
             return new Country(name, code, population);
         }
     }

@@ -11,7 +11,7 @@ namespace Collections
         public static string FormatPopulation(int population)
         {
             if (population == 0)
-                return "(Desconhecido";
+                return "(Desconhecido)";
             
             int popRounded = RoundPopulation4(population);
 
@@ -30,8 +30,8 @@ namespace Collections
 		}
 
 		// <summary>
-		// Rounds the number to the specified accuracy
-		// For example, if the accuracy is 10, then we round to the nearest 10:
+		// Arredonda o número para a precisão especificada
+		// Por exemplo, se a precisão for 10, arredondamos para o 10 mais próximo:
 		// 23 -> 20
 		// 25 -> 30
 		// etc.
@@ -46,8 +46,8 @@ namespace Collections
 		}
 
 		// <summary>
-		// Returns the highest number that is a power of 10 and is no larger than the number supplied
-		// Examples:
+		// Retorna o número mais alto que é uma potência de 10 e não é maior que o número fornecido
+		// Exemplos:
 		// GetHighestPowerOfTen(11) = 10
 		// GetHighestPowerOfTen(99) = 10
 		// GetHighestPowerOfTen(100) = 100
