@@ -1,0 +1,13 @@
+/home/sheila/tradu/src/Tradu/bin/Debug/netcoreapp3.1/Tradu
+/home/sheila/tradu/src/Tradu/bin/Debug/netcoreapp3.1/Tradu.deps.json
+/home/sheila/tradu/src/Tradu/bin/Debug/netcoreapp3.1/Tradu.runtimeconfig.json
+/home/sheila/tradu/src/Tradu/bin/Debug/netcoreapp3.1/Tradu.runtimeconfig.dev.json
+/home/sheila/tradu/src/Tradu/bin/Debug/netcoreapp3.1/Tradu.dll
+/home/sheila/tradu/src/Tradu/bin/Debug/netcoreapp3.1/Tradu.pdb
+/home/sheila/tradu/src/Tradu/obj/Debug/netcoreapp3.1/Tradu.csprojAssemblyReference.cache
+/home/sheila/tradu/src/Tradu/obj/Debug/netcoreapp3.1/Tradu.csproj.CoreCompileInputs.cache
+/home/sheila/tradu/src/Tradu/obj/Debug/netcoreapp3.1/Tradu.AssemblyInfoInputs.cache
+/home/sheila/tradu/src/Tradu/obj/Debug/netcoreapp3.1/Tradu.AssemblyInfo.cs
+/home/sheila/tradu/src/Tradu/obj/Debug/netcoreapp3.1/Tradu.dll
+/home/sheila/tradu/src/Tradu/obj/Debug/netcoreapp3.1/Tradu.pdb
+/home/sheila/tradu/src/Tradu/obj/Debug/netcoreapp3.1/Tradu.genruntimeconfig.cache

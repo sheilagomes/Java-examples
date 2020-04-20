@@ -26,3 +26,4 @@ Desafios e exercícios do estágio:
 ### C#
 * **Gradebook** - Projeto completo em C# de Lista de notas, do curso [C# Fundamentals](https://www.pluralsight.com/courses/csharp-fundamentals-dev) da Pluralsight.
 * **Collections** - Projeto iniciado em C# de Países por maior população, do curso [Beginning C# Collections](https://www.pluralsight.com/courses/csharp-collections-beginning) da Pluralsight.
+* **Tradu** - Projeto completo em C# para extrair frases a traduzir de um arquivo txt, baseado no projeto Collections.
