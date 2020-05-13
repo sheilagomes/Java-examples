@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\PaymentContext.Domain",
+    "\\PaymentContext.Domain\\Commands",
+    "\\PaymentContext.Domain\\Entities",
+    "\\PaymentContext.Domain\\ValueObjects",
+    "\\PaymentContext.Shared",
+    "\\PaymentContext.Shared\\Commands",
+    "\\PaymentContext.Tests",
+    "\\PaymentContext.Tests\\Entities"
+  ],
+  "SelectedNode": "\\PaymentContext.sln",
+  "PreviewInSolutionExplorer": false
+}
