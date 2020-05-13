@@ -28,3 +28,4 @@ Desafios e exercícios do estágio:
 * **Collections** - Projeto iniciado em C# de Países por maior população, do curso [Beginning C# Collections](https://www.pluralsight.com/courses/csharp-collections-beginning) da Pluralsight.
 * **Tradu** - Projeto completo em C# para extrair frases a traduzir de um arquivo txt, baseado no projeto Collections.
 * **ACM** - Projeto iniciado em C# de um sistema de venda de produtos, do curso [Object-oriented Programming Fundamentals in C#](https://www.pluralsight.com/courses/object-oriented-programming-fundamentals-csharp) da Pluralsight.
+* **PaymentContext** - Projeto iniciado em C# de um módulo de pagamento de assinaturas, do curso [Modelando Domínios Ricos](https://balta.io/cursos/modelando-dominios-ricos) do Balta.io.
