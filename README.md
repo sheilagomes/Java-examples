@@ -1,5 +1,4 @@
-﻿# GFT
-Desafios e exercícios do estágio:
+﻿# Exemplos
 
 ### Java
 * **CRUDJavaSBD** - CRUD em Java sem banco de dados, só os arquivos principais do Java.
