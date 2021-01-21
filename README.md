@@ -1,30 +1,22 @@
-﻿# Exemplos
-
-### Java
-* **CRUDJavaSBD** - CRUD em Java sem banco de dados, só os arquivos principais do Java.
-* **CursoPOOJava** - Exercícios dos cursos Lógica de Programação, Java para iniciantes e POO Java do canal do Gustavo Guanabara, só os arquivos principais do Java.
-* **Desafio01** - Criação de classes e métodos em java, baseado [neste Diagrama de UML](https://drive.google.com/file/d/15z8Q_Tm1rSBTDx7s2iEqC1ccESsdBiXy/view) e [nesta descrição de métodos](https://drive.google.com/file/d/1Rg-EmyrfxCZs3MHab9H_vDnnykG9ikFI/view), só os arquivos principais do Java.
-* **Desafio02** - Exercicio sobre heranca em Java, baseado [neste Diagrama de UML](https://drive.google.com/file/d/1Zos_ycO_FhZtSW_Wt1u5p6eZzr-Zc52O/view), só os arquivos principais do Java.
-* **Desafio03** - Exercicio sobre herança e polimorfismo em Java, baseado [neste Diagrama de UML](https://drive.google.com/file/d/1YkHzL6TSmDoSEn4N1ymMwe_JBcEMrXiR/view), só os arquivos principais do Java.
-* **Desafio04** - Criação de classes e métodos em Java, baseado [neste Diagrama de UML](https://drive.google.com/file/d/1wBIOzOFdb4bYaQTOwBe41hdINSyODXRU/view) e [nesta descrição de métodos](https://drive.google.com/file/d/1s7SHbb4QPZ2OD3B3PkaHSK0MwcCvxhDL/view), só os arquivos principais do Java.
-* **SitePortfolio** - Site em HTML e CSS com controller em Java, de acordo com [estas instruções](https://drive.google.com/file/d/1DiXqufv8tiXPHlyCDA9DNbeSuudUW038/view), só os arquivos principais do Java. O site ao vivo pode ser visto [aqui](https://sheilagomes.github.io/Portfolio/index.html)
-* **Cobrança** - Projeto Spring MVC do curso passado pelo Henrique, feito no Spring Tools Suite. Projeto completo com os arquivos do STS (que também abrem no Eclipse, se tiver o Spring Tools instalado). Foi feito sem Bootstrap, com CSS e JS extra, feito por minha conta. Só não consegui implementar a rota de carregamento do modal, mas o código está nos arquivos CadastroTitulos.html, styles.css e style.js.
-* **Estudo** - Projeto Spring MVC do curso passado pelo Henrique, feito no Spring Tools Suite. Dessa vez com Bootstrap. Incompleto, parei na validação dos campos de entrada, ainda falta terminar o CRUD.
-* **Eventos** - Projeto Spring MVC de um gerenciador de eventos, feito do zero no Spring Tools Suite com Bootstrap, de acordo com [estas instruções](https://drive.google.com/file/d/1iQ_0hAqSlgGk9zIhR-kHhXcsH1Do3vTV/view). Completo, sem os bônus.
-* **Social Books API** - Projeto API REST com Spring boot, feito do zero no Spring Tools Suite, de acordo com os vídeos sugeridos.
-* **DocAPI** - Documentação do projeto Social Books API, com Swagger UI, de acordo com os vídeos sugeridos.
-* **API gerenciador de eventos** - Desafio de API, iniciado e já incluindo o Swagger UI.
-* **API final** - API do gerenciador de eventos em formato .jar. Deploy feito.
-* **API teste** - App em React para consumir a API do gerenciador de eventos.
-* **Testes unitários** - App de locação de vídeos com testes integrados do JUnit.
-* **Documentação** - Relatos passo a passo dos projetos.
-* **Pedido vendas** - Projeto de exercício do curso TDD essencial.
-* **Passagem aérea** - Projeto de exercício do curso TDD essencial.
-* **Pedido vendas mock** - Projeto de exercício do curso TDD essencial.
-
-### C#
-* **Gradebook** - Projeto completo em C# de Lista de notas, do curso [C# Fundamentals](https://www.pluralsight.com/courses/csharp-fundamentals-dev) da Pluralsight.
-* **Collections** - Projeto iniciado em C# de Países por maior população, do curso [Beginning C# Collections](https://www.pluralsight.com/courses/csharp-collections-beginning) da Pluralsight.
-* **Tradu** - Projeto completo em C# para extrair frases a traduzir de um arquivo txt, baseado no projeto Collections.
-* **ACM** - Projeto iniciado em C# de um sistema de venda de produtos, do curso [Object-oriented Programming Fundamentals in C#](https://www.pluralsight.com/courses/object-oriented-programming-fundamentals-csharp) da Pluralsight.
-* **PaymentContext** - Projeto iniciado em C# de um módulo de pagamento de assinaturas, do curso [Modelando Domínios Ricos](https://balta.io/cursos/modelando-dominios-ricos) do Balta.io.
+﻿# Exemplos Java
+* **[CRUDJavaSBD](https://github.com/sheilagomes/Java-examples/tree/master/CRUDJavaSBD)** - CRUD em Java sem banco de dados, só os arquivos principais do Java.
+* **[CursoPOOJava](https://github.com/sheilagomes/Java-examples/tree/master/CursoPOOJava)** - Exercícios dos cursos Lógica de Programação, Java para iniciantes e POO Java do canal do Gustavo Guanabara, só os arquivos principais do Java.
+* **[Desafio01](https://github.com/sheilagomes/Java-examples/tree/master/Desafio01)** - Criação de classes e métodos em java, baseado [neste Diagrama de UML](https://drive.google.com/file/d/15z8Q_Tm1rSBTDx7s2iEqC1ccESsdBiXy/view) e [nesta descrição de métodos](https://drive.google.com/file/d/1Rg-EmyrfxCZs3MHab9H_vDnnykG9ikFI/view), só os arquivos principais do Java.
+* **[Desafio02](https://github.com/sheilagomes/Java-examples/tree/master/Desafio02)** - Exercicio sobre heranca em Java, baseado [neste Diagrama de UML](https://drive.google.com/file/d/1Zos_ycO_FhZtSW_Wt1u5p6eZzr-Zc52O/view), só os arquivos principais do Java.
+* **[Desafio03](https://github.com/sheilagomes/Java-examples/tree/master/Desafio03)** - Exercicio sobre herança e polimorfismo em Java, baseado [neste Diagrama de UML](https://drive.google.com/file/d/1YkHzL6TSmDoSEn4N1ymMwe_JBcEMrXiR/view), só os arquivos principais do Java.
+* **[Desafio04](https://github.com/sheilagomes/Java-examples/tree/master/Desafio04)** - Criação de classes e métodos em Java, baseado [neste Diagrama de UML](https://drive.google.com/file/d/1wBIOzOFdb4bYaQTOwBe41hdINSyODXRU/view) e [nesta descrição de métodos](https://drive.google.com/file/d/1s7SHbb4QPZ2OD3B3PkaHSK0MwcCvxhDL/view), só os arquivos principais do Java.
+* **[SitePortfolio](https://github.com/sheilagomes/Java-examples/tree/master/SitePortfolio)** - Site em HTML e CSS com controller em Java, de acordo com [estas instruções](https://drive.google.com/file/d/1DiXqufv8tiXPHlyCDA9DNbeSuudUW038/view), só os arquivos principais do Java. O site ao vivo pode ser visto [aqui](https://sheilagomes.github.io/Portfolio/index.html)
+* **[Cobrança](https://github.com/sheilagomes/Java-examples/tree/master/cobranca)** - Projeto Spring MVC do curso passado pelo Henrique, feito no Spring Tools Suite. Projeto completo com os arquivos do STS (que também abrem no Eclipse, se tiver o Spring Tools instalado). Foi feito sem Bootstrap, com CSS e JS extra, feito por minha conta. Só não consegui implementar a rota de carregamento do modal, mas o código está nos arquivos CadastroTitulos.html, styles.css e style.js.
+* **[Estudo](https://github.com/sheilagomes/Java-examples/tree/master/estudo)** - Projeto Spring MVC do curso passado pelo Henrique, feito no Spring Tools Suite. Dessa vez com Bootstrap. Incompleto, parei na validação dos campos de entrada, ainda falta terminar o CRUD.
+* **[Eventos](https://github.com/sheilagomes/Java-examples/tree/master/eventos)** - Projeto Spring MVC de um gerenciador de eventos, feito do zero no Spring Tools Suite com Bootstrap, de acordo com [estas instruções](https://drive.google.com/file/d/1iQ_0hAqSlgGk9zIhR-kHhXcsH1Do3vTV/view). Completo, sem os bônus.
+* **[Social Books API](https://github.com/sheilagomes/Java-examples/tree/master/
+socialbooksapi)** - Projeto API REST com Spring boot, feito do zero no Spring Tools Suite, de acordo com os vídeos sugeridos.
+* **[DocAPI](https://github.com/sheilagomes/Java-examples/tree/master/docAPI)** - Documentação do projeto Social Books API, com Swagger UI, de acordo com os vídeos sugeridos.
+* **[API gerenciador de eventos](https://github.com/sheilagomes/Java-examples/tree/master/APIGerenciadorDeEventos)** - Desafio de API, iniciado e já incluindo o Swagger UI.
+* **[API final](https://github.com/sheilagomes/Java-examples/tree/master/APIfinal)** - API do gerenciador de eventos em formato .jar. Deploy feito.
+* **[API teste](https://github.com/sheilagomes/Java-examples/tree/master/api-teste)** - App em React para consumir a API do gerenciador de eventos.
+* **[Testes unitários](https://github.com/sheilagomes/Java-examples/tree/master/TestesUnitarios)** - App de locação de vídeos com testes integrados do JUnit.
+* **[Documentação](https://github.com/sheilagomes/Java-examples/tree/master/Documentacao)** - Relatos passo a passo dos projetos.
+* **[Pedido vendas](https://github.com/sheilagomes/Java-examples/tree/master/pedido-vendas)** - Projeto de exercício do curso TDD essencial.
+* **[Passagem aérea](https://github.com/sheilagomes/Java-examples/tree/master/passagem-aerea)** - Projeto de exercício do curso TDD essencial.
+* **[Pedido vendas mock](https://github.com/sheilagomes/Java-examples/tree/master/pedido-vendas-mock)** - Projeto de exercício do curso TDD essencial.
