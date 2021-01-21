@@ -9,8 +9,7 @@
 * **[Cobrança](https://github.com/sheilagomes/Java-examples/tree/master/cobranca)** - Projeto Spring MVC do curso passado pelo Henrique, feito no Spring Tools Suite. Projeto completo com os arquivos do STS (que também abrem no Eclipse, se tiver o Spring Tools instalado). Foi feito sem Bootstrap, com CSS e JS extra, feito por minha conta. Só não consegui implementar a rota de carregamento do modal, mas o código está nos arquivos CadastroTitulos.html, styles.css e style.js.
 * **[Estudo](https://github.com/sheilagomes/Java-examples/tree/master/estudo)** - Projeto Spring MVC do curso passado pelo Henrique, feito no Spring Tools Suite. Dessa vez com Bootstrap. Incompleto, parei na validação dos campos de entrada, ainda falta terminar o CRUD.
 * **[Eventos](https://github.com/sheilagomes/Java-examples/tree/master/eventos)** - Projeto Spring MVC de um gerenciador de eventos, feito do zero no Spring Tools Suite com Bootstrap, de acordo com [estas instruções](https://drive.google.com/file/d/1iQ_0hAqSlgGk9zIhR-kHhXcsH1Do3vTV/view). Completo, sem os bônus.
-* **[Social Books API](https://github.com/sheilagomes/Java-examples/tree/master/
-socialbooksapi)** - Projeto API REST com Spring boot, feito do zero no Spring Tools Suite, de acordo com os vídeos sugeridos.
+* **[Social Books API](https://github.com/sheilagomes/Java-examples/tree/master/socialbooksapi)** - Projeto API REST com Spring boot, feito do zero no Spring Tools Suite, de acordo com os vídeos sugeridos.
 * **[DocAPI](https://github.com/sheilagomes/Java-examples/tree/master/docAPI)** - Documentação do projeto Social Books API, com Swagger UI, de acordo com os vídeos sugeridos.
 * **[API gerenciador de eventos](https://github.com/sheilagomes/Java-examples/tree/master/APIGerenciadorDeEventos)** - Desafio de API, iniciado e já incluindo o Swagger UI.
 * **[API final](https://github.com/sheilagomes/Java-examples/tree/master/APIfinal)** - API do gerenciador de eventos em formato .jar. Deploy feito.
